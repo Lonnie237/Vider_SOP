@@ -34,6 +34,9 @@ node_modules/
 .venv/
 .pytest_cache/
 
+# 本地凭据 / 部署密钥（绝不入库）
+.secrets/
+
 # 编辑期临时文件
 *.tmp
 *~

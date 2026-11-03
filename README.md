@@ -1,5 +1,8 @@
 # vider_harness · 视频编辑知识与 SOP 工作台
 
+[![quality](https://github.com/Lonnie237/Vider_SOP/actions/workflows/quality.yml/badge.svg)](https://github.com/Lonnie237/Vider_SOP/actions/workflows/quality.yml)
+[![remote](https://img.shields.io/badge/remote-Lonnie237%2FVider__SOP-d97757)](https://github.com/Lonnie237/Vider_SOP)
+
 > **一句话**：把“做视频”从个人手感，变成**可检索、可复用、可执行、可交给 Agent 跑**的工程资产。
 
 ---
@@ -141,6 +144,7 @@ python3 scripts/healthcheck.py          # 体检：门禁 + 索引 + 计数一�
 - 角色与编制：[team/README.md](team/README.md)
 - 分工与任务板规则：[docs/团队协作与Agent分工.md](docs/团队协作与Agent分工.md)
 - 新增视频形态：先加路由与 SOP 骨架，再补知识条目（见 [docs/知识分类体系.md](docs/知识分类体系.md)）。
+- 远程仓库、分支与 CI：[docs/远程仓库与协作.md](docs/远程仓库与协作.md)（[GitHub](https://github.com/Lonnie237/Vider_SOP)）。
 
 ---
 

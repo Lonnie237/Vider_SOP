@@ -1,0 +1,22 @@
+name: quality
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: 校验 frontmatter / 死链 / 交叉引用 / 必备节
+        run: python scripts/validate.py --strict
+      - name: 索引是否最新
+        run: python scripts/build_index.py --check
+      - name: 仓库体检（计数一致性 / 流水线定义 / 脚本编译 / Git 状态）
+        run: python scripts/healthcheck.py
