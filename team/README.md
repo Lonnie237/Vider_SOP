@@ -48,6 +48,8 @@
 
 ## 下一阶段（P2 建议）
 
+> **P2 样板已完成（2026-11-03）**：口播知识流水线 8 阶段全自动跑通，34.7s 成片、1.45 倍语速、QC PASS；见 [pipeline/README.md](../pipeline/README.md) 与运行产物 `pipeline/runs/demo-oral/`。下一步是把「无实拍素材版」换成真实素材/真人配音。
+
 1. **实测 Agent**：用真实素材端到端跑 `sop/short-oral-knowledge` 与 `sop/long-tutorial`，把状态升到「已验证」并回填工时基线。
 2. **补缺条目**：whisperx / scenedetect / manim（S7 转写、S9 数据动画）；moviepy / pyav / auto-editor / OTIO 安装后补实测。
 3. **质检 Agent**：对 21 条知识做独立抽检（每类 ≥1 条），重点核对平台参数与版本事实。

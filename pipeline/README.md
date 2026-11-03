@@ -92,7 +92,7 @@ python3 pipeline/orchestrator.py --emit-prompt S5-subtitle > /tmp/subtitle-task.
 | 想替换 | 做法 |
 |---|---|
 | 选题与口播稿 | 改 `pipeline/demo/brief.json`（或复制一份新 brief，改定义里的 `run.brief` 与 `run.dir_name`） |
-| 配音 | S2 的 `--voice` 换音色；或把 `voice.wav` 换成真人录音后跳过 S2（保持 48 kHz 单声道，并重算时间轴） |
+| 配音 | S2 的 `--voice` 换音色、`--rate-multiplier` 改语速（默认读 `brief.voice.rate_multiplier=1.45`）；或把 `voice.wav` 换成真人录音后跳过 S2（保持 48 kHz 单声道，并重算时间轴） |
 | 画面 | S3 支持替换成实拍：把 `base.mp4` 换成实拍裁切后的无声底片（1080×1920/30fps，时长与 voice.wav 一致），后续阶段不变 |
 | 平台规格 | 改 `brief.json` 的 `spec`（分辨率/帧率/码率/响度），manifest 会自动带上 |
 | 字幕样式 | S5 的 `burn.py` 参数：字号、位置、底框、安全边距 |

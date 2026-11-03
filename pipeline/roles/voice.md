@@ -12,8 +12,8 @@
 ## 动作
 
 1. 跑 `python3 pipeline/stages/s2_tts.py --run-dir <项目>`（逐 beat 合成 + 拼接）。
-2. 看 `_pipeline/voice.json` 的 `chars_per_sec` 是否在 4–6 区间。
-3. 需要换音色/语速：改 `--voice` 或在 stage 内加 `say -r` 速率参数后重跑。
+2. 看 `_pipeline/voice.json` 的 `chars_per_sec` 是否在 4–7 区间；默认语速 1.45 倍（`brief.voice.rate_multiplier`），S2 自动校准 `say -r` 并记录 `rate_calibration`。
+3. 换音色：`--voice`；改语速：`--rate-multiplier 1.2` 或 `--rate-wpm 240`；改完重跑 S2 起的所有阶段。
 
 ## 输出
 
