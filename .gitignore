@@ -1,0 +1,38 @@
+# macOS
+.DS_Store
+
+# 媒体素材与成片（不入库）
+*.mp4
+*.mov
+*.mkv
+*.avi
+*.webm
+*.m4v
+*.wav
+*.mp3
+*.m4a
+*.aac
+*.flac
+*.aiff
+*.srt
+*.ass
+*.vtt
+*.fcpxml
+*.prproj
+*.drp
+*.kdenlive
+
+# 生成物与缓存
+exports/
+media/
+cache/
+tmp/
+*.log
+__pycache__/
+node_modules/
+.venv/
+.pytest_cache/
+
+# 编辑期临时文件
+*.tmp
+*~
