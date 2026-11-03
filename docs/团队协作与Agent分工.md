@@ -80,13 +80,13 @@ P0 骨架（Lead 独占）→ P1 内容（4–5 Agent 并行，写域互斥）
 | 成员 | 职责 | 写域 |
 |---|---|---|
 | lead | 架构、规范、验收、索引 | docs/ templates/ scripts/ team/ knowledge/环境/ skills/README + 示例技能 |
-| （待本轮派发） | 库调研 | knowledge/开源库/ research/ |
-| （待本轮派发） | 方法论 | knowledge/方法论/ knowledge/工作流/ |
-| （待本轮派发） | SOP 短形态 | sop/short-*.md |
-| （待本轮派发） | SOP 长形态 | sop/long-*.md |
-| （待本轮派发） | 技能 | skills/（示例技能除外） |
+| lib-scout | 库调研 | knowledge/开源库/ research/ |
+| method-writer | 方法论 / 工作流 | knowledge/方法论/ knowledge/工作流/ |
+| sop-short | SOP 短形态 | sop/short-*.md |
+| sop-long | SOP 长形态 | sop/long-*.md |
+| skill-writer | 技能 | skills/（示例技能除外） |
 
-> 派发后在 team/README.md 更新实际成员名与任务 id。
+> 2026-11-03 P1：6 名成员全部完成交付，任务板 task-1 ~ task-5 均为 completed；结果见 [P1 验收记录](验收记录-P1.md)。
 
 ---
 

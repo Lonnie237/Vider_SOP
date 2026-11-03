@@ -68,7 +68,7 @@ vider_harness/
 
 ### 3.2 我要选工具 / 写自动化脚本
 
-1. 先看 [knowledge/开源库/能力矩阵.md](knowledge/开源库/能力矩阵.md) 按「环节 × 需求」筛。
+1. 先看 [knowledge/开源库/capability-matrix.md](knowledge/开源库/capability-matrix.md) 按「环节 × 需求」筛，再用 [selection-guide.md](knowledge/开源库/selection-guide.md) 定组合。
 2. 进单条目看「最小可用示例」和「坑位」，确认 license 与维护状态。
 3. 自动化首选 **FFmpeg + Python/Node 编排**；交互式创作再上 NLE / Remotion / Blender。
 
@@ -91,6 +91,8 @@ vider_harness/
 | 可用 | 能照着干 | 步骤 / 参数 / 示例完整，来源可查，无死链 |
 | 已验证 | 本机或真实项目跑通 | 有实测记录（日期、命令 / 工程、结果），可复现 |
 
+当前（2026-11-03）：知识 21 条（19 可用 / 2 已验证）、SOP 8 条、技能 5 个；¤python3 scripts/validate.py --strict¤ 为 0 error / 0 warning。
+
 > 目标不是“写得多”，而是「已验证」条目占比。每次迭代看 [INDEX.md](INDEX.md) 的统计。
 
 ---
@@ -100,11 +102,11 @@ vider_harness/
 | 阶段 | 内容 | 状态 |
 |---|---|---|
 | P0 基础骨架 | 规范、模板、校验脚本、索引、示例技能 | **已完成（2026-11-03）** |
-| P1 内容填充 | 开源库条目 + 能力矩阵、方法论、工作流、8 类 SOP、5 个技能 | 进行中 |
+| P1 内容填充 | 开源库条目 + 能力矩阵、方法论、工作流、8 类 SOP、5 个技能 | **已完成（2026-11-03）**：21 条知识 / 8 SOP / 5 技能，全部「可用」以上 |
 | P2 端到端实测 | ffmpeg-first 跑通一条 60s 样片：素材 → 粗剪 → 字幕 → 包装 → 导出 → QC | 待启动 |
 | P3 Agent 产线 | 按视频形态编排子 Agent，任务板 + 质检 + 复盘闭环 | 待启动 |
 
-任务与编制见 [team/README.md](team/README.md)。
+任务与编制见 [team/README.md](team/README.md)；本轮验收记录见 [docs/验收记录-P1.md](docs/验收记录-P1.md)。
 
 ---
 

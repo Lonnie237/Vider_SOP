@@ -7,10 +7,10 @@
 | 技能 | 用途 | 依赖 | 状态 |
 |---|---|---|---|
 | [video-sop-selector](video-sop-selector/SKILL.md) | 按视频形态 / 平台 / 素材路由到正确 SOP | sop/、templates/ | 可用 |
-| video-project-init | 新建视频项目目录、Brief、分镜表、交付规格 | templates/ | 计划中 |
-| ffmpeg-render | 标准导出 / 转码 / 批处理命令生成 | ffmpeg | 计划中 |
-| subtitle-pipeline | 转写 → 断句 → 校时 → 烧录 / 外挂 | whisper / Pillow / ffmpeg | 计划中 |
-| qc-deliver | 交付前 ffprobe 规格核验 + 响度 / 黑帧检查 | ffprobe | 计划中 |
+| [video-project-init](video-project-init/SKILL.md) | 新建项目目录、Brief、分镜表、交付规格、manifest | templates/、python3 | 可用（已实测） |
+| [ffmpeg-render](ffmpeg-render/SKILL.md) | 导出 / 转码 / 批量 / 竖屏适配 / 响度标准化 | ffmpeg 9.0.2、python3 | 可用（已实测） |
+| [subtitle-pipeline](subtitle-pipeline/SKILL.md) | 断句校时 → SRT/ASS → 烧录 / 软封装 / 外挂 | ffmpeg + Pillow | 可用（已实测） |
+| [qc-deliver](qc-deliver/SKILL.md) | 规格核验 + 响度 / 黑帧 / 命名检查，PASS/FAIL 阻断 | ffprobe、python3 | 可用（已实测） |
 
 > 全量清单以 [INDEX.md](../INDEX.md) 的「技能」节为准（脚本自动扫描）。
 

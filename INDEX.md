@@ -6,27 +6,60 @@
 
 | 类别 | 总数 | 草稿 | 可用 | 已验证 | 归档 |
 |---|---|---|---|---|---|
-| 知识条目 | 1 | 0 | 0 | 1 | 0 |
-| SOP | 0 | 0 | 0 | 0 | 0 |
-| 技能 | 1 | - | - | - | - |
+| 知识条目 | 21 | 0 | 19 | 2 | 0 |
+| SOP | 8 | 0 | 8 | 0 | 0 |
+| 技能 | 5 | - | - | - | - |
 | 模板 | 7 | - | - | - | - |
 
-可用以上占比：**100%**（1/1）
+可用以上占比：**100%**（29/29）
 
 ## 知识库
 
 | 标题 | ID | 类型 | 状态 | 更新 | 文件 |
 |---|---|---|---|---|---|
+| MoviePy · Python 视频剪辑脚本库 | `kb/moviepy` | 库 | 可用 | 2026-11-03 | [moviepy](knowledge/开源库/moviepy.md) |
+| OpenTimelineIO · 时间线交换格式与 Python API | `kb/opentimelineio` | 库 | 可用 | 2026-11-03 | [opentimelineio](knowledge/开源库/opentimelineio.md) |
+| PyAV · FFmpeg 库的 Python 绑定 | `kb/pyav` | 库 | 可用 | 2026-11-03 | [pyav](knowledge/开源库/pyav.md) |
+| Remotion · 用 React 代码渲染视频 | `kb/remotion` | 库 | 可用 | 2026-11-03 | [remotion](knowledge/开源库/remotion.md) |
+| Auto-Editor · 按音量自动去静音的粗剪工具 | `kb/auto-editor` | 工具 | 可用 | 2026-11-03 | [auto-editor](knowledge/开源库/auto-editor.md) |
+| Blender VSE · 开源 NLE 与 3D/合成一体 | `kb/blender-vse` | 工具 | 可用 | 2026-11-03 | [blender-vse](knowledge/开源库/blender-vse.md) |
+| Editly · Node.js 声明式剪辑与模板出片 | `kb/editly` | 工具 | 可用 | 2026-11-03 | [editly](knowledge/开源库/editly.md) |
+| FFmpeg · 音视频处理的命令行瑞士军刀 | `kb/ffmpeg` | 工具 | 已验证 | 2026-11-03 | [ffmpeg](knowledge/开源库/ffmpeg.md) |
+| 调色基础 · 一级校正、镜头匹配与 Rec.709 交付 | `kb/color-grading` | 方法论 | 可用 | 2026-11-03 | [color-grading](knowledge/方法论/color-grading.md) |
+| 钩子与留存 · 用前 3 秒把「刷到」变成「看完」 | `kb/hooks-retention` | 方法论 | 可用 | 2026-11-03 | [hooks-retention](knowledge/方法论/hooks-retention.md) |
+| 叙事结构 · 用一条命题组织信息推进 | `kb/narrative-structure` | 方法论 | 可用 | 2026-11-03 | [narrative-structure](knowledge/方法论/narrative-structure.md) |
+| 节奏与卡点 · 用镜长和重拍控制观看速度 | `kb/pacing-beat` | 方法论 | 可用 | 2026-11-03 | [pacing-beat](knowledge/方法论/pacing-beat.md) |
+| 声音设计与混音 · 对白优先，响度统一 | `kb/sound-design` | 方法论 | 可用 | 2026-11-03 | [sound-design](knowledge/方法论/sound-design.md) |
+| 字幕与信息密度 · 在可读前提下承载信息 | `kb/subtitle-density` | 方法论 | 可用 | 2026-11-03 | [subtitle-density](knowledge/方法论/subtitle-density.md) |
+| 素材管理与代理剪辑 · 可找、可回滚、可批量 | `kb/asset-management` | 工作流 | 可用 | 2026-11-03 | [asset-management](knowledge/工作流/asset-management.md) |
+| 自动化流水线 · ffmpeg-first 的幂等编排 | `kb/automation-pipeline` | 工作流 | 可用 | 2026-11-03 | [automation-pipeline](knowledge/工作流/automation-pipeline.md) |
+| 开源视频工具能力矩阵 · S3–S10 选型底表 | `kb/capability-matrix` | 工作流 | 可用 | 2026-11-03 | [capability-matrix](knowledge/开源库/capability-matrix.md) |
+| 平台规格与发布 · 一稿多版与上传前自检 | `kb/platform-specs` | 工作流 | 可用 | 2026-11-03 | [platform-specs](knowledge/工作流/platform-specs.md) |
+| 开源视频工具选型指南 · 按需求决策树与推荐组合 | `kb/selection-guide` | 工作流 | 可用 | 2026-11-03 | [selection-guide](knowledge/开源库/selection-guide.md) |
+| 转码与交付 · 母版、平台版与 QC 一条线 | `kb/transcode-delivery` | 工作流 | 可用 | 2026-11-03 | [transcode-delivery](knowledge/工作流/transcode-delivery.md) |
 | 本机环境 · macOS Apple Silicon 工具链基线 | `kb/environment-local` | 环境 | 已验证 | 2026-11-03 | [environment-local](knowledge/环境/environment-local.md) |
 
 ## SOP
 
-_暂无 SOP。_
+| 标题 | ID | 形态 | 时长 | 画幅 | 状态 | 更新 | 文件 |
+|---|---|---|---|---|---|---|---|
+| 数据可视化动画 · 数据到成片的参数化 SOP | `sop/long-data-animation` | 数据可视化动画 | 30–180s | 16:9 / 9:16 | 可用 | 2026-11-03 | [long-data-animation](sop/long-data-animation.md) |
+| 访谈 / 播客视频 · 多机位同步与长访谈精剪 SOP | `sop/long-interview-podcast` | 访谈 / 播客视频 | 20–120min | 16:9 | 可用 | 2026-11-03 | [long-interview-podcast](sop/long-interview-podcast.md) |
+| 产品宣传片 · 卖点结构与多版本导出 SOP | `sop/long-promo` | 产品宣传片 | 30–120s | 16:9 / 9:16 | 可用 | 2026-11-03 | [long-promo](sop/long-promo.md) |
+| 教程长视频 · 录屏 + 讲解的结构化 SOP | `sop/long-tutorial` | 教程长视频 | 5–30min | 16:9 | 可用 | 2026-11-03 | [long-tutorial](sop/long-tutorial.md) |
+| 直播切片 · 竖屏高光切片 SOP（15–90s） | `sop/short-live-clip` | 直播切片 | 15–90s | 9:16 | 可用 | 2026-11-03 | [short-live-clip](sop/short-live-clip.md) |
+| 混剪卡点 · 情绪向卡点混剪 SOP（15–60s） | `sop/short-montage-beat` | 混剪卡点 | 15–60s | 9:16 | 可用 | 2026-11-03 | [short-montage-beat](sop/short-montage-beat.md) |
+| 口播知识 · 竖屏知识口播 SOP（30–180s） | `sop/short-oral-knowledge` | 口播知识 | 30–180s | 9:16 | 可用 | 2026-11-03 | [short-oral-knowledge](sop/short-oral-knowledge.md) |
+| Vlog · 生活叙事 Vlog SOP（3–15min） | `sop/short-vlog` | Vlog | 3–15min | 16:9 | 可用 | 2026-11-03 | [short-vlog](sop/short-vlog.md) |
 
 ## 技能
 
 | 技能 | 用途 | 版本 | 路径 |
 |---|---|---|---|
+| `ffmpeg-render` | 当需要把素材导出为平台成片、转码换封装或编码、批量处理一批视频、把横屏素材适配为竖屏（模糊背景/裁剪/加边），或把音频响… | 0.1.0 | [ffmpeg-render](skills/ffmpeg-render) |
+| `qc-deliver` | 当视频成片导出后、上传或交付客户前需要自动验收时使用：用 ffprobe 核验分辨率/帧率/编码/时长/码率/音频声道与… | 0.1.0 | [qc-deliver](skills/qc-deliver) |
+| `subtitle-pipeline` | 当已有转写文本或 SRT，需要断句、校时（CPS 校验）、生成 SRT/ASS，并把字幕烧录进视频、封装软字幕或输出外挂… | 0.1.0 | [subtitle-pipeline](skills/subtitle-pipeline) |
+| `video-project-init` | 当开始一条新视频、需要新建项目目录与立项文档（项目Brief、分镜表、交付规格、QC清单）时使用；也用于把交付规格固化成… | 0.1.0 | [video-project-init](skills/video-project-init) |
 | `video-sop-selector` | 当用户要做一条视频（短视频/长视频/教程/宣传片/Vlog/访谈/混剪/数据动画等）、询问该走什么流程或用什么工具，但没… | 0.1.0 | [video-sop-selector](skills/video-sop-selector) |
 
 ## 规范与模板
@@ -35,8 +68,10 @@ _暂无 SOP。_
 
 - [写作与标注规范](docs/写作与标注规范.md)
 - [团队协作与Agent分工](docs/团队协作与Agent分工.md)
+- [术语表](docs/术语表.md)
 - [知识分类体系](docs/知识分类体系.md)
 - [质量门禁](docs/质量门禁.md)
+- [验收记录-P1](docs/验收记录-P1.md)
 
 ### 模板（templates/）
 

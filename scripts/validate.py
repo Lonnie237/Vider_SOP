@@ -20,6 +20,37 @@ import build_index  # noqa: E402
 errors = []
 warnings = []
 
+SECTION_RULES = {
+    ("knowledge", "库"): ["一句话定位", "能解决什么", "核心能力", "安装", "最小可用示例",
+                       "优缺点", "适用", "关系", "实测记录", "来源"],
+    ("knowledge", "工具"): ["一句话定位", "能解决什么", "核心能力", "安装", "最小可用示例",
+                         "优缺点", "适用", "关系", "实测记录", "来源"],
+    ("knowledge", "方法论"): ["一句话定位", "适用场景", "可操作步骤", "参数与阈值", "常见反例",
+                          "验证方式", "来源"],
+    ("knowledge", "工作流"): ["一句话定位", "适用场景", "可操作步骤", "参数与阈值", "常见反例",
+                          "验证方式", "来源"],
+    ("knowledge", "环境"): ["一句话定位", "适用场景", "验证方式", "来源"],
+    ("sop", "sop"): ["适用", "交付规格", "前置准备", "流程总览", "分阶段操作", "参数速查",
+                     "质量门禁", "常见问题", "可自动化环节", "变体", "复盘与改进", "关联条目"],
+    ("skill", "skill"): ["何时使用", "不适用", "输入", "步骤", "输出格式", "失败处理", "自检", "参考"],
+}
+
+
+def normalize(text: str) -> str:
+    return "".join(str(text).split()).replace("·", "").replace("/", "")
+
+
+def check_sections(path, meta, body, kind):
+    key = (kind, str(meta.get("type", "")))
+    required = SECTION_RULES.get(key)
+    if not required:
+        return
+    heads = re.findall(r"^#{2,3}\s+(.+)$", body, re.M)
+    heads_norm = [normalize(h) for h in heads]
+    for sec in required:
+        if normalize(sec) not in "".join(heads_norm):
+            warn("%s: 缺少必备节（%s）" % (kb.rel(path), sec))
+
 
 def err(msg):
     errors.append(msg)
@@ -82,7 +113,8 @@ def main():
 
     # 知识条目
     for p in kb.iter_markdown(kb.ROOT / "knowledge"):
-        meta, _ = check_doc(p, "knowledge", kb.REQUIRED_KNOWLEDGE)
+        meta, body = check_doc(p, "knowledge", kb.REQUIRED_KNOWLEDGE)
+        check_sections(p, meta, body, "knowledge")
         doc_id = check_id(meta, p, kb.ID_RE)
         if doc_id:
             if doc_id in seen_ids:
@@ -91,7 +123,8 @@ def main():
 
     # SOP
     for p in kb.iter_markdown(kb.ROOT / "sop"):
-        meta, _ = check_doc(p, "sop", kb.REQUIRED_SOP)
+        meta, body = check_doc(p, "sop", kb.REQUIRED_SOP)
+        check_sections(p, meta, body, "sop")
         doc_id = check_id(meta, p, kb.SOP_ID_RE)
         if doc_id:
             if doc_id in seen_ids:
@@ -110,6 +143,8 @@ def main():
                     err("%s: 缺少字段 %s" % (kb.rel(p), key))
             if meta.get("name") != p.parent.name:
                 err("%s: name 与目录名不一致（%s）" % (kb.rel(p), meta.get("name")))
+            body = kb.parse_frontmatter(p)[1]
+            check_sections(p, {"type": "skill"}, body, "skill")
 
     # 相对链接 + TODO 占位
     link_re = re.compile(r"\[[^\]]*\]\(([^)\s]+)\)")
