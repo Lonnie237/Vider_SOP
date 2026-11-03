@@ -6,17 +6,18 @@
 
 | 类别 | 总数 | 草稿 | 可用 | 已验证 | 归档 |
 |---|---|---|---|---|---|
-| 知识条目 | 22 | 0 | 20 | 2 | 0 |
+| 知识条目 | 24 | 0 | 22 | 2 | 0 |
 | SOP | 8 | 0 | 8 | 0 | 0 |
 | 技能 | 5 | - | - | - | - |
 | 模板 | 7 | - | - | - | - |
 
-可用以上占比：**100%**（30/30）
+可用以上占比：**100%**（32/32）
 
 ## 知识库
 
 | 标题 | ID | 类型 | 状态 | 更新 | 文件 |
 |---|---|---|---|---|---|
+| Manim · 用 Python 代码生成数学与数据动画 | `kb/manim` | 库 | 可用 | 2026-11-03 | [manim](knowledge/开源库/manim.md) |
 | MoviePy · Python 视频剪辑脚本库 | `kb/moviepy` | 库 | 可用 | 2026-11-03 | [moviepy](knowledge/开源库/moviepy.md) |
 | OpenTimelineIO · 时间线交换格式与 Python API | `kb/opentimelineio` | 库 | 可用 | 2026-11-03 | [opentimelineio](knowledge/开源库/opentimelineio.md) |
 | PyAV · FFmpeg 库的 Python 绑定 | `kb/pyav` | 库 | 可用 | 2026-11-03 | [pyav](knowledge/开源库/pyav.md) |
@@ -25,6 +26,7 @@
 | Blender VSE · 开源 NLE 与 3D/合成一体 | `kb/blender-vse` | 工具 | 可用 | 2026-11-03 | [blender-vse](knowledge/开源库/blender-vse.md) |
 | Editly · Node.js 声明式剪辑与模板出片 | `kb/editly` | 工具 | 可用 | 2026-11-03 | [editly](knowledge/开源库/editly.md) |
 | FFmpeg · 音视频处理的命令行瑞士军刀 | `kb/ffmpeg` | 工具 | 已验证 | 2026-11-03 | [ffmpeg](knowledge/开源库/ffmpeg.md) |
+| WhisperX · 词级时间戳转写与说话人分离 | `kb/whisperx` | 工具 | 可用 | 2026-11-03 | [whisperx](knowledge/开源库/whisperx.md) |
 | 调色基础 · 一级校正、镜头匹配与 Rec.709 交付 | `kb/color-grading` | 方法论 | 可用 | 2026-11-03 | [color-grading](knowledge/方法论/color-grading.md) |
 | 钩子与留存 · 用前 3 秒把「刷到」变成「看完」 | `kb/hooks-retention` | 方法论 | 可用 | 2026-11-03 | [hooks-retention](knowledge/方法论/hooks-retention.md) |
 | 叙事结构 · 用一条命题组织信息推进 | `kb/narrative-structure` | 方法论 | 可用 | 2026-11-03 | [narrative-structure](knowledge/方法论/narrative-structure.md) |
@@ -113,6 +115,7 @@
 ### 脚本（scripts/）
 
 - [build_index.py](scripts/build_index.py)
+- [healthcheck.py](scripts/healthcheck.py)
 - [kb.py](scripts/kb.py)
 - [validate.py](scripts/validate.py)
 

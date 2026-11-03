@@ -146,6 +146,18 @@ def main():
             body = kb.parse_frontmatter(p)[1]
             check_sections(p, {"type": "skill"}, body, "skill")
 
+    # 交叉引用：正文里的 kb/... 与 sop/... 必须存在
+    ref_re = re.compile(r"(?<![A-Za-z0-9_/])((?:kb|sop)/[a-z0-9][a-z0-9-]*)")
+    for base in ("knowledge", "sop", "skills"):
+        for p in kb.iter_markdown(kb.ROOT / base):
+            try:
+                text = p.read_text(encoding="utf-8")
+            except UnicodeDecodeError:
+                continue
+            for ref in sorted(set(ref_re.findall(text))):
+                if ref not in seen_ids:
+                    warn("%s: 引用了不存在的条目 %s" % (kb.rel(p), ref))
+
     # 相对链接 + TODO 占位
     link_re = re.compile(r"\[[^\]]*\]\(([^)\s]+)\)")
     todo_files = []
