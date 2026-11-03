@@ -1,0 +1,82 @@
+{
+  "project": {
+    "name": "口播知识-三秒钩子",
+    "slug": "oral-hook-3s",
+    "form": "口播知识",
+    "platform": "抖音",
+    "owner": "lead",
+    "date": "2026-11-03",
+    "target_duration_s": 48
+  },
+  "spec": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "video_bitrate_kbps": 500,
+    "loudness_lufs": -14,
+    "note": "静态图文卡模式，按内容复杂度采用 500kbps 交付码率；实拍模式请按 SOP 使用 8–16Mbps。"
+  },
+  "content": {
+    "title": "你的口播没人看完，问题在前三秒",
+    "audience": "做知识口播、但完播率低的创作者",
+    "core_message": "口播留不住人，不是设备问题，是前三秒没有给结论；结论先行 + 画面同步给证据。",
+    "cta": "关注，下一条讲五个可直接套用的开头模板",
+    "target_duration_s": 48
+  },
+  "beats": [
+    {
+      "id": "b01",
+      "role": "hook",
+      "headline": "你的口播\n没人看完",
+      "say": "你的口播，没人看完。"
+    },
+    {
+      "id": "b02",
+      "role": "point",
+      "headline": "问题在前三秒",
+      "say": "问题不在设备，在前三秒。"
+    },
+    {
+      "id": "b03",
+      "role": "reason",
+      "headline": "开场先自我介绍",
+      "say": "第一，开场先自我介绍。观众听到大家好，已经划走了。"
+    },
+    {
+      "id": "b04",
+      "role": "reason",
+      "headline": "对象要具体",
+      "say": "第二，第一句话没有具体对象。很多人，不如做知识口播的你。"
+    },
+    {
+      "id": "b05",
+      "role": "reason",
+      "headline": "音画没有同时给信息",
+      "say": "第三，画面和声音没有同时给信息。你在讲，屏幕上只有空镜。"
+    },
+    {
+      "id": "b06",
+      "role": "method",
+      "headline": "结论先行",
+      "say": "改法只有一句：结论先行。三秒内让对方知道，这跟我有关。"
+    },
+    {
+      "id": "b07",
+      "role": "method",
+      "headline": "画面给证据",
+      "say": "画面同步给证据。大字、动作、结果，至少有一个。"
+    },
+    {
+      "id": "b08",
+      "role": "cta",
+      "headline": "重写你的开头",
+      "say": "现在，把你上一条视频的开头重写一遍。"
+    },
+    {
+      "id": "b09",
+      "role": "cta",
+      "headline": "下条讲五个模板",
+      "say": "关注我，下一条讲五个能直接套的开头模板。"
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+# pipeline/ · 端到端流水线（样板：口播知识）
+
+> 这一层不是新工具，而是把 [SOP](../sop/short-oral-knowledge.md) + [技能](../skills/README.md) + ffmpeg/Pillow/TTS **串成可重复执行的流水线**：每个阶段一个脚本、一个角色、一个输入输出契约，可单独重跑、可交给不同 Agent。
+
+## 快速开始
+
+```bash
+# 1. 看阶段与角色
+python3 pipeline/orchestrator.py --plan
+
+# 2. 全量运行（默认 demo：pipeline/demo/brief.json）
+python3 pipeline/orchestrator.py
+
+# 3. 产出位置
+#    pipeline/runs/demo-oral/05-交付/final/*.mp4
+#    pipeline/runs/demo-oral/_pipeline/run-report.md
+```
+
+重跑与局部调试：
+
+```bash
+python3 pipeline/orchestrator.py --force                 # 覆盖重跑全部阶段
+python3 pipeline/orchestrator.py --from S4-audio --force # 从声音阶段续跑
+python3 pipeline/orchestrator.py --only S7-qc            # 只跑质检
+python3 pipeline/orchestrator.py --emit-prompt S5-subtitle  # 打印该阶段给 Agent 的提示词
+```
+
+## 示例运行结果（2026-11-03，本机）
+
+| 项 | 结果 |
+|---|---|
+| 成片 | `pipeline/runs/demo-oral/05-交付/final/oral-hook-3s-v1-2026-11-03.mp4` |
+| 时长 / 大小 | 47.8s / 3.5 MB |
+| 规格 | 1080×1920 / 30fps / H.264 + AAC 48kHz / -14.2 LUFS |
+| 质检 | **PASS**（18 PASS / 0 FAIL / 1 SKIP；视频码率 457kbps 属静态图文卡的内容适配值） |
+| 全流程耗时 | 约 79s（其中字幕烧录约 56s，是当前瓶颈） |
+| 阶段 | S0–S7 全部 ok，逐阶段耗时见 `_pipeline/run-report.md` |
+
+> 注：demo 为「无实拍素材」模式，码率按图文卡内容自适应为 500kbps 档；实拍成片按 SOP 的 8–16Mbps 执行。
+
+## 阶段与角色
+
+| # | 阶段 | 角色 | 脚本 | 输入 → 输出 |
+|---|---|---|---|---|
+| S0 | 初始化 | 编导 | `stages/s0_init.py` | brief → 项目目录、交付规格、manifest |
+| S1 | 脚本校验 | 编导 | `stages/s1_script.py` | brief → 脚本.md、分镜表.md、script.json |
+| S2 | 配音 | 配音 | `stages/s2_tts.py` | 口播文本 → voice.wav、逐句时间轴 |
+| S3 | 画面 | 剪辑 | `stages/s3_visual.py` | 时间轴 → 图文卡、base.mp4、封面 |
+| S4 | 声音 | 声音 | `stages/s4_audio.py` | voice + base → voice_norm、base_av |
+| S5 | 字幕 | 字幕 | `stages/s5_subtitle.py` | base_av + 时间轴 → voice.srt、subbed.mp4 |
+| S6 | 导出 | 剪辑 | `stages/s6_export.py` | subbed + 交付规格 → 成片 |
+| S7 | 质检 | 质检 | `stages/s7_qc.py` | 成片 → QC 报告、成片说明 |
+
+角色卡在 [roles/](roles/)：编导、配音、剪辑、声音、字幕、质检。每个阶段都能以 Agent 身份独立执行（见「Agent 协作模式」）。
+
+## 产物结构
+
+```text
+pipeline/runs/demo-oral/
+├── manifest.json / 项目Brief.md / 分镜表.md
+├── 01-素材/{视频/cards,音频/{beats,voice.wav,voice_norm.wav},图片}
+├── 02-工程/{脚本.md,工程文件,proxy}
+├── 03-导出/{preview/{base,base_av,subbed}.mp4, master}
+├── 04-字幕/{srt/voice.srt, png}
+├── 05-交付/{final/<slug>-v1-<date>.mp4, 封面.png, 交付规格.md, QC报告.md, 成片说明.md}
+└── _pipeline/{run.json, run-report.md, brief.json, script.json, voice.json, audio.json, subtitle.json, export.json, qc.json, segments/}
+```
+
+> `pipeline/runs/` 是运行产物（含媒体），已在 `.gitignore` 中排除，不入库；入库的是流水线定义、阶段脚本、角色卡与 demo 输入。
+
+## Agent 协作模式
+
+流水线的设计目标是「一个阶段 = 一个 Agent 任务」：
+
+1. 编排器按定义顺序执行；每个阶段独立进程、独立退出码。
+2. 某个阶段要换人/换 Agent：`--emit-prompt <阶段>` 生成该阶段提示词（角色卡 + 输入输出契约 + 命令）。
+3. Agent 执行完只需保证：退出码 0、stdout 末行输出 JSON 摘要、产物落在约定路径。
+4. 失败即停：编排器记录失败阶段、stderr 尾部与已产出的上游文件，修好后 `--from <阶段> --force` 续跑。
+5. 阶段之间只通过文件和 `_pipeline/*.json` 通信，不共享内存，便于并行与重试。
+
+示例（把字幕阶段交给另一个 Agent）：
+
+```bash
+python3 pipeline/orchestrator.py --emit-prompt S5-subtitle > /tmp/subtitle-task.md
+# 把 /tmp/subtitle-task.md 交给 Agent；它跑：
+# python3 pipeline/stages/s5_subtitle.py --run-dir pipeline/runs/demo-oral --force
+```
+
+## 换成真实素材 / 真实配音
+
+| 想替换 | 做法 |
+|---|---|
+| 选题与口播稿 | 改 `pipeline/demo/brief.json`（或复制一份新 brief，改定义里的 `run.brief` 与 `run.dir_name`） |
+| 配音 | S2 的 `--voice` 换音色；或把 `voice.wav` 换成真人录音后跳过 S2（保持 48 kHz 单声道，并重算时间轴） |
+| 画面 | S3 支持替换成实拍：把 `base.mp4` 换成实拍裁切后的无声底片（1080×1920/30fps，时长与 voice.wav 一致），后续阶段不变 |
+| 平台规格 | 改 `brief.json` 的 `spec`（分辨率/帧率/码率/响度），manifest 会自动带上 |
+| 字幕样式 | S5 的 `burn.py` 参数：字号、位置、底框、安全边距 |
+
+## 与知识库的关系
+
+- 方法依据：[钩子与留存](../knowledge/方法论/hooks-retention.md)、[节奏与卡点](../knowledge/方法论/pacing-beat.md)、[字幕与信息密度](../knowledge/方法论/subtitle-density.md)、[声音设计](../knowledge/方法论/sound-design.md)
+- 流程依据：[口播知识 SOP](../sop/short-oral-knowledge.md)
+- 复用技能：[video-project-init](../skills/video-project-init/SKILL.md)、[ffmpeg-render](../skills/ffmpeg-render/SKILL.md)、[subtitle-pipeline](../skills/subtitle-pipeline/SKILL.md)、[qc-deliver](../skills/qc-deliver/SKILL.md)
+- 环境约束：[本机环境](../knowledge/环境/environment-local.md)（ffmpeg 9.0.2 无 libass，字幕走 Pillow overlay）
+
+## 已知限制
+
+- 示例是「无实拍素材」版本：TTS + 图文卡，适合知识口播的批量模板化；真人出镜仍需替换 S3 素材来源。
+- TTS 音色与语气有限（本机 `say`）；商用发布建议换真人配音或高质量 TTS。
+- 平台参数（码率/时长/审核）属易变事实，发布前按平台后台核对。
+- 字幕烧录走 Pillow overlay，长字幕/复杂样式效率低于 libass；需要复杂字幕时换带 libass 的 FFmpeg 构建。

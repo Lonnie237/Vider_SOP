@@ -62,6 +62,27 @@
 | `video-project-init` | 当开始一条新视频、需要新建项目目录与立项文档（项目Brief、分镜表、交付规格、QC清单）时使用；也用于把交付规格固化成… | 0.1.0 | [video-project-init](skills/video-project-init) |
 | `video-sop-selector` | 当用户要做一条视频（短视频/长视频/教程/宣传片/Vlog/访谈/混剪/数据动画等）、询问该走什么流程或用什么工具，但没… | 0.1.0 | [video-sop-selector](skills/video-sop-selector) |
 
+## 流水线
+
+- [pipeline/README.md](pipeline/README.md)：端到端流水线说明
+- [pipeline/orchestrator.py](pipeline/orchestrator.py)：编排器
+- [short-oral-knowledge.json](pipeline/definitions/short-oral-knowledge.json)：流水线定义
+- [common.py](pipeline/stages/common.py)
+- [s0_init.py](pipeline/stages/s0_init.py)
+- [s1_script.py](pipeline/stages/s1_script.py)
+- [s2_tts.py](pipeline/stages/s2_tts.py)
+- [s3_visual.py](pipeline/stages/s3_visual.py)
+- [s4_audio.py](pipeline/stages/s4_audio.py)
+- [s5_subtitle.py](pipeline/stages/s5_subtitle.py)
+- [s6_export.py](pipeline/stages/s6_export.py)
+- [s7_qc.py](pipeline/stages/s7_qc.py)
+- [角色卡 · director](pipeline/roles/director.md)
+- [角色卡 · editor](pipeline/roles/editor.md)
+- [角色卡 · qc](pipeline/roles/qc.md)
+- [角色卡 · sound](pipeline/roles/sound.md)
+- [角色卡 · subtitle](pipeline/roles/subtitle.md)
+- [角色卡 · voice](pipeline/roles/voice.md)
+
 ## 规范与模板
 
 ### 规范（docs/）

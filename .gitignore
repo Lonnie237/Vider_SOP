@@ -23,6 +23,7 @@
 *.kdenlive
 
 # 生成物与缓存
+pipeline/runs/
 exports/
 media/
 cache/

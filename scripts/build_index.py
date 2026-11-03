@@ -133,6 +133,25 @@ def render() -> str:
         lines.append("_暂无技能。_")
     lines.append("")
 
+    lines.append("## 流水线")
+    lines.append("")
+    pipe = kb.ROOT / "pipeline"
+    if pipe.exists():
+        pipe_defs = sorted((pipe / "definitions").glob("*.json"))
+        pipe_stages = sorted((pipe / "stages").glob("*.py"))
+        pipe_roles = sorted((pipe / "roles").glob("*.md"))
+        lines.append("- [pipeline/README.md](pipeline/README.md)：端到端流水线说明")
+        lines.append("- [pipeline/orchestrator.py](pipeline/orchestrator.py)：编排器")
+        for p in pipe_defs:
+            lines.append("- [%s](%s)：流水线定义" % (p.name, kb.rel(p)))
+        for p in pipe_stages:
+            lines.append("- [%s](%s)" % (p.name, kb.rel(p)))
+        for p in pipe_roles:
+            lines.append("- [角色卡 · %s](%s)" % (p.stem, kb.rel(p)))
+    else:
+        lines.append("_暂无流水线。_")
+    lines.append("")
+
     lines.append("## 规范与模板")
     lines.append("")
     lines.append("### 规范（docs/）")

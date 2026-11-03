@@ -23,6 +23,7 @@
 | `knowledge/环境/` | 本机 / 目标环境与性能基线 | Lead |
 | `sop/` | 按视频形态的 SOP（文件名前缀 `short-` / `long-` 区分归属） | SOP Agent |
 | `skills/` | Agent 技能包 | Skill Agent |
+| `pipeline/` | 端到端流水线（编排器 / 阶段 / 角色卡 / demo 输入） | Lead 或流水线 Agent |
 | `templates/ docs/ team/ scripts/` | 规范、模板、脚本、协作 | Lead |
 | `research/` | 调研笔记与来源台账 | 调研 Agent |
 

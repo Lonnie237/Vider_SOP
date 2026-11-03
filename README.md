@@ -52,6 +52,7 @@ vider_harness/
 ├── templates/                # 项目 Brief、分镜、交付规格、QC、知识条目模板
 ├── research/                 # 调研笔记与来源台账（可追溯）
 ├── team/                     # 角色、协作流程、任务板与当前编制
+├── pipeline/                 # 端到端流水线（口播知识样板：8 阶段 + 角色卡 + 编排器）
 └── scripts/                  # validate.py 校验 / build_index.py 索引 / 辅助脚本
 ```
 
@@ -72,7 +73,16 @@ vider_harness/
 2. 进单条目看「最小可用示例」和「坑位」，确认 license 与维护状态。
 3. 自动化首选 **FFmpeg + Python/Node 编排**；交互式创作再上 NLE / Remotion / Blender。
 
-### 3.3 我是 Agent
+### 3.3 我要跑一条完整流水线（P2 样板）
+
+```bash
+python3 pipeline/orchestrator.py --plan   # 看阶段与角色
+python3 pipeline/orchestrator.py          # 全量跑（demo 口播知识，约 80s）
+```
+
+产物在 `pipeline/runs/demo-oral/`：成片、封面、SRT、QC 报告、运行报告。说明见 [pipeline/README.md](pipeline/README.md)。
+
+### 3.4 我是 Agent
 
 1. 读 [AGENTS.md](AGENTS.md) → [docs/写作与标注规范.md](docs/写作与标注规范.md) → 你的任务卡。
 2. 只改任务卡 `write_scopes` 内的文件；跨域必须先在任务板说明。
@@ -91,7 +101,7 @@ vider_harness/
 | 可用 | 能照着干 | 步骤 / 参数 / 示例完整，来源可查，无死链 |
 | 已验证 | 本机或真实项目跑通 | 有实测记录（日期、命令 / 工程、结果），可复现 |
 
-当前（2026-11-03）：知识 21 条（19 可用 / 2 已验证）、SOP 8 条、技能 5 个；¤python3 scripts/validate.py --strict¤ 为 0 error / 0 warning。
+当前（2026-11-03）：知识 21 条（19 可用 / 2 已验证）、SOP 8 条、技能 5 个；`python3 scripts/validate.py --strict` 为 0 error / 0 warning。
 
 > 目标不是“写得多”，而是「已验证」条目占比。每次迭代看 [INDEX.md](INDEX.md) 的统计。
 
@@ -103,7 +113,7 @@ vider_harness/
 |---|---|---|
 | P0 基础骨架 | 规范、模板、校验脚本、索引、示例技能 | **已完成（2026-11-03）** |
 | P1 内容填充 | 开源库条目 + 能力矩阵、方法论、工作流、8 类 SOP、5 个技能 | **已完成（2026-11-03）**：21 条知识 / 8 SOP / 5 技能，全部「可用」以上 |
-| P2 端到端实测 | ffmpeg-first 跑通一条 60s 样片：素材 → 粗剪 → 字幕 → 包装 → 导出 → QC | 待启动 |
+| P2 端到端实测 | 口播知识样板：TTS + 图文卡 + 字幕 + 混音 + 导出 + QC 全自动跑通（47.8s，QC PASS） | **样例已完成**；待换真实素材/真人配音 |
 | P3 Agent 产线 | 按视频形态编排子 Agent，任务板 + 质检 + 复盘闭环 | 待启动 |
 
 任务与编制见 [team/README.md](team/README.md)；本轮验收记录见 [docs/验收记录-P1.md](docs/验收记录-P1.md)。
