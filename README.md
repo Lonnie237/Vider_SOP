@@ -77,10 +77,11 @@ vider_harness/
 
 ```bash
 python3 pipeline/orchestrator.py --plan   # 看阶段与角色
-python3 pipeline/orchestrator.py          # 全量跑（demo 口播知识，约 80s）
+python3 pipeline/orchestrator.py          # 口播知识 demo，约 60s
+python3 pipeline/orchestrator.py --pipeline pipeline/definitions/data-viz-animation.json  # 数据动画 demo
 ```
 
-产物在 `pipeline/runs/demo-oral/`：成片、封面、SRT、QC 报告、运行报告。说明见 [pipeline/README.md](pipeline/README.md)。
+产物：`pipeline/runs/demo-oral/`（口播知识）与 `pipeline/runs/demo-data-viz/`（数据动画），含成片、封面、SRT、QC 报告、接触表与运行报告。说明见 [pipeline/README.md](pipeline/README.md)。
 
 ### 3.4 我是 Agent
 
@@ -113,7 +114,7 @@ python3 pipeline/orchestrator.py          # 全量跑（demo 口播知识，约 
 |---|---|---|
 | P0 基础骨架 | 规范、模板、校验脚本、索引、示例技能 | **已完成（2026-11-03）** |
 | P1 内容填充 | 开源库条目 + 能力矩阵、方法论、工作流、8 类 SOP、5 个技能 | **已完成（2026-11-03）**：21 条知识 / 8 SOP / 5 技能，全部「可用」以上 |
-| P2 端到端实测 | 口播知识样板：TTS + 图文卡 + 字幕 + 混音 + 导出 + QC 全自动跑通（34.7s，QC PASS） | **样例已完成**；待换真实素材/真人配音 |
+| P2 端到端实测 | 口播知识（34.7s）+ 数据可视化动画（37.6s，逐帧条形竞速）两条样板全自动跑通，QC PASS | **样例已完成**；待接真实素材/真实数据 |
 | P3 Agent 产线 | 按视频形态编排子 Agent，任务板 + 质检 + 复盘闭环 | 待启动 |
 
 任务与编制见 [team/README.md](team/README.md)；本轮验收记录见 [docs/验收记录-P1.md](docs/验收记录-P1.md)。

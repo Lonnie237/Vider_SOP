@@ -1,0 +1,108 @@
+{
+  "project": {
+    "name": "数据动画-播放量竞速",
+    "slug": "data-viz-race",
+    "form": "数据动画",
+    "platform": "B站",
+    "owner": "lead",
+    "date": "2026-11-03",
+    "target_duration_s": 38
+  },
+  "spec": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "video_bitrate_kbps": 500,
+    "loudness_lufs": -14
+  },
+  "voice": {
+    "name": "Tingting",
+    "rate_multiplier": 1.45
+  },
+  "content": {
+    "title": "播放量竞速：知识类如何逆袭",
+    "audience": "做数据新闻、知识科普的创作者",
+    "core_message": "七年六条赛道，知识类从垫底到第一；增长不是均匀的，是三次加速。",
+    "cta": "下一条讲怎么找到可信的真实数据",
+    "target_duration_s": 38
+  },
+  "dataviz": {
+    "chart": "bar-race",
+    "dataset": "pipeline/demo/data-viz/dataset.json",
+    "title": "播放量竞速",
+    "subtitle": "2019 — 2026 · 六条内容赛道",
+    "footnote": "示例数据 · 仅作演示，非真实统计",
+    "unit": "亿次",
+    "insight": {
+      "text": "知识科普：7 年增长 7.2×",
+      "sub": "2025 首次登顶 · 示例数据"
+    }
+  },
+  "beats": [
+    {
+      "id": "b01",
+      "role": "hook",
+      "headline": "七年，谁在增长",
+      "say": "七年，六条赛道，谁的增长最快？"
+    },
+    {
+      "id": "b02",
+      "role": "point",
+      "headline": "示例数据 · 看排名",
+      "say": "这是一份示例数据，注意排名变化。"
+    },
+    {
+      "id": "b03",
+      "role": "reason",
+      "year": 2019,
+      "headline": "2019 · 影视第一",
+      "say": "2019 年，影视解说 3.4 亿排第一，知识类 1.2 亿垫底。"
+    },
+    {
+      "id": "b04",
+      "role": "reason",
+      "year": 2021,
+      "headline": "2021 · 差距缩小",
+      "say": "2021 年，影视 4.2 亿还在第一，生活记录追到 3.3 亿。"
+    },
+    {
+      "id": "b05",
+      "role": "reason",
+      "year": 2023,
+      "headline": "2023 · 知识进前三",
+      "say": "2023 年，生活记录 4.9 亿登顶，知识类 4.5 亿进入前三。"
+    },
+    {
+      "id": "b06",
+      "role": "reason",
+      "year": 2025,
+      "headline": "2025 · 知识登顶",
+      "say": "2025 年，知识类 7.4 亿反超，第一次排第一。"
+    },
+    {
+      "id": "b07",
+      "role": "reason",
+      "year": 2026,
+      "headline": "2026 · 7.2 倍",
+      "say": "2026 年，知识类 8.6 亿，七年涨了 7.2 倍。"
+    },
+    {
+      "id": "b08",
+      "role": "method",
+      "headline": "增长不是均匀的",
+      "say": "增长不是均匀的，是三次加速。"
+    },
+    {
+      "id": "b09",
+      "role": "cta",
+      "headline": "数据是示例",
+      "say": "数据是示例，方法是可复用的。"
+    },
+    {
+      "id": "b10",
+      "role": "cta",
+      "headline": "下条讲真实数据",
+      "say": "下一条讲，怎么找到可信的真实数据。"
+    }
+  ]
+}

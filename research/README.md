@@ -43,6 +43,7 @@
 ## 已有笔记
 
 - [2026-11-03-开源视频编辑生态](2026-11-03-开源视频编辑生态.md)（lib-scout 产出）
+- [2026-11-03-code-video-showcase](2026-11-03-code-video-showcase.md)（纯代码视频 Agent Skill 调研，lead）
 
 ## 来源台账（跨笔记共用）
 

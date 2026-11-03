@@ -1,19 +1,34 @@
-# pipeline/ · 端到端流水线（样板：口播知识）
+# pipeline/ · 端到端流水线（口播知识 / 数据动画）
 
 > 这一层不是新工具，而是把 [SOP](../sop/short-oral-knowledge.md) + [技能](../skills/README.md) + ffmpeg/Pillow/TTS **串成可重复执行的流水线**：每个阶段一个脚本、一个角色、一个输入输出契约，可单独重跑、可交给不同 Agent。
+
+## 两条样板流水线
+
+| 流水线 | 定义 | 画幅 | 成片 | 状态 |
+|---|---|---|---|---|
+| 口播知识 | [definitions/short-oral-knowledge.json](definitions/short-oral-knowledge.json) | 1080×1920 | 34.7s / QC PASS | ✅ |
+| 数据可视化动画 | [definitions/data-viz-animation.json](definitions/data-viz-animation.json) | 1920×1080 | 37.6s / QC PASS | ✅ |
+
+数据动画流水线参考了 [code-video-showcase](https://github.com/Moessif/code-video-showcase) 的「帧 = f(t)、剪辑表驱动、逐帧渲染、帧数校验」方法，见 [调研笔记](../research/2026-11-03-code-video-showcase.md) 与 [纯代码视频管线](../knowledge/工作流/code-video-pipeline.md)。
 
 ## 快速开始
 
 ```bash
-# 1. 看阶段与角色
-python3 pipeline/orchestrator.py --plan
-
-# 2. 全量运行（默认 demo：pipeline/demo/brief.json）
+# 口播知识样板
 python3 pipeline/orchestrator.py
 
-# 3. 产出位置
+# 数据动画样板（逐帧渲染条形竞速）
+python3 pipeline/orchestrator.py --pipeline pipeline/definitions/data-viz-animation.json
+
+# 看阶段 / 只跑某段 / 从某段续跑
+python3 pipeline/orchestrator.py --pipeline pipeline/definitions/data-viz-animation.json --plan
+python3 pipeline/orchestrator.py --pipeline pipeline/definitions/data-viz-animation.json --only D4-render --force
+python3 pipeline/orchestrator.py --pipeline pipeline/definitions/data-viz-animation.json --from D4-render --force
+
+# 产出位置
 #    pipeline/runs/demo-oral/05-交付/final/*.mp4
-#    pipeline/runs/demo-oral/_pipeline/run-report.md
+#    pipeline/runs/demo-data-viz/05-交付/final/*.mp4
+#    */_pipeline/run-report.md
 ```
 
 重跑与局部调试：
@@ -39,7 +54,20 @@ python3 pipeline/orchestrator.py --emit-prompt S5-subtitle  # 打印该阶段给
 
 > 注：demo 为「无实拍素材」模式，码率按图文卡内容自适应为 500kbps 档；实拍成片按 SOP 的 8–16Mbps 执行。
 
-## 阶段与角色
+### 数据动画样板结果（2026-11-03）
+
+| 项 | 结果 |
+|---|---|
+| 成片 | `pipeline/runs/demo-data-viz/05-交付/final/data-viz-race-v1-2026-11-03.mp4` |
+| 时长 / 大小 | 37.6s / 2.4 MB（1920×1080 / 30fps / H.264 + AAC / -14.2 LUFS） |
+| 渲染 | D4 逐帧 1130 帧，约 13.6s（Pillow → ffmpeg rawvideo 管道） |
+| 质检 | **PASS**（18 PASS / 0 FAIL / 1 SKIP；图形内容码率 335kbps，属内容适配值） |
+| 数据 | `pipeline/demo/data-viz/dataset.json`（虚构示例，8 年 × 6 赛道） |
+| QA | 5 张静帧 + 每秒接触表 + 帧数校验（ffprobe `nb_read_frames`） |
+
+**数据动画流水线阶段**：S0 初始化 → S1 旁白校验 → S2 TTS → **D3 数据/故事板**（`stages/d3_data.py`）→ **D4 逐帧渲染**（`stages/d4_render.py`）→ S5 响度合板 → S6 字幕烧录 → S7 规格导出 → S8 质检。新角色：分析师 [roles/analyst.md](roles/analyst.md)、动效 [roles/motion.md](roles/motion.md)。
+
+## 口播知识流水线：阶段与角色
 
 | # | 阶段 | 角色 | 脚本 | 输入 → 输出 |
 |---|---|---|---|---|

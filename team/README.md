@@ -48,7 +48,7 @@
 
 ## 下一阶段（P2 建议）
 
-> **P2 样板已完成（2026-11-03）**：口播知识流水线 8 阶段全自动跑通，34.7s 成片、1.45 倍语速、QC PASS；见 [pipeline/README.md](../pipeline/README.md) 与运行产物 `pipeline/runs/demo-oral/`。下一步是把「无实拍素材版」换成真实素材/真人配音。
+> **P2 样板已完成（2026-11-03）**：口播知识流水线 8 阶段全自动跑通（34.7s、1.45 倍语速、QC PASS）；数据可视化动画流水线 37.6s 逐帧渲染跑通（参考 code-video-showcase 方法，QC PASS）。见 [pipeline/README.md](../pipeline/README.md) 与 `pipeline/runs/demo-oral/`、`pipeline/runs/demo-data-viz/`。下一步：换真实素材/真实数据，并接入更多图表类型。
 
 1. **实测 Agent**：用真实素材端到端跑 `sop/short-oral-knowledge` 与 `sop/long-tutorial`，把状态升到「已验证」并回填工时基线。
 2. **补缺条目**：whisperx / scenedetect / manim（S7 转写、S9 数据动画）；moviepy / pyav / auto-editor / OTIO 安装后补实测。

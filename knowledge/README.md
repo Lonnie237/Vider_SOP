@@ -23,7 +23,7 @@
 |---|---|
 | 开源库（8 条） | ffmpeg、moviepy、pyav、auto-editor、opentimelineio、remotion、editly、blender-vse；另有 [能力矩阵](开源库/capability-matrix.md)、[选型指南](开源库/selection-guide.md)（whisperx / manim / scenedetect 等已入矩阵，条目待补） |
 | 方法论（6 条） | 钩子与留存、叙事结构、节奏与卡点、字幕与信息密度、声音设计与混音、调色基础 |
-| 工作流（4 条） | 素材管理与代理剪辑、转码与交付、自动化流水线、平台规格与发布 |
+| 工作流（5 条） | 素材管理与代理剪辑、转码与交付、自动化流水线、平台规格与发布、纯代码视频管线 |
 | 环境（1 条） | 本机环境（macOS / Apple Silicon）基线，含 ffmpeg 能力边界与性能实测 |
 | 调研 | [2026-11-03 开源视频编辑生态](../research/2026-11-03-开源视频编辑生态.md) |
 

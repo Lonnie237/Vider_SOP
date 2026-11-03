@@ -16,6 +16,8 @@ MIN_CUE_S = 0.8
 def parse_args():
     p = argparse.ArgumentParser(description="S5 字幕生成与烧录")
     p.add_argument("--run-dir", required=True)
+    p.add_argument("--font-size", type=int, default=58)
+    p.add_argument("--margin-v", type=int, default=280)
     p.add_argument("--force", action="store_true")
     return p.parse_args()
 
@@ -97,7 +99,7 @@ def main():
     subbed = run_dir / "03-导出" / "preview" / "subbed.mp4"
     burn_cmd = [sys.executable, str(burn), "--input", str(audio), "--srt", str(srt_path),
                 "--output", str(subbed), "--engine", "auto", "--position", "bottom",
-                "--font-size", "58", "--max-width-ratio", "0.86", "--margin-v", "280",
+                "--font-size", str(args.font_size), "--max-width-ratio", "0.86", "--margin-v", str(args.margin_v),
                 "--bg", "box", "--bg-opacity", "0.45", "--crf", "18", "--preset", "veryfast"]
     if args.force:
         burn_cmd.append("--force")

@@ -6,12 +6,12 @@
 
 | 类别 | 总数 | 草稿 | 可用 | 已验证 | 归档 |
 |---|---|---|---|---|---|
-| 知识条目 | 21 | 0 | 19 | 2 | 0 |
+| 知识条目 | 22 | 0 | 20 | 2 | 0 |
 | SOP | 8 | 0 | 8 | 0 | 0 |
 | 技能 | 5 | - | - | - | - |
 | 模板 | 7 | - | - | - | - |
 
-可用以上占比：**100%**（29/29）
+可用以上占比：**100%**（30/30）
 
 ## 知识库
 
@@ -34,6 +34,7 @@
 | 素材管理与代理剪辑 · 可找、可回滚、可批量 | `kb/asset-management` | 工作流 | 可用 | 2026-11-03 | [asset-management](knowledge/工作流/asset-management.md) |
 | 自动化流水线 · ffmpeg-first 的幂等编排 | `kb/automation-pipeline` | 工作流 | 可用 | 2026-11-03 | [automation-pipeline](knowledge/工作流/automation-pipeline.md) |
 | 开源视频工具能力矩阵 · S3–S10 选型底表 | `kb/capability-matrix` | 工作流 | 可用 | 2026-11-03 | [capability-matrix](knowledge/开源库/capability-matrix.md) |
+| 纯代码视频管线 · 帧=f(t)、剪辑表驱动、分段闭环 | `kb/code-video-pipeline` | 工作流 | 可用 | 2026-11-03 | [code-video-pipeline](knowledge/工作流/code-video-pipeline.md) |
 | 平台规格与发布 · 一稿多版与上传前自检 | `kb/platform-specs` | 工作流 | 可用 | 2026-11-03 | [platform-specs](knowledge/工作流/platform-specs.md) |
 | 开源视频工具选型指南 · 按需求决策树与推荐组合 | `kb/selection-guide` | 工作流 | 可用 | 2026-11-03 | [selection-guide](knowledge/开源库/selection-guide.md) |
 | 转码与交付 · 母版、平台版与 QC 一条线 | `kb/transcode-delivery` | 工作流 | 可用 | 2026-11-03 | [transcode-delivery](knowledge/工作流/transcode-delivery.md) |
@@ -66,8 +67,11 @@
 
 - [pipeline/README.md](pipeline/README.md)：端到端流水线说明
 - [pipeline/orchestrator.py](pipeline/orchestrator.py)：编排器
+- [data-viz-animation.json](pipeline/definitions/data-viz-animation.json)：流水线定义
 - [short-oral-knowledge.json](pipeline/definitions/short-oral-knowledge.json)：流水线定义
 - [common.py](pipeline/stages/common.py)
+- [d3_data.py](pipeline/stages/d3_data.py)
+- [d4_render.py](pipeline/stages/d4_render.py)
 - [s0_init.py](pipeline/stages/s0_init.py)
 - [s1_script.py](pipeline/stages/s1_script.py)
 - [s2_tts.py](pipeline/stages/s2_tts.py)
@@ -76,8 +80,10 @@
 - [s5_subtitle.py](pipeline/stages/s5_subtitle.py)
 - [s6_export.py](pipeline/stages/s6_export.py)
 - [s7_qc.py](pipeline/stages/s7_qc.py)
+- [角色卡 · analyst](pipeline/roles/analyst.md)
 - [角色卡 · director](pipeline/roles/director.md)
 - [角色卡 · editor](pipeline/roles/editor.md)
+- [角色卡 · motion](pipeline/roles/motion.md)
 - [角色卡 · qc](pipeline/roles/qc.md)
 - [角色卡 · sound](pipeline/roles/sound.md)
 - [角色卡 · subtitle](pipeline/roles/subtitle.md)

@@ -67,10 +67,12 @@ def run_one(definition, stage, project_dir, force, quiet):
                "--brief", str(REPO / run_cfg["brief"])]
         if force:
             cmd.append("--force")
+        cmd += [str(x) for x in stage.get("args", [])]
     else:
         cmd = [sys.executable, str(script), "--run-dir", str(project_dir)]
         if force:
             cmd.append("--force")
+        cmd += [str(x) for x in stage.get("args", [])]
     started = time.time()
     proc = common.run_soft(cmd, timeout=1800)
     elapsed = round(time.time() - started, 2)
