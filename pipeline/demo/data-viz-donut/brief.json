@@ -1,0 +1,97 @@
+{
+  "project": {
+    "name": "数据动画-播放量构成",
+    "slug": "data-viz-donut",
+    "form": "数据动画",
+    "platform": "B站",
+    "owner": "lead",
+    "date": "2026-11-03",
+    "target_duration_s": 23
+  },
+  "spec": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "video_bitrate_kbps": 500,
+    "loudness_lufs": -14
+  },
+  "voice": {
+    "name": "Tingting",
+    "rate_multiplier": 1.45
+  },
+  "content": {
+    "title": "34 亿播放，怎么分",
+    "audience": "做数据新闻、知识科普的创作者",
+    "core_message": "示例数据演示读图方法：先看整体形状，再看交叉点。",
+    "cta": "下一条讲怎么找到可信的真实数据",
+    "target_duration_s": 23
+  },
+  "dataviz": {
+    "chart": "donut",
+    "dataset": "pipeline/demo/data-viz/dataset.json",
+    "title": "播放量构成",
+    "subtitle": "2019 — 2026 · 六条内容赛道",
+    "footnote": "示例数据 · 仅作演示，非真实统计",
+    "unit": "亿次",
+    "insight": {
+      "text": "知识科普占 25.1%，接近四分之一",
+      "sub": "2025 首次登顶 · 示例数据"
+    }
+  },
+  "beats": [
+    {
+      "id": "b01",
+      "role": "hook",
+      "headline": "34 亿怎么分",
+      "say": "2026 年，34 亿播放怎么分？"
+    },
+    {
+      "id": "b02",
+      "role": "point",
+      "headline": "示例数据 · 六条赛道",
+      "say": "示例数据，六条赛道。"
+    },
+    {
+      "id": "b03",
+      "role": "reason",
+      "headline": "知识科普 25%",
+      "say": "知识科普 8.6 亿，占四分之一。"
+    },
+    {
+      "id": "b04",
+      "role": "reason",
+      "headline": "生活记录第二",
+      "say": "生活记录 6.9 亿，第二。"
+    },
+    {
+      "id": "b05",
+      "role": "reason",
+      "headline": "游戏反超影视",
+      "say": "游戏 5.8 亿，反超影视解说。"
+    },
+    {
+      "id": "b06",
+      "role": "reason",
+      "headline": "影视掉到第四",
+      "say": "影视 5.2 亿，掉到第四。"
+    },
+    {
+      "id": "b07",
+      "role": "method",
+      "headline": "尾部合计不到 25%",
+      "say": "美食加旅行，合计不到四分之一。"
+    },
+    {
+      "id": "b08",
+      "role": "cta",
+      "headline": "结构判断是真的",
+      "say": "数据是示例，结构判断是真的。"
+    },
+    {
+      "id": "b09",
+      "role": "cta",
+      "headline": "下条讲真实数据",
+      "say": "下一条，教你怎么找真实数据。"
+    }
+  ]
+}

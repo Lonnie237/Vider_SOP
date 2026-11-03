@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""D4 数据动画渲染：按 t 逐帧绘制「播放量竞速」，管道给 ffmpeg 编码。
+"""D4 数据动画渲染：按 t 逐帧绘制条形竞速 / 折线 / 环图，管道给 ffmpeg。
 
 参考 Moessif/code-video-showcase 的渲染契约：画面是 t 的纯函数；
 逐帧渲染 + 帧数校验 + 静帧/接触表 QA。
@@ -20,7 +20,6 @@ ACCENT = (255, 90, 74)
 VIOLET = (123, 92, 255)
 TEXT = (245, 243, 250)
 MUTED = (160, 148, 175)
-FONT_MAIN = None
 
 
 def parse_args():
@@ -52,6 +51,14 @@ def hash01(n, seed=1):
     x = (n * 374761393 + seed * 668265263) & 0xFFFFFFFF
     x = (x ^ (x >> 13)) * 1274126177 & 0xFFFFFFFF
     return ((x ^ (x >> 16)) & 0xFFFFFF) / 0xFFFFFF
+
+
+def hex_rgb(value, fallback=(255, 255, 255)):
+    try:
+        value = str(value).lstrip("#")
+        return tuple(int(value[i:i + 2], 16) for i in (0, 2, 4))
+    except Exception:
+        return fallback
 
 
 def year_at(t, keyframes):
@@ -97,6 +104,7 @@ class Renderer:
         self.cta = next(s for s in storyboard["scenes"] if s["kind"] == "cta")
         self.keyframes = storyboard["year_keyframes"]
         self.chart = storyboard["chart"]
+        self.kind = self.chart.get("kind", "bar-race")
         self.summary = storyboard["summary"]
         self.font_path = common.find_cjk_font()
         self._fonts = {}
@@ -173,22 +181,41 @@ class Renderer:
         draw.text((self.W // 2, y + 310), self.chart.get("footnote", ""), font=self.font(24),
                   fill=(120, 110, 135, alpha), anchor="ma")
 
-    def draw_race(self, layer, t, snap=False):
+    def draw_big_year(self, layer, year):
+        from PIL import ImageDraw
+        draw = ImageDraw.Draw(layer)
+        draw.text((self.W - 104, 120), str(int(round(year))), font=self.font(100),
+                  fill=(255, 255, 255, 34), stroke_width=2, stroke_fill=(255, 255, 255, 36), anchor="ra")
+
+    def draw_insight(self, layer, t, box):
+        from PIL import ImageDraw
+        start = float(self.race.get("insight_start", self.race["end"]))
+        if t < start:
+            return
+        p = clamp((t - start) / max(0.6, self.race["end"] - start))
+        a = int(255 * ease_out_cubic(p))
+        lift = 22 * (1 - ease_out_cubic(p))
+        draw = ImageDraw.Draw(layer)
+        shifted = [box[0], box[1] + lift, box[2], box[3] + lift]
+        draw.rounded_rectangle(shifted, radius=18, fill=(255, 255, 255, 14),
+                               outline=(255, 255, 255, 45), width=1)
+        draw.text((shifted[0] + 30, shifted[1] + 24), "结论", font=self.font(20), fill=ACCENT + (a,))
+        draw.text((shifted[0] + 30, shifted[1] + 56), self.chart["insight"].get("text", ""),
+                  font=self.font(30), fill=TEXT + (a,))
+        draw.text((shifted[0] + 30, shifted[1] + 104), self.chart["insight"].get("sub", ""),
+                  font=self.font(20), fill=MUTED + (a,))
+
+    # ---------- 条形竞速 ----------
+    def draw_bar_race(self, layer, t, snap=False):
         from PIL import Image, ImageDraw, ImageFilter
         draw = ImageDraw.Draw(layer)
         year = year_at(t, self.keyframes)
         values = values_at(self.dataset, year)
         values.sort(key=lambda x: x["value"], reverse=True)
-        top = 260
-        row_h = 72
-        bar_h = 38
-        label_x = 110
-        bar_x = 470
-        bar_max = 1120
+        top, row_h, bar_h = 260, 72, 38
+        label_x, bar_x, bar_max = 110, 470, 1120
         scale = bar_max / max(1e-6, self._max_value)
-
-        draw.text((self.W - 104, 120), str(int(round(year))), font=self.font(136),
-                  fill=(255, 255, 255, 32), stroke_width=2, stroke_fill=(255, 255, 255, 34), anchor="ra")
+        self.draw_big_year(layer, year)
 
         for idx, item in enumerate(values):
             target_y = top + idx * row_h
@@ -198,8 +225,7 @@ class Renderer:
                 self._y[item["name"]] += (target_y - self._y[item["name"]]) * 0.2
             y = self._y[item["name"]]
             is_top = idx == 0
-            accent = (255, 90, 74) if is_top else tuple(
-                int(item["color"].lstrip("#")[i:i + 2], 16) for i in (0, 2, 4))
+            accent = (255, 90, 74) if is_top else hex_rgb(item["color"])
             width = max(24, item["value"] * scale)
             draw.rounded_rectangle([label_x - 24, y - 8, self.W - 90, y + 54], radius=10,
                                    fill=(255, 255, 255, 8))
@@ -217,20 +243,129 @@ class Renderer:
             if is_top:
                 draw.text((bar_x + width + 16, y + bar_h - 2), self.chart["unit"], font=self.font(16),
                           fill=MUTED + (220,), anchor="lm")
+        self.draw_insight(layer, t, [1240, 744, self.W - 96, 896])
 
-        insight_start = float(self.race.get("insight_start", self.race["end"]))
-        if t >= insight_start:
-            p = clamp((t - insight_start) / max(0.6, self.race["end"] - insight_start))
-            a = int(255 * ease_out_cubic(p))
-            lift = 22 * (1 - ease_out_cubic(p))
-            box = [1240, 744 + lift, self.W - 96, 896 + lift]
-            draw.rounded_rectangle(box, radius=18, fill=(255, 255, 255, 14),
-                                   outline=(255, 255, 255, 45), width=1)
-            draw.text((box[0] + 30, box[1] + 24), "结论", font=self.font(20), fill=ACCENT + (a,))
-            draw.text((box[0] + 30, box[1] + 56), self.chart["insight"].get("text", ""),
-                      font=self.font(30), fill=TEXT + (a,))
-            draw.text((box[0] + 30, box[1] + 104), self.chart["insight"].get("sub", ""),
-                      font=self.font(20), fill=MUTED + (a,))
+    # ---------- 折线 / 面积 ----------
+    def draw_line_race(self, layer, t):
+        from PIL import ImageDraw
+        draw = ImageDraw.Draw(layer)
+        years = self.dataset["years"]
+        year = year_at(t, self.keyframes)
+        self.draw_big_year(layer, year)
+        x0, x1 = 150, self.W - 170
+        y0, y1 = 700, 250
+        ymax = max(2.0, math.ceil(self._max_value * 1.1 / 2) * 2)
+        highlight = self.summary.get("highlight_name") or self.dataset["series"][0]["name"]
+
+        def xy(yr, value):
+            ux = (yr - years[0]) / max(1e-6, (years[-1] - years[0]))
+            uy = clamp(value / ymax, 0, 1)
+            return x0 + ux * (x1 - x0), y0 - uy * (y0 - y1)
+
+        # 网格与刻度
+        ticks = list(range(0, int(ymax) + 1, 2))
+        for value in ticks:
+            _, yy = xy(years[0], value)
+            draw.line([(x0, yy), (x1, yy)], fill=(255, 255, 255, 18), width=1)
+            draw.text((x0 - 18, yy), "%d" % value, font=self.font(22), fill=MUTED + (220,), anchor="rm")
+        for yr in years:
+            xx, _ = xy(yr, 0)
+            draw.line([(xx, y0), (xx, y0 + 8)], fill=(255, 255, 255, 40), width=1)
+            draw.text((xx, y0 + 22), str(yr), font=self.font(22), fill=MUTED + (230,), anchor="ma")
+
+        # 当前年份之前的点
+        series_data = []
+        for s in self.dataset["series"]:
+            pts = []
+            for i, yr in enumerate(years):
+                if yr > year:
+                    break
+                pts.append(xy(yr, float(s["values"][i])))
+            if pts and year > years[0]:
+                idx = min(len(years) - 1, int(math.floor(year - years[0])))
+                if idx + 1 < len(years):
+                    frac = clamp(year - years[idx])
+                    val = lerp(float(s["values"][idx]), float(s["values"][idx + 1]), frac)
+                    pts.append(xy(year, val))
+            series_data.append((s, pts))
+
+        # 面积（高亮序列）
+        for s, pts in series_data:
+            if s["name"] != highlight or len(pts) < 2:
+                continue
+            poly = pts + [(pts[-1][0], y0), (pts[0][0], y0)]
+            draw.polygon(poly, fill=ACCENT + (26,))
+
+        # 其他线
+        for s, pts in series_data:
+            if s["name"] == highlight or len(pts) < 2:
+                continue
+            draw.line(pts, fill=hex_rgb(s.get("color")) + (150,), width=4, joint="curve")
+            draw.ellipse([pts[-1][0] - 4, pts[-1][1] - 4, pts[-1][0] + 4, pts[-1][1] + 4],
+                         fill=hex_rgb(s.get("color")) + (200,))
+
+        # 高亮线
+        for s, pts in series_data:
+            if s["name"] != highlight or len(pts) < 2:
+                continue
+            draw.line(pts, fill=ACCENT + (70,), width=18, joint="curve")
+            draw.line(pts, fill=ACCENT + (255,), width=6, joint="curve")
+            px, py = pts[-1]
+            draw.ellipse([px - 10, py - 10, px + 10, py + 10], fill=ACCENT + (255,))
+            value = values_at(self.dataset, year)
+            current = next((v["value"] for v in value if v["name"] == highlight), 0)
+            label = "%.1f" % current
+            draw.text((px + 16, py - 26), label, font=self.font(34), fill=TEXT + (255,))
+            draw.text((px + 16, py + 6), self.chart["unit"], font=self.font(18), fill=MUTED + (235,))
+
+        # 图例
+        legend_x = x0
+        for s in self.dataset["series"]:
+            color = ACCENT if s["name"] == highlight else hex_rgb(s.get("color"))
+            draw.ellipse([legend_x, 178, legend_x + 12, 190], fill=color + (255,))
+            draw.text((legend_x + 20, 184), s["name"], font=self.font(20), fill=TEXT + (220,), anchor="lm")
+            legend_x += 215
+        self.draw_insight(layer, t, [1240, 744, self.W - 96, 896])
+
+    # ---------- 环图 ----------
+    def draw_donut(self, layer, t):
+        from PIL import ImageDraw
+        draw = ImageDraw.Draw(layer)
+        shares = self.summary.get("shares") or []
+        total = float(self.summary.get("final_total") or 0)
+        highlight = self.summary.get("highlight_name")
+        p = clamp((t - self.race["start"]) / max(1.5, (self.race["end"] - self.race["start"]) * 0.6))
+        sweep = 360.0 * ease_out_cubic(p)
+        cx, cy, outer, width = 660, 500, 270, 88
+        box = [cx - outer, cy - outer, cx + outer, cy + outer]
+        start = -90.0
+        for item in shares:
+            share_angle = item["share"] / 100.0 * 360.0
+            drawn = clamp(sweep - (start + 90.0), 0, share_angle)
+            if drawn > 0:
+                color = hex_rgb(item.get("color"))
+                if item["name"] == highlight:
+                    draw.arc(box, start, start + drawn, fill=ACCENT + (70,), width=width + 14)
+                    color = ACCENT
+                draw.arc(box, start, start + drawn, fill=color + (235,), width=width)
+            start += share_angle
+        # 中心
+        value_now = total * ease_out_cubic(p)
+        draw.text((cx, cy - 24), "%.1f" % value_now, font=self.font(96), fill=TEXT + (255,), anchor="mm")
+        draw.text((cx, cy + 58), self.chart["unit"] + " · 2026 年合计", font=self.font(26),
+                  fill=MUTED + (240,), anchor="mm")
+        # 图例
+        lx, ly = 1180, 250
+        for item in shares:
+            color = ACCENT if item["name"] == highlight else hex_rgb(item.get("color"))
+            draw.rounded_rectangle([lx, ly, lx + 18, ly + 18], radius=5, fill=color + (255,))
+            draw.text((lx + 30, ly - 2), item["name"], font=self.font(26), fill=TEXT + (230,), anchor="lm")
+            draw.text((lx + 300, ly + 8), "%.1f" % item["value"], font=self.font(24),
+                      fill=TEXT + (230,), anchor="rm")
+            draw.text((lx + 380, ly + 8), "%.1f%%" % item["share"], font=self.font(22),
+                      fill=MUTED + (230,), anchor="rm")
+            ly += 78
+        self.draw_insight(layer, t, [96, 744, 760, 896])
 
     def draw_cta(self, layer, t):
         from PIL import ImageDraw
@@ -252,7 +387,12 @@ class Renderer:
         if t < self.title_end:
             self.draw_title(layer, t)
         elif t < self.cta["start"]:
-            self.draw_race(layer, t, snap=snap)
+            if self.kind == "line":
+                self.draw_line_race(layer, t)
+            elif self.kind == "donut":
+                self.draw_donut(layer, t)
+            else:
+                self.draw_bar_race(layer, t, snap=snap)
         else:
             self.draw_cta(layer, t)
         img = Image.alpha_composite(self._bg.copy(), layer)
@@ -325,8 +465,8 @@ def main():
         "artifacts": [common.repo_rel(base), common.repo_rel(cover_path), common.repo_rel(contact)] + [
             common.repo_rel(Path(p)) for p in still_paths],
         "metrics": {"frames": frames, "fps": fps, "duration_s": info["duration_s"],
-                    "video": info, "stills": len(still_paths)},
-        "note": "%d 帧 / %.1fs，逐帧渲染完成" % (frames, info["duration_s"]),
+                    "video": info, "stills": len(still_paths), "chart": renderer.kind},
+        "note": "%d 帧 / %.1fs，%s 逐帧渲染完成" % (frames, info["duration_s"], renderer.kind),
     })
 
 

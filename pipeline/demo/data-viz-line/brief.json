@@ -1,0 +1,108 @@
+{
+  "project": {
+    "name": "数据动画-六年曲线",
+    "slug": "data-viz-line",
+    "form": "数据动画",
+    "platform": "B站",
+    "owner": "lead",
+    "date": "2026-11-03",
+    "target_duration_s": 34
+  },
+  "spec": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "video_bitrate_kbps": 500,
+    "loudness_lufs": -14
+  },
+  "voice": {
+    "name": "Tingting",
+    "rate_multiplier": 1.45
+  },
+  "content": {
+    "title": "六年曲线：谁在加速",
+    "audience": "做数据新闻、知识科普的创作者",
+    "core_message": "示例数据演示读图方法：先看整体形状，再看交叉点。",
+    "cta": "下一条讲怎么找到可信的真实数据",
+    "target_duration_s": 34
+  },
+  "dataviz": {
+    "chart": "line",
+    "dataset": "pipeline/demo/data-viz/dataset.json",
+    "title": "六年曲线",
+    "subtitle": "2019 — 2026 · 六条内容赛道",
+    "footnote": "示例数据 · 仅作演示，非真实统计",
+    "unit": "亿次",
+    "insight": {
+      "text": "知识科普：曲线最陡，7 年 7.2×",
+      "sub": "2025 首次登顶 · 示例数据"
+    }
+  },
+  "beats": [
+    {
+      "id": "b01",
+      "role": "hook",
+      "headline": "七年，谁最陡",
+      "say": "七年，六条曲线，谁最陡？"
+    },
+    {
+      "id": "b02",
+      "role": "point",
+      "headline": "示例数据 · 看交叉",
+      "say": "示例数据，注意曲线的交叉点。"
+    },
+    {
+      "id": "b03",
+      "role": "reason",
+      "year": 2019,
+      "headline": "2019 · 影视最高",
+      "say": "2019 年，影视解说最高，知识科普垫底。"
+    },
+    {
+      "id": "b04",
+      "role": "reason",
+      "year": 2021,
+      "headline": "2021 · 差距缩小",
+      "say": "2021 年，影视还在上面，生活记录追到 3.3 亿。"
+    },
+    {
+      "id": "b05",
+      "role": "reason",
+      "year": 2023,
+      "headline": "2023 · 生活反超",
+      "say": "2023 年，生活记录反超，知识科普升到第三。"
+    },
+    {
+      "id": "b06",
+      "role": "reason",
+      "year": 2025,
+      "headline": "2025 · 知识登顶",
+      "say": "2025 年，知识科普第一次越到最上面。"
+    },
+    {
+      "id": "b07",
+      "role": "reason",
+      "year": 2026,
+      "headline": "2026 · 7.2 倍",
+      "say": "2026 年，知识科普 8.6 亿，七年涨 7.2 倍。"
+    },
+    {
+      "id": "b08",
+      "role": "method",
+      "headline": "增长不是直线",
+      "say": "增长不是直线，是三次加速。"
+    },
+    {
+      "id": "b09",
+      "role": "cta",
+      "headline": "读图方法可复用",
+      "say": "数据是示例，读图方法是可复用的。"
+    },
+    {
+      "id": "b10",
+      "role": "cta",
+      "headline": "下条讲数据源",
+      "say": "下一条，讲怎么找可信的数据源。"
+    }
+  ]
+}

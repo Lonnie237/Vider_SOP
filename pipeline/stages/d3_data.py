@@ -51,6 +51,7 @@ def main():
     brief = common.brief(run_dir)
     voice = common.load_json(run_dir / "_pipeline" / "voice.json")
     cfg = brief.get("dataviz") or {}
+    kind = cfg.get("chart", "bar-race")
     if not cfg.get("dataset"):
         raise common.StageError("brief.dataviz.dataset 未配置")
     dataset_path = common.REPO / cfg["dataset"]
@@ -73,12 +74,14 @@ def main():
         last = float(s["values"][-1])
         growth[s["name"]] = round(last / first, 2)
 
-    # 场景：标题 → 竞速（含洞察卡）→ CTA
+    # 场景：标题 → 图表主体（含洞察卡）→ CTA
     b01 = beats["b01"]
-    b08 = beats.get("b08") or list(beats.values())[-2]
+    insight_beat = next((b for b in voice["beats"] if b.get("role") == "method"), None)
+    if insight_beat is None:
+        insight_beat = list(beats.values())[-2]
     title_end = float(b01["end"])
     race_start = title_end
-    race_end = float(b08["end"])
+    race_end = float(insight_beat["end"])
     cta_start = race_end
 
     keyframes = []
@@ -90,23 +93,32 @@ def main():
         t = float(beat["start"]) + float(beat["duration"]) * 0.45
         keyframes.append({"t": round(t, 3), "year": int(year)})
     keyframes.sort(key=lambda x: x["t"])
-    if not keyframes:
+    if kind != "donut" and not keyframes:
         raise common.StageError("没有任何 beat 配置 year 字段，无法驱动年份动画")
 
     scenes = [
         {"id": "title", "kind": "title", "start": 0.0, "end": round(title_end, 3),
          "headline": b01.get("headline"), "text": b01.get("say")},
         {"id": "race", "kind": "race", "start": round(race_start, 3), "end": round(race_end, 3),
-         "insight_start": round(float(b08["start"]), 3)},
+         "insight_start": round(float(insight_beat["start"]), 3)},
         {"id": "cta", "kind": "cta", "start": round(cta_start, 3), "end": round(total, 3),
-         "headline": (beats.get("b10") or b08).get("headline"),
-         "text": (beats.get("b10") or b08).get("say")},
+         "headline": (beats.get("b10") or insight_beat).get("headline"),
+         "text": (beats.get("b10") or insight_beat).get("say")},
     ]
 
     knowledge = next((s for s in dataset["series"] if s["name"] in ("知识科普", "知识")), dataset["series"][0])
+    final_total = sum(float(s["values"][-1]) for s in dataset["series"]) or 1.0
+    shares = []
+    for s in dataset["series"]:
+        value = float(s["values"][-1])
+        shares.append({"name": s["name"], "value": value, "color": s.get("color", "#FFFFFF"),
+                       "share": round(value / final_total * 100, 1)})
+    shares.sort(key=lambda x: x["value"], reverse=True)
     summary = {
         "years": years,
         "series_count": len(dataset["series"]),
+        "final_total": round(final_total, 2),
+        "shares": shares,
         "growth": growth,
         "growth_highlight": growth.get(knowledge["name"]),
         "highlight_name": knowledge["name"],
@@ -125,6 +137,7 @@ def main():
         "year_keyframes": keyframes,
         "summary": summary,
         "chart": {
+            "kind": kind,
             "title": cfg.get("title", "播放量竞速"),
             "subtitle": cfg.get("subtitle", ""),
             "footnote": cfg.get("footnote", "示例数据 · 仅作演示"),
@@ -177,8 +190,10 @@ def main():
         "artifacts": [common.repo_rel(data_md), common.repo_rel(run_dir / "_pipeline" / "storyboard.json")],
         "metrics": {"series": len(series), "years": len(years), "scenes": len(scenes),
                     "keyframes": len(keyframes), "highlight": knowledge["name"],
-                    "growth": summary["growth_highlight"]},
-        "note": "数据校验通过：%d 条序列 × %d 年，%d 个关键帧" % (len(series), len(years), len(keyframes)),
+                    "growth": summary["growth_highlight"], "chart": kind,
+                    "final_total": summary["final_total"]},
+        "note": "数据校验通过：%d 条序列 × %d 年（%s），%d 个关键帧" % (
+            len(series), len(years), kind, len(keyframes)),
     })
 
 

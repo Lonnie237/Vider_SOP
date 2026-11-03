@@ -29,7 +29,7 @@
 
 | 指标 | 结果 |
 |---|---|
-| 知识条目 | 24（22 可用 / 2 已验证 / 0 草稿） |
+| 知识条目 | 26（24 可用 / 2 已验证 / 0 草稿） |
 | SOP | 8（全部可用） |
 | 技能包 | 5（4 个含可运行脚本 + 1 个示例） |
 | 模板 / 规范 | 7 / 6 篇 |
@@ -48,11 +48,11 @@
 
 ## 下一阶段（P2 建议）
 
-> **P2 样板已完成（2026-11-03）**：口播知识流水线 8 阶段全自动跑通（34.7s、1.45 倍语速、QC PASS）；数据可视化动画流水线 37.6s 逐帧渲染跑通（参考 code-video-showcase 方法，QC PASS）。见 [pipeline/README.md](../pipeline/README.md) 与 `pipeline/runs/demo-oral/`、`pipeline/runs/demo-data-viz/`。下一步：换真实素材/真实数据，并接入更多图表类型。
+> **P2 样板已完成（2026-11-03）**：口播知识流水线 8 阶段全自动跑通（34.7s、1.45 倍语速、QC PASS）；数据动画三种图表（条形竞速 37.6s / 折线 33.6s / 环图 23.2s）逐帧渲染跑通（参考 code-video-showcase 方法，全部 QC PASS）。见 [pipeline/README.md](../pipeline/README.md) 与 `pipeline/runs/demo-oral/`、`demo-data-viz*`。下一步：换真实素材/真实数据，并补地图/饼图等图表类型。
 
 1. **实测 Agent**：用真实素材端到端跑 `sop/short-oral-knowledge` 与 `sop/long-tutorial`，把状态升到「已验证」并回填工时基线。
 2. **补缺条目**：whisperx / scenedetect / manim（S7 转写、S9 数据动画）；moviepy / pyav / auto-editor / OTIO 安装后补实测。
-3. **质检 Agent**：对全部知识条目（当前 24 条）做独立抽检（每类 ≥1 条），重点核对平台参数与版本事实。
+3. **质检 Agent**：对全部知识条目（当前 26 条）做独立抽检（每类 ≥1 条），重点核对平台参数与版本事实。
 4. **P3 产线**：按视频形态编排 Agent（选题 → 脚本 → 素材 → 剪辑 → 质检），每类形态一条固定流水线。
 
 ## 沟通渠道

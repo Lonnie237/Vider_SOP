@@ -78,7 +78,9 @@ vider_harness/
 ```bash
 python3 pipeline/orchestrator.py --plan   # 看阶段与角色
 python3 pipeline/orchestrator.py          # 口播知识 demo，约 60s
-python3 pipeline/orchestrator.py --pipeline pipeline/definitions/data-viz-animation.json  # 数据动画 demo
+python3 pipeline/orchestrator.py --pipeline pipeline/definitions/data-viz-animation.json  # 数据动画：条形竞速
+python3 pipeline/orchestrator.py --pipeline pipeline/definitions/data-viz-line.json       # 数据动画：折线
+python3 pipeline/orchestrator.py --pipeline pipeline/definitions/data-viz-donut.json      # 数据动画：环图
 ```
 
 产物：`pipeline/runs/demo-oral/`（口播知识）与 `pipeline/runs/demo-data-viz/`（数据动画），含成片、封面、SRT、QC 报告、接触表与运行报告。说明见 [pipeline/README.md](pipeline/README.md)。
@@ -102,7 +104,7 @@ python3 pipeline/orchestrator.py --pipeline pipeline/definitions/data-viz-animat
 | 可用 | 能照着干 | 步骤 / 参数 / 示例完整，来源可查，无死链 |
 | 已验证 | 本机或真实项目跑通 | 有实测记录（日期、命令 / 工程、结果），可复现 |
 
-当前（2026-11-03）：知识 24 条（22 可用 / 2 已验证）、SOP 8 条、技能 5 个、流水线 2 条；`python3 scripts/validate.py --strict` 为 0 error / 0 warning。
+当前（2026-11-03）：知识 26 条（24 可用 / 2 已验证）、SOP 8 条、技能 5 个、流水线 4 条；`python3 scripts/validate.py --strict` 为 0 error / 0 warning。
 
 > 目标不是“写得多”，而是「已验证」条目占比。每次迭代看 [INDEX.md](INDEX.md) 的统计。
 
@@ -113,8 +115,8 @@ python3 pipeline/orchestrator.py --pipeline pipeline/definitions/data-viz-animat
 | 阶段 | 内容 | 状态 |
 |---|---|---|
 | P0 基础骨架 | 规范、模板、校验脚本、索引、示例技能 | **已完成（2026-11-03）** |
-| P1 内容填充 | 开源库条目 + 能力矩阵、方法论、工作流、8 类 SOP、5 个技能 | **已完成（2026-11-03）**：24 条知识（含 P2 增补 3 条）/ 8 SOP / 5 技能，全部「可用」以上 |
-| P2 端到端实测 | 口播知识（34.7s）+ 数据可视化动画（37.6s，逐帧条形竞速）两条样板全自动跑通，QC PASS | **样例已完成**；待接真实素材/真实数据 |
+| P1 内容填充 | 开源库条目 + 能力矩阵、方法论、工作流、8 类 SOP、5 个技能 | **已完成（2026-11-03）**：26 条知识（含 P2 增补 5 条）/ 8 SOP / 5 技能，全部「可用」以上 |
+| P2 端到端实测 | 口播知识（34.7s）+ 数据动画三种图表（条形 37.6s / 折线 33.6s / 环图 23.2s）全自动跑通，QC PASS | **样例已完成**；待接真实素材/真实数据 |
 | P3 Agent 产线 | 按视频形态编排子 Agent，任务板 + 质检 + 复盘闭环 | 待启动 |
 
 任务与编制见 [team/README.md](team/README.md)；本轮验收记录见 [docs/验收记录-P1.md](docs/验收记录-P1.md)。

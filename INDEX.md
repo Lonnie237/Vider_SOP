@@ -6,12 +6,12 @@
 
 | 类别 | 总数 | 草稿 | 可用 | 已验证 | 归档 |
 |---|---|---|---|---|---|
-| 知识条目 | 24 | 0 | 22 | 2 | 0 |
+| 知识条目 | 26 | 0 | 24 | 2 | 0 |
 | SOP | 8 | 0 | 8 | 0 | 0 |
 | 技能 | 5 | - | - | - | - |
 | 模板 | 7 | - | - | - | - |
 
-可用以上占比：**100%**（32/32）
+可用以上占比：**100%**（34/34）
 
 ## 知识库
 
@@ -27,6 +27,8 @@
 | Editly · Node.js 声明式剪辑与模板出片 | `kb/editly` | 工具 | 可用 | 2026-11-03 | [editly](knowledge/开源库/editly.md) |
 | FFmpeg · 音视频处理的命令行瑞士军刀 | `kb/ffmpeg` | 工具 | 已验证 | 2026-11-03 | [ffmpeg](knowledge/开源库/ffmpeg.md) |
 | WhisperX · 词级时间戳转写与说话人分离 | `kb/whisperx` | 工具 | 可用 | 2026-11-03 | [whisperx](knowledge/开源库/whisperx.md) |
+| 纯代码视频风格库 · 11 种风格配方 | `kb/code-video-style-recipes` | 方法论 | 可用 | 2026-11-03 | [code-video-style-recipes](knowledge/方法论/code-video-style-recipes.md) |
+| 纯代码视频主题库 · 8 套配色与材质系统 | `kb/code-video-themes` | 方法论 | 可用 | 2026-11-03 | [code-video-themes](knowledge/方法论/code-video-themes.md) |
 | 调色基础 · 一级校正、镜头匹配与 Rec.709 交付 | `kb/color-grading` | 方法论 | 可用 | 2026-11-03 | [color-grading](knowledge/方法论/color-grading.md) |
 | 钩子与留存 · 用前 3 秒把「刷到」变成「看完」 | `kb/hooks-retention` | 方法论 | 可用 | 2026-11-03 | [hooks-retention](knowledge/方法论/hooks-retention.md) |
 | 叙事结构 · 用一条命题组织信息推进 | `kb/narrative-structure` | 方法论 | 可用 | 2026-11-03 | [narrative-structure](knowledge/方法论/narrative-structure.md) |
@@ -70,6 +72,8 @@
 - [pipeline/README.md](pipeline/README.md)：端到端流水线说明
 - [pipeline/orchestrator.py](pipeline/orchestrator.py)：编排器
 - [data-viz-animation.json](pipeline/definitions/data-viz-animation.json)：流水线定义
+- [data-viz-donut.json](pipeline/definitions/data-viz-donut.json)：流水线定义
+- [data-viz-line.json](pipeline/definitions/data-viz-line.json)：流水线定义
 - [short-oral-knowledge.json](pipeline/definitions/short-oral-knowledge.json)：流水线定义
 - [common.py](pipeline/stages/common.py)
 - [d3_data.py](pipeline/stages/d3_data.py)

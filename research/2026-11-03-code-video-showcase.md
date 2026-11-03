@@ -56,9 +56,9 @@
 | 2-pass 与 concat 的工程习惯 | 合成配乐（当前先 TTS 旁白，后续加 BGM 层） |
 
 落地：
-- 新流水线 [pipeline/definitions/data-viz-animation.json](../pipeline/definitions/data-viz-animation.json)（复用 TTS/字幕/混音/导出/QC，替换画面为数据动画渲染器）
-- 渲染器 [pipeline/stages/d4_render.py](../pipeline/stages/d4_render.py)：Pillow 逐帧绘制条形竞速 + 大年份 + 玻璃卡，直接管道给 ffmpeg
-- 知识沉淀：[code-video-pipeline](../knowledge/工作流/code-video-pipeline.md)
+- 数据动画流水线：[条形竞速](../pipeline/definitions/data-viz-animation.json)、[折线/面积](../pipeline/definitions/data-viz-line.json)、[环图](../pipeline/definitions/data-viz-donut.json)（复用 TTS/字幕/混音/导出/QC，替换画面为数据动画渲染器）
+- 渲染器 [pipeline/stages/d4_render.py](../pipeline/stages/d4_render.py)：Pillow 逐帧绘制条形竞速 / 折线 / 环图 + 大年份 + 玻璃卡，直接管道给 ffmpeg
+- 知识沉淀：[纯代码视频管线](../knowledge/工作流/code-video-pipeline.md)、[11 种风格配方](../knowledge/方法论/code-video-style-recipes.md)、[8 套主题](../knowledge/方法论/code-video-themes.md)
 
 ## 6. 待确认 / 后续
 

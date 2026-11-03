@@ -202,7 +202,7 @@ ffmpeg -y -i out/chart_9x16.mp4 -i bgm.wav -map 0:v -map 1:a \
 |---|---|---|
 | S0–S2 | 初始化 / 旁白校验 / TTS | 项目目录、脚本、voice.json |
 | D3 数据 | [d3_data.py](../pipeline/stages/d3_data.py) | 数据校验、逐年排名、年份关键帧、storyboard.json |
-| D4 渲染 | [d4_render.py](../pipeline/stages/d4_render.py) | 逐帧条形竞速 → base.mp4、封面、静帧、接触表 |
+| D4 渲染 | [d4_render.py](../pipeline/stages/d4_render.py) | 逐帧条形竞速 / 折线 / 环图 → base.mp4、封面、静帧、接触表 |
 | S5–S8 | 响度合板 / 字幕 / 导出 / QC | 成片、QC 报告 |
 
 运行：
@@ -212,7 +212,15 @@ python3 pipeline/orchestrator.py --pipeline pipeline/definitions/data-viz-animat
 # 只调画面：--from D4-render --force
 ```
 
-实测记录（2026-11-03）：37.6s / 1920×1080 / 30fps / 1130 帧，逐帧渲染 13.6s，QC PASS（18 PASS / 0 FAIL），成片 2.4MB / -14.2 LUFS；当前只实现「横向条形竞速」一种图表，折线/饼图/地图待扩展。
+实测记录（2026-11-03，三种图表共用 D4）：
+
+| 图表 | brief.dataviz.chart | 成片 | 质检 |
+|---|---|---|---|
+| 条形竞速 | `bar-race` | 37.6s / 2.4MB | PASS |
+| 折线/面积 | `line` | 33.6s / 2.3MB | PASS |
+| 环图 | `donut` | 23.2s / 1.5MB | PASS |
+
+规格统一 1920×1080 / 30fps / -14.2 LUFS；逐帧渲染 9–14s；帧数均通过 `round(duration×30)` 校验。地图、饼图（非环图）待扩展。
 
 ## 变体（平台 / 时长 / 素材条件）
 
