@@ -30,10 +30,11 @@ python3 pipeline/orchestrator.py --emit-prompt S5-subtitle  # 打印该阶段给
 | 项 | 结果 |
 |---|---|
 | 成片 | `pipeline/runs/demo-oral/05-交付/final/oral-hook-3s-v1-2026-11-03.mp4` |
-| 时长 / 大小 | 47.8s / 3.5 MB |
+| 时长 / 大小 | 34.7s / 2.8 MB |
 | 规格 | 1080×1920 / 30fps / H.264 + AAC 48kHz / -14.2 LUFS |
-| 质检 | **PASS**（18 PASS / 0 FAIL / 1 SKIP；视频码率 457kbps 属静态图文卡的内容适配值） |
-| 全流程耗时 | 约 79s（其中字幕烧录约 56s，是当前瓶颈） |
+| 质检 | **PASS**（18 PASS / 0 FAIL / 1 SKIP；视频码率 472kbps 属静态图文卡的内容适配值） |
+| 语速 | 1.45 倍（say -r 261，实测约 1.43×；由 S2 自动校准） |
+| 全流程耗时 | 约 60s（其中字幕烧录约 39s，是当前瓶颈） |
 | 阶段 | S0–S7 全部 ok，逐阶段耗时见 `_pipeline/run-report.md` |
 
 > 注：demo 为「无实拍素材」模式，码率按图文卡内容自适应为 500kbps 档；实拍成片按 SOP 的 8–16Mbps 执行。

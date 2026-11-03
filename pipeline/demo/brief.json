@@ -6,7 +6,7 @@
     "platform": "抖音",
     "owner": "lead",
     "date": "2026-11-03",
-    "target_duration_s": 48
+    "target_duration_s": 34
   },
   "spec": {
     "width": 1080,
@@ -21,7 +21,7 @@
     "audience": "做知识口播、但完播率低的创作者",
     "core_message": "口播留不住人，不是设备问题，是前三秒没有给结论；结论先行 + 画面同步给证据。",
     "cta": "关注，下一条讲五个可直接套用的开头模板",
-    "target_duration_s": 48
+    "target_duration_s": 34
   },
   "beats": [
     {
@@ -78,5 +78,9 @@
       "headline": "下条讲五个模板",
       "say": "关注我，下一条讲五个能直接套的开头模板。"
     }
-  ]
+  ],
+  "voice": {
+    "name": "Tingting",
+    "rate_multiplier": 1.45
+  }
 }
