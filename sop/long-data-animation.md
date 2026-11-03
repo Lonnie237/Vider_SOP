@@ -194,6 +194,26 @@ ffmpeg -y -i out/chart_9x16.mp4 -i bgm.wav -map 0:v -map 1:a \
 | 数据校验 / 参数化出片 | csv + numpy 脚本；Remotion props | 本 SOP S0、`kb/remotion` |
 | 转码 / 响度 / 字幕层 | FFmpeg + Pillow PNG 序列 | `kb/ffmpeg`、`kb/transcode-delivery` |
 
+## 流水线实现（数据动画样板）
+
+> 本 SOP 已有一条可执行流水线：[pipeline/definitions/data-viz-animation.json](../pipeline/definitions/data-viz-animation.json)。
+
+| 阶段 | 实现 | 产出 |
+|---|---|---|
+| S0–S2 | 初始化 / 旁白校验 / TTS | 项目目录、脚本、voice.json |
+| D3 数据 | [d3_data.py](../pipeline/stages/d3_data.py) | 数据校验、逐年排名、年份关键帧、storyboard.json |
+| D4 渲染 | [d4_render.py](../pipeline/stages/d4_render.py) | 逐帧条形竞速 → base.mp4、封面、静帧、接触表 |
+| S5–S8 | 响度合板 / 字幕 / 导出 / QC | 成片、QC 报告 |
+
+运行：
+
+```bash
+python3 pipeline/orchestrator.py --pipeline pipeline/definitions/data-viz-animation.json
+# 只调画面：--from D4-render --force
+```
+
+实测记录（2026-11-03）：37.6s / 1920×1080 / 30fps / 1130 帧，逐帧渲染 13.6s，QC PASS（18 PASS / 0 FAIL），成片 2.4MB / -14.2 LUFS；当前只实现「横向条形竞速」一种图表，折线/饼图/地图待扩展。
+
 ## 变体（平台 / 时长 / 素材条件）
 
 | 变体 | 差异 |
@@ -210,6 +230,7 @@ ffmpeg -y -i out/chart_9x16.mp4 -i bgm.wav -map 0:v -map 1:a \
 ## 关联条目
 
 - 方法论：`kb/narrative-structure`、`kb/color-grading`；工作流 / 库：`kb/manim`、`kb/remotion`、`kb/ffmpeg`、`kb/transcode-delivery`、`kb/opentimelineio`
+- 方法与实现：`kb/code-video-pipeline`（帧=f(t)、剪辑表驱动）；[数据动画流水线](../pipeline/definitions/data-viz-animation.json)
 - 兄弟 SOP：`sop/long-promo`、`sop/long-tutorial`
 
 ## 来源
