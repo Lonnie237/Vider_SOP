@@ -344,10 +344,11 @@ class Renderer:
             drawn = clamp(sweep - (start + 90.0), 0, share_angle)
             if drawn > 0:
                 color = hex_rgb(item.get("color"))
+                end_angle = start + drawn + (0.6 if drawn >= share_angle - 0.01 else 0)
                 if item["name"] == highlight:
-                    draw.arc(box, start, start + drawn, fill=ACCENT + (70,), width=width + 14)
+                    draw.arc(box, start, end_angle, fill=ACCENT + (70,), width=width + 14)
                     color = ACCENT
-                draw.arc(box, start, start + drawn, fill=color + (235,), width=width)
+                draw.arc(box, start, end_angle, fill=color + (235,), width=width)
             start += share_angle
         # 中心
         value_now = total * ease_out_cubic(p)
