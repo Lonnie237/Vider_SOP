@@ -37,6 +37,13 @@ npx remotion render src/index.ts KepuCompare out/video.mp4 \
 | TTS 用量 | input 292 / output 805 / total 1097 tokens（10 次调用，API 返回）；详见 [TTS_BILLING.md](TTS_BILLING.md) |
 | 字幕 | React 内烧录；另出 `subtitles.srt` |
 
+## V3.2 30s 样片（2026-11-05）
+
+- 成片：pipeline/runs/demo-kepu-compare/v32-sample.mp4
+- 修正：S1/S2 先给结构（卡片/公式直接在场），不再用低透明 ghost 占位；S3 保留按词揭示
+- 词级高亮、版面下移、FOCUS 条、无底线保持
+- 无新增 TTS（复用 v3.1 对齐音频）
+
 ## V3.1 30s 样片（2026-11-05）
 
 - 成片：pipeline/runs/demo-kepu-compare/v31-sample.mp4

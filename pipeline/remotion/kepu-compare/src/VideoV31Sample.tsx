@@ -157,7 +157,7 @@ const S1: React.FC = () => {
     <AbsoluteFill style={{ fontFamily: FONT, paddingTop: 136, paddingLeft: 96, paddingRight: 96 }}>
       <SceneTitle instant kicker="COLD OPEN · 周一 9:00" title="如果只装一个 AI 工作台，你选谁？" frame={frame} />
       <div style={{ display: "flex", gap: 34, marginTop: 30 }}>
-        <Reveal ghost at={phraseTime("b01", "周报")} style={{ flex: 1 }}>
+        <Reveal at={beat("b01").start + 0.15} style={{ flex: 1 }}>
           <Panel style={{ padding: 26, transform: "translateY(" + float + "px)" }}>
             <div style={{ display: "flex", gap: 8, alignItems: "center", marginBottom: 14 }}>
               {["#FF5F57", "#FEBC2E", "#28C840"].map((x) => <span key={x} style={{ width: 10, height: 10, borderRadius: 5, background: x }} />)}
@@ -168,7 +168,7 @@ const S1: React.FC = () => {
             <div style={{ marginTop: 18, color: C.tencent, fontSize: 19 }}>待办：写总结 · 贴数据 · 发老板</div>
           </Panel>
         </Reveal>
-        <Reveal ghost at={phraseTime("b01", "bug")} style={{ flex: 1 }}>
+        <Reveal at={beat("b01").start + 0.25} style={{ flex: 1 }}>
           <Panel style={{ padding: 26, transform: "translateY(" + (-float) + "px)" }}>
             <div style={{ display: "flex", gap: 8, alignItems: "center", marginBottom: 14 }}>
               {["#FF5F57", "#FEBC2E", "#28C840"].map((x) => <span key={x} style={{ width: 10, height: 10, borderRadius: 5, background: x }} />)}
@@ -199,17 +199,17 @@ const S2: React.FC = () => {
       <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, marginTop: 24, minHeight: 54 }}>
         {parts.map((p, i) => (
           <React.Fragment key={p.label}>
-            <Reveal ghost at={p.at}>
+            <Reveal at={beat("b03").start + 0.2}>
               <div style={{ padding: "10px 18px", border: "1px solid " + C.amber + "66", background: C.amber + "12", color: C.text, fontSize: 24, borderRadius: 3 }}>{p.label}</div>
             </Reveal>
             {i < parts.length - 1 ? <span style={{ color: C.muted, fontSize: 24 }}>+</span> : null}
           </React.Fragment>
         ))}
         <span style={{ color: C.muted, fontSize: 24, margin: "0 4px" }}>=</span>
-        <Reveal ghost at={phraseTime("b03", "AI 工作台")}><div style={{ padding: "10px 20px", background: C.text, color: C.bg, fontSize: 24, fontWeight: 800, borderRadius: 3 }}>AI 工作台</div></Reveal>
+        <Reveal at={beat("b03").start + 0.25}><div style={{ padding: "10px 20px", background: C.text, color: C.bg, fontSize: 24, fontWeight: 800, borderRadius: 3 }}>AI 工作台</div></Reveal>
       </div>
       <div style={{ display: "flex", gap: 28, marginTop: 28 }}>
-        <Reveal ghost at={phraseTime("b03", "WorkBuddy")} style={{ flex: 1 }}>
+        <Reveal at={beat("b03").start + 0.3} style={{ flex: 1 }}>
           <Panel style={{ padding: 24, transform: "translateY(" + float + "px)" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
               <Badge letter="W" color={C.tencent} />
@@ -218,7 +218,7 @@ const S2: React.FC = () => {
             <div style={{ marginTop: 16 }}>{["文档", "表格", "会议", "调研"].map((t) => <span key={t} style={chipStyle(C.tencent)}>{t}</span>)}</div>
           </Panel>
         </Reveal>
-        <Reveal ghost at={phraseTime("b03", "Qoder")} style={{ flex: 1 }}>
+        <Reveal at={beat("b03").start + 0.35} style={{ flex: 1 }}>
           <Panel style={{ padding: 24, transform: "translateY(" + (-float) + "px)" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
               <Badge letter="Q" color={C.alibaba} />
