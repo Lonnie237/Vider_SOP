@@ -48,7 +48,7 @@
 
 ## 下一阶段（P2 建议）
 
-> **P2 样板已完成（2026-11-03）**：口播知识流水线 8 阶段全自动跑通（34.7s、1.45 倍语速、QC PASS）；数据动画三种图表（条形竞速 37.6s / 折线 33.6s / 环图 23.2s）逐帧渲染跑通（参考 code-video-showcase 方法，全部 QC PASS）。见 [pipeline/README.md](../pipeline/README.md) 与 `pipeline/runs/demo-oral/`、`demo-data-viz*`。下一步：换真实素材/真实数据，并补地图/饼图等图表类型。
+> **P2 样板已完成**：口播知识 34.7s、数据动画三种图表（条形/折线/环图）、Remotion 科普样片 54.5s（WorkBuddy vs Qoder）均跑通，QC PASS。见 [pipeline/README.md](../pipeline/README.md)、`pipeline/runs/demo-*` 与 [kepu-compare](../pipeline/remotion/kepu-compare/)。下一步：真实素材/数据、HyperFrames 原型、更多图表类型。
 
 1. **实测 Agent**：用真实素材端到端跑 `sop/short-oral-knowledge` 与 `sop/long-tutorial`，把状态升到「已验证」并回填工时基线。
 2. **补缺条目**：whisperx / scenedetect / manim（S7 转写、S9 数据动画）；moviepy / pyav / auto-editor / OTIO 安装后补实测。

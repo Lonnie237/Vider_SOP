@@ -74,6 +74,13 @@ python3 pipeline/orchestrator.py --emit-prompt S5-subtitle  # 打印该阶段给
 
 **数据动画流水线阶段**：S0 初始化 → S1 旁白校验 → S2 TTS → **D3 数据/故事板**（`stages/d3_data.py`）→ **D4 逐帧渲染**（`stages/d4_render.py`，支持条形竞速/折线/环图）→ S5 响度合板 → S6 字幕烧录 → S7 规格导出 → S8 质检。新角色：分析师 [roles/analyst.md](roles/analyst.md)、动效 [roles/motion.md](roles/motion.md)。
 
+## 代码化科普 demo（Remotion）
+
+- 项目：[pipeline/remotion/kepu-compare](remotion/kepu-compare/)（WorkBuddy vs Qoder，54.5s / 1920×1080）
+- 方法：声音为轴 → 时间轴 → React 场景/字幕/动效；事实台账见项目 `FACTS.md`
+- 渲染：Remotion 4.0.540 + Chrome for Testing；交付编码后 QC
+- 这是 [科普动画 SOP](../sop/short-kepu-motion.md) 的第一个可运行样板
+
 ## 口播知识流水线：阶段与角色
 
 | # | 阶段 | 角色 | 脚本 | 输入 → 输出 |

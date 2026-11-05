@@ -171,7 +171,8 @@ owner: lead
 
 ## 复盘与改进
 
-- 本机尚未跑通 Remotion/HyperFrames 完整科普项目；Remotion 4.0.540 曾在本机渲染最小示例，HyperFrames 未安装（[待确认]）。
+- **已跑通 Remotion 版科普样片（2026-11-05）**：[kepu-compare](../pipeline/remotion/kepu-compare/) · WorkBuddy vs Qoder，54.5s / 1633 帧 / 1920×1080 / -13.9 LUFS；Remotion 4.0.540 + Node 26 + Chrome for Testing，QC 通过。HyperFrames 仍未安装（[待确认]）。
+- 交付码率说明：深色图形内容在 `-b:v 8M` 下实际约 1.5Mbps，属内容自适应；屏幕文字仍清晰。
 - 回填：真实项目记录渲染耗时、返工点、有效开头。
 - 与数据动画共用「帧=f(t)、静帧/接触表、帧数校验」的工程习惯。
 

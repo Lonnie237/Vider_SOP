@@ -1,0 +1,99 @@
+{
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "duration": 54.448,
+  "frames": 1633,
+  "beats": [
+    {
+      "id": "b01",
+      "section": "hook",
+      "headline": "WorkBuddy 和 Qoder",
+      "text": "WorkBuddy 和 Qoder，到底差在哪？",
+      "start": 0.4,
+      "end": 2.569,
+      "duration": 2.169
+    },
+    {
+      "id": "b02",
+      "section": "define",
+      "headline": "一句话定位",
+      "text": "一句话：一个是腾讯的 AI 办公工作台，一个是阿里的 AI 编程工作台。",
+      "start": 2.919,
+      "end": 7.527,
+      "duration": 4.607
+    },
+    {
+      "id": "b03",
+      "section": "workbuddy",
+      "headline": "WorkBuddy",
+      "text": "WorkBuddy 管办公：写文档、做表格、查资料、开会，还能接腾讯文档、会议和企业微信。",
+      "start": 7.877,
+      "end": 14.69,
+      "duration": 6.813
+    },
+    {
+      "id": "b04",
+      "section": "qoder",
+      "headline": "Qoder",
+      "text": "Qoder 管写代码：补全、对话、自主编程，还有 Repo Wiki 项目知识库。",
+      "start": 15.04,
+      "end": 20.105,
+      "duration": 5.065
+    },
+    {
+      "id": "b05",
+      "section": "why",
+      "headline": "为什么是两款",
+      "text": "为什么两家各推一款？腾讯的基因是办公生态，阿里的基因是云和开发者。",
+      "start": 20.455,
+      "end": 25.399,
+      "duration": 4.945
+    },
+    {
+      "id": "b06",
+      "section": "why",
+      "headline": "分工不同",
+      "text": "腾讯用 CodeBuddy 管编程、WorkBuddy 管办公；阿里用 Qoder 管代码、QoderWork 管办公。",
+      "start": 25.749,
+      "end": 31.541,
+      "duration": 5.792
+    },
+    {
+      "id": "b07",
+      "section": "choose",
+      "headline": "怎么选",
+      "text": "普通人怎么选？先看你每天产出的是文档还是代码；再看你已经在用哪家的生态。",
+      "start": 31.891,
+      "end": 37.543,
+      "duration": 5.652
+    },
+    {
+      "id": "b08",
+      "section": "choose",
+      "headline": "两条路线",
+      "text": "写代码为主，选 Qoder；文档表格会议为主，选 WorkBuddy；两个都干，可以先用免费版各试一周。",
+      "start": 37.893,
+      "end": 44.74,
+      "duration": 6.847
+    },
+    {
+      "id": "b09",
+      "section": "caution",
+      "headline": "注意",
+      "text": "价格和功能会变，商用前看官网和合规要求；工具是壳，工作流才是核心。",
+      "start": 45.09,
+      "end": 50.929,
+      "duration": 5.839
+    },
+    {
+      "id": "b10",
+      "section": "cta",
+      "headline": "结尾",
+      "text": "能接进你工作流的，才是好工具。",
+      "start": 51.279,
+      "end": 53.648,
+      "duration": 2.368
+    }
+  ]
+}
