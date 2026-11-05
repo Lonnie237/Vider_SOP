@@ -76,7 +76,7 @@ python3 pipeline/orchestrator.py --emit-prompt S5-subtitle  # 打印该阶段给
 
 ## 代码化科普 demo（Remotion）
 
-- 项目：[pipeline/remotion/kepu-compare](remotion/kepu-compare/)（WorkBuddy vs Qoder，54.5s / 1920×1080）
+- 项目：[pipeline/remotion/kepu-compare](remotion/kepu-compare/)（WorkBuddy vs Qoder，65.3s / 1920×1080 / -16 LUFS）
 - 方法：声音为轴 → 时间轴 → React 场景/字幕/动效；事实台账见项目 `FACTS.md`
 - 渲染：Remotion 4.0.540 + Chrome for Testing；交付编码后 QC
 - 这是 [科普动画 SOP](../sop/short-kepu-motion.md) 的第一个可运行样板

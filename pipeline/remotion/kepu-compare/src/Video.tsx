@@ -507,7 +507,6 @@ export const KepuCompare: React.FC = () => {
   return (
     <AbsoluteFill style={{ background: C.bg }}>
       <Audio src={staticFile("voice.wav")} />
-      <Audio src={staticFile("bgm.wav")} volume={0.055} />
       <Background />
       <Header frame={frame} />
       {scenes.map((s, i) => (

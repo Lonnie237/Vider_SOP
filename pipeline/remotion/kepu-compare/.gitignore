@@ -1,5 +1,7 @@
 node_modules/
 out/
 .work/
+.venv-tts/
 public/voice.wav
+public/bgm.wav
 *.log

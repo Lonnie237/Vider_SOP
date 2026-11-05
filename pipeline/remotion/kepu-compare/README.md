@@ -26,11 +26,11 @@ npx remotion render src/index.ts KepuCompare out/video.mp4 \
 | 项 | 结果 |
 |---|---|
 | 成片 | `out/final.mp4`（工作副本：`pipeline/runs/demo-kepu-compare/workbuddy-vs-qoder.mp4`） |
-| 时长 / 帧数 | 54.5s / 1633 帧 @30fps |
-| 规格 | 1920×1080 / H.264 High / AAC 48kHz / -13.9 LUFS |
-| 大小 / 码率 | 约 10.3 MB / 1.5 Mbps（深色图形内容自适应） |
-| 环境 | Node 26、Remotion 4.0.540、Chrome for Testing（Playwright 缓存） |
-| 渲染 | 一次 Remotion render + 一次 ffmpeg 交付编码（8M 目标，实际内容自适应） |
+| 时长 / 帧数 | 65.3s / 1960 帧 @30fps |
+| 规格 | 1920×1080 / H.264 High / AAC 48kHz / -16.0 LUFS |
+| 大小 / 码率 | 约 11.5 MB / 1.4 Mbps（深色图形内容自适应） |
+| 环境 | Node 26、Remotion 4.0.540、Chrome for Testing（Playwright 缓存）、edge-tts（zh-CN-XiaoxiaoNeural，+15%） |
+| 渲染 | Remotion render + ffmpeg 两遍 loudnorm（-16 LUFS）+ 8M 目标编码；无 BGM |
 | 字幕 | React 内烧录；另出 `subtitles.srt` |
 
 ## 设计

@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""生成科普视频旁白、时间轴与字幕（macOS say）。"""
+"""生成旁白、时间轴与字幕。
+
+优先使用 edge-tts（zh-CN-XiaoxiaoNeural，自然音色，英文词更准）；
+没有 edge-tts 时回退到 macOS say（Tingting）。
+"""
 import json, subprocess, sys
 from pathlib import Path
 
@@ -10,9 +14,10 @@ TMP = ROOT / ".work"
 for d in (PUBLIC, SRC, TMP):
     d.mkdir(parents=True, exist_ok=True)
 
-VOICE = "Tingting"
-RATE = "261"  # 约 1.45x（say 默认 180 wpm）
-LEAD, GAP, TAIL = 0.4, 0.35, 0.8
+EDGE = ROOT / ".venv-tts" / "bin" / "edge-tts"
+VOICE = "zh-CN-XiaoxiaoNeural"
+RATE = "+15%"
+LEAD, GAP, TAIL = 0.45, 0.42, 0.9
 
 BEATS = [
     ("b01", "hook", "WorkBuddy 和 Qoder", "WorkBuddy 和 Qoder，到底差在哪？"),
@@ -43,13 +48,21 @@ def silence(path, seconds):
          "-i", "anullsrc=r=48000:cl=mono", "-t", "%.3f" % seconds,
          "-c:a", "pcm_s16le", str(path)])
 
-def say(text, aiff):
-    run(["say", "-v", VOICE, "-r", RATE, "-o", str(aiff), text])
-    wav = aiff.with_suffix(".wav")
-    run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", str(aiff),
-         "-ar", "48000", "-ac", "1", "-c:a", "pcm_s16le", str(wav)])
-    aiff.unlink(missing_ok=True)
-    return wav
+def synth(text, out_wav):
+    if EDGE.exists():
+        mp3 = out_wav.with_suffix(".mp3")
+        run([str(EDGE), "--voice", VOICE, "--rate=" + RATE,
+             "--text", text, "--write-media", str(mp3)])
+        run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", str(mp3),
+             "-ar", "48000", "-ac", "1", "-c:a", "pcm_s16le", str(out_wav)])
+        mp3.unlink(missing_ok=True)
+    else:
+        aiff = out_wav.with_suffix(".aiff")
+        run(["say", "-v", "Tingting", "-r", "240", "-o", str(aiff), text])
+        run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", str(aiff),
+             "-ar", "48000", "-ac", "1", "-c:a", "pcm_s16le", str(out_wav)])
+        aiff.unlink(missing_ok=True)
+    return out_wav
 
 lead = TMP / "lead.wav"; gap = TMP / "gap.wav"; tail = TMP / "tail.wav"
 silence(lead, LEAD); silence(gap, GAP); silence(tail, TAIL)
@@ -58,8 +71,7 @@ items = [lead]
 timings = []
 t = LEAD
 for i, (bid, section, headline, text) in enumerate(BEATS):
-    raw = TMP / (bid + ".wav")
-    wav = say(text, raw.with_suffix(".aiff"))
+    wav = synth(text, TMP / (bid + ".wav"))
     d = duration(wav)
     timings.append({"id": bid, "section": section, "headline": headline,
                     "text": text, "start": round(t, 3), "end": round(t + d, 3),
@@ -83,5 +95,6 @@ timeline = {"fps": 30, "width": 1920, "height": 1080,
             "frames": int(round(total * 30)),
             "beats": timings}
 (SRC / "timeline.json").write_text(json.dumps(timeline, ensure_ascii=False, indent=2), encoding="utf-8")
-print(json.dumps({"duration": total, "frames": timeline["frames"],
+print(json.dumps({"tts": "edge" if EDGE.exists() else "say",
+                  "duration": total, "frames": timeline["frames"],
                   "beats": len(timings)}, ensure_ascii=False))
