@@ -17,7 +17,7 @@ for d in (PUBLIC, SRC, TMP, BILLING):
     d.mkdir(parents=True, exist_ok=True)
 
 MODEL = "qwen-audio-3.1-tts-flash"
-VOICE = "longanhuan_v3.1"
+VOICE = "longanlingxin_v3.1"
 BASE_WS = "wss://cn-beijing.maas.qianwenaiapi.com/api-ws/v1/inference"
 SPEECH_RATE = 1.05
 LEAD, GAP, TAIL = 0.45, 0.42, 0.9

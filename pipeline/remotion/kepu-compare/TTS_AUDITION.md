@@ -2,7 +2,7 @@
 
 - 生成时间：2026-11-05T14:30:53
 - 模型：qwen-audio-3.1-tts-flash
-- 说明：当前成片仍用 longanhuan_v3.1；待选定音色后重跑。
+- 说明：最终成片已改用 longanlingxin_v3.1（龙安灵心，speech_rate=1.05）。
 - 明细：tts-audition-20261105-143053.json
 
 | 指标 | 合计 |

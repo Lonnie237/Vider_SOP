@@ -1,0 +1,128 @@
+{
+  "generated_at": "2026-11-05T14:45:00",
+  "provider": "Alibaba Cloud Model Studio (DashScope)",
+  "model": "qwen-audio-3.1-tts-flash",
+  "voice": "longanlingxin_v3.1",
+  "speech_rate": 1.05,
+  "base_websocket_api_url": "wss://cn-beijing.maas.qianwenaiapi.com/api-ws/v1/inference",
+  "beats": [
+    {
+      "id": "b01",
+      "chars": 24,
+      "input_tokens": 11,
+      "output_tokens": 33,
+      "total_tokens": 44,
+      "characters": 30,
+      "task_id": "ab303eac795148a1bda3e0df50979c12",
+      "audio_duration_s": 2.586,
+      "text": "WorkBuddy 和 Qoder，到底差在哪？"
+    },
+    {
+      "id": "b02",
+      "chars": 36,
+      "input_tokens": 32,
+      "output_tokens": 88,
+      "total_tokens": 120,
+      "characters": 61,
+      "task_id": "586fb4ee50cb404a9c07ec1251e8947f",
+      "audio_duration_s": 6.766,
+      "text": "一句话：一个是腾讯的 AI 办公工作台，一个是阿里的 AI 编程工作台。"
+    },
+    {
+      "id": "b03",
+      "chars": 45,
+      "input_tokens": 37,
+      "output_tokens": 99,
+      "total_tokens": 136,
+      "characters": 73,
+      "task_id": "a9b99d183e65492c809e093707642148",
+      "audio_duration_s": 7.602,
+      "text": "WorkBuddy 管办公：写文档、做表格、查资料、开会，还能接腾讯文档、会议和企业微信。"
+    },
+    {
+      "id": "b04",
+      "chars": 41,
+      "input_tokens": 27,
+      "output_tokens": 80,
+      "total_tokens": 107,
+      "characters": 60,
+      "task_id": "51a42dce17c54b9fb7115fa4537b7431",
+      "audio_duration_s": 6.165,
+      "text": "Qoder 管写代码：补全、对话、自主编程，还有 Repo Wiki 项目知识库。"
+    },
+    {
+      "id": "b05",
+      "chars": 33,
+      "input_tokens": 33,
+      "output_tokens": 83,
+      "total_tokens": 116,
+      "characters": 63,
+      "task_id": "851325831ee94546a2454c249d7a67f9",
+      "audio_duration_s": 6.4,
+      "text": "为什么两家各推一款？腾讯的基因是办公生态，阿里的基因是云和开发者。"
+    },
+    {
+      "id": "b06",
+      "chars": 60,
+      "input_tokens": 29,
+      "output_tokens": 105,
+      "total_tokens": 134,
+      "characters": 78,
+      "task_id": "b5693360fa66498da2234d5c36a10492",
+      "audio_duration_s": 8.072,
+      "text": "腾讯用 CodeBuddy 管编程、WorkBuddy 管办公；阿里用 Qoder 管代码、QoderWork 管办公。"
+    },
+    {
+      "id": "b07",
+      "chars": 36,
+      "input_tokens": 36,
+      "output_tokens": 85,
+      "total_tokens": 121,
+      "characters": 69,
+      "task_id": "ab36242eab1443ab9720df1bffae8098",
+      "audio_duration_s": 6.531,
+      "text": "普通人怎么选？先看你每天产出的是文档还是代码；再看你已经在用哪家的生态。"
+    },
+    {
+      "id": "b08",
+      "chars": 52,
+      "input_tokens": 39,
+      "output_tokens": 102,
+      "total_tokens": 141,
+      "characters": 82,
+      "task_id": "f957257e01f44e67ad09c3a251d9635e",
+      "audio_duration_s": 7.837,
+      "text": "写代码为主，选 Qoder；文档表格会议为主，选 WorkBuddy；两个都干，可以先用免费版各试一周。"
+    },
+    {
+      "id": "b09",
+      "chars": 33,
+      "input_tokens": 33,
+      "output_tokens": 94,
+      "total_tokens": 127,
+      "characters": 62,
+      "task_id": "67401348d1e24207aacd819320970ffb",
+      "audio_duration_s": 7.236,
+      "text": "价格和功能会变，商用前看官网和合规要求；工具是壳，工作流才是核心。"
+    },
+    {
+      "id": "b10",
+      "chars": 15,
+      "input_tokens": 15,
+      "output_tokens": 36,
+      "total_tokens": 51,
+      "characters": 28,
+      "task_id": "3eab501c3ff4434589be81d9368ef4d8",
+      "audio_duration_s": 2.795,
+      "text": "能接进你工作流的，才是好工具。"
+    }
+  ],
+  "totals": {
+    "beats": 10,
+    "input_tokens": 292,
+    "output_tokens": 805,
+    "total_tokens": 1097,
+    "characters": 606,
+    "audio_duration_s": 67.119
+  }
+}
