@@ -186,6 +186,7 @@ owner: lead
 
 - 单行字幕与持续动效：[caption-motion-continuity](../knowledge/方法论/caption-motion-continuity.md)
 - 版式选择：[常用视频版式](../knowledge/方法论/layout-patterns.md)
+- 分镜版式：[分镜版式卡](../knowledge/方法论/storyboard-layout-cards.md)
 - 脚本调研：[脚本调研 SOP](../knowledge/方法论/script-research-sop.md)
 
 - 方法：[科普视频方法](../knowledge/方法论/kepu-video-method.md)、[剪辑决策方法](../knowledge/方法论/clip-skills-method.md)

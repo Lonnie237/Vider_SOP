@@ -149,6 +149,7 @@ owner: lead
 - [科普视频方法](kepu-video-method.md)
 - [字幕与信息密度](subtitle-density.md)
 - [节奏与卡点](pacing-beat.md)
+- [分镜版式卡](storyboard-layout-cards.md)
 - [科普动画短视频 SOP](../../sop/short-kepu-motion.md)
 
 ## 来源

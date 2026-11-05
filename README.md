@@ -107,7 +107,7 @@ python3 pipeline/orchestrator.py --pipeline pipeline/definitions/data-viz-donut.
 | 可用 | 能照着干 | 步骤 / 参数 / 示例完整，来源可查，无死链 |
 | 已验证 | 本机或真实项目跑通 | 有实测记录（日期、命令 / 工程、结果），可复现 |
 
-当前（2026-11-05）：知识 35 条（33 可用 / 2 已验证）、SOP 11 条、技能 5 个、流水线 4 条；`python3 scripts/validate.py --strict` 为 0 error / 0 warning。
+当前（2026-11-05）：知识 36 条（34 可用 / 2 已验证）、SOP 11 条、技能 5 个、流水线 4 条；`python3 scripts/validate.py --strict` 为 0 error / 0 warning。
 
 > 目标不是“写得多”，而是「已验证」条目占比。每次迭代看 [INDEX.md](INDEX.md) 的统计。
 
@@ -118,7 +118,7 @@ python3 pipeline/orchestrator.py --pipeline pipeline/definitions/data-viz-donut.
 | 阶段 | 内容 | 状态 |
 |---|---|---|
 | P0 基础骨架 | 规范、模板、校验脚本、索引、示例技能 | **已完成（2026-11-03）** |
-| P1 内容填充 | 开源库条目 + 能力矩阵、方法论、工作流、8 类 SOP、5 个技能 | **已完成（2026-11-03）**：35 条知识（含 P2 增补 14 条）/ 11 SOP / 5 技能，全部「可用」以上 |
+| P1 内容填充 | 开源库条目 + 能力矩阵、方法论、工作流、8 类 SOP、5 个技能 | **已完成（2026-11-03）**：36 条知识（含 P2 增补 15 条）/ 11 SOP / 5 技能，全部「可用」以上 |
 | P2 端到端实测 | 口播知识 + 数据动画三种图表 + **Remotion 科普样片（102.9s）** 跑通；新增 PPT 转视频 / 产品说明 / 科普动画 SOP | **样例已完成**；待接真实素材/真实数据，HyperFrames 原型待补 |
 | P3 Agent 产线 | 按视频形态编排子 Agent，任务板 + 质检 + 复盘闭环 | 待启动 |
 

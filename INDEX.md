@@ -6,12 +6,12 @@
 
 | 类别 | 总数 | 草稿 | 可用 | 已验证 | 归档 |
 |---|---|---|---|---|---|
-| 知识条目 | 35 | 0 | 33 | 2 | 0 |
+| 知识条目 | 36 | 0 | 34 | 2 | 0 |
 | SOP | 11 | 0 | 11 | 0 | 0 |
 | 技能 | 5 | - | - | - | - |
-| 模板 | 8 | - | - | - | - |
+| 模板 | 9 | - | - | - | - |
 
-可用以上占比：**100%**（46/46）
+可用以上占比：**100%**（47/47）
 
 ## 知识库
 
@@ -41,6 +41,7 @@
 | 节奏与卡点 · 用镜长和重拍控制观看速度 | `kb/pacing-beat` | 方法论 | 可用 | 2026-11-03 | [pacing-beat](knowledge/方法论/pacing-beat.md) |
 | 视频脚本调研 SOP · 从主题到可拍脚本 | `kb/script-research-sop` | 方法论 | 可用 | 2026-11-05 | [script-research-sop](knowledge/方法论/script-research-sop.md) |
 | 声音设计与混音 · 对白优先，响度统一 | `kb/sound-design` | 方法论 | 可用 | 2026-11-03 | [sound-design](knowledge/方法论/sound-design.md) |
+| 分镜版式卡 · 用 4 个母版管住 8 个镜头 | `kb/storyboard-layout-cards` | 方法论 | 可用 | 2026-11-05 | [storyboard-layout-cards](knowledge/方法论/storyboard-layout-cards.md) |
 | 字幕与信息密度 · 在可读前提下承载信息 | `kb/subtitle-density` | 方法论 | 可用 | 2026-11-03 | [subtitle-density](knowledge/方法论/subtitle-density.md) |
 | 素材管理与代理剪辑 · 可找、可回滚、可批量 | `kb/asset-management` | 工作流 | 可用 | 2026-11-03 | [asset-management](knowledge/工作流/asset-management.md) |
 | 自动化流水线 · ffmpeg-first 的幂等编排 | `kb/automation-pipeline` | 工作流 | 可用 | 2026-11-03 | [automation-pipeline](knowledge/工作流/automation-pipeline.md) |
@@ -124,6 +125,7 @@
 - [QC清单](templates/QC清单.md)
 - [SOP](templates/SOP.md)
 - [交付规格](templates/交付规格.md)
+- [分镜版式卡](templates/分镜版式卡.md)
 - [分镜表](templates/分镜表.md)
 - [知识条目-开源库](templates/知识条目-开源库.md)
 - [知识条目-方法论](templates/知识条目-方法论.md)
