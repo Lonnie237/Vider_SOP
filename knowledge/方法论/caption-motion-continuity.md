@@ -15,7 +15,7 @@ owner: lead
 
 ## 一句话定位
 
-字幕**一屏一行、12–16 字**，长句拆成多条短 cue；画面在每个停留段保留「持续但不抢戏」的环境动效，用一条贯穿全片的线承担叙事连续性——让观众在「等旁白」时也有东西可看，但不被乱动干扰。
+字幕**一屏一行、12–16 字**，长句拆成多条短 cue，并用 TTS 字级时间戳让每条字幕与吐字精确对齐；画面在每个停留段保留「持续但不抢戏」的环境动效——让观众在「等旁白」时也有东西可看，但不被乱动干扰。
 
 ## 适用场景
 
@@ -30,7 +30,7 @@ owner: lead
 2. **字幕不是旁白全文**：旁白负责因果，字幕只保留关键词/短句；完整转录另出 SRT。
 3. **静止会「死」**：完全冻结的画面会让观众意识到「在等」；moving hold 用 1–2px 的呼吸/漂移维持生命感 [实测+推断]。
 4. **动效要分层**：环境层持续、低幅；焦点层按关键词触发；两者不抢戏。
-5. **线是叙事装置**：一条从文档到代码、再到决策的线，既提供运动，也把三段差异串成一个整体。
+5. **底部装饰线不要**：实测底部贯穿线会抢注意力；需要连续性时，用内容内部的连线/路径，而不是全片底部加一条线。
 6. **动效服务理解**：每个可见动作都要能回指到当前旁白落点；不能为了「不枯燥」而乱加。
 
 ## 可操作步骤
@@ -54,14 +54,12 @@ owner: lead
 - 每个镜头至少 1 个环境层元素；焦点层动作 ≤ 1 个/句。
 - 结论停留（HOLD）时，保留环境层 + 一个 0.2–0.3Hz 的轻微呼吸，避免冻结。
 
-### 3. 加「一条线」贯穿
+### 3. 字幕与旁白精确对齐
 
-- 起点：文档下划线 / 光标。
-- 中段：变成左右对比的中轴线。
-- 产品地图：变成连接产品的连线。
-- 选择段：变成决策路径。
-- 结尾：收成金句下划线。
-- 线宽 2–3px；颜色随阵营变化（蓝/橙/琥珀）；转场用 match cut 让线穿过去。
+- 用支持字级时间戳的 TTS（如 Qwen-Audio-TTS 的 word_timestamp_enabled=true），拿到每个字的 begin/end。
+- 每条字幕 cue 记录原文起止字符，用字级时间戳换算出精确 start/end，不按字数插值。
+- 拼接多段音频时，给每段加上段前 offset；字幕时间 = 段 offset + 字级时间。
+- 没有字级时间戳时，才退回「按字数比例」的近似，并标注风险。
 
 ### 4. 每镜自检
 
@@ -82,7 +80,7 @@ owner: lead
 | 环境动效频率 | 0.05–0.3Hz | 慢、不抢戏 |
 | 环境动效幅度 | 1–3px / 0.5–1.5% | 可感知但不干扰阅读 |
 | 焦点动作 | ≤1 个/句 | 防止注意力过载 |
-| 线宽 | 2–3px | 1080p 可见但不粗 |
+| 字级对齐 | 每条 cue 有精确 start/end | 字级时间戳，不按字数插值 |
 
 ## 常见反例
 
@@ -93,7 +91,7 @@ owner: lead
 | 全片加 GIF 循环 | 画质/体积/循环接缝/授权问题 | 用 Remotion/CSS/Lottie |
 | 每个元素都在动 | 注意力过载，像 PPT 动画 | 环境层 + 焦点层分离 |
 | 动效和旁白无关 | 观众不知道看哪 | 动作只在关键词/句末重音 |
-| 一条线乱连 | 暗示错误关系 | 只连真实关系，线要有语义 |
+| 底部贯穿线 | 抢注意力，像进度条/水印 | 删掉；需要连续性时用内容内连线 |
 | 静止 HOLD 超过 2s | 观众以为卡了 | 加呼吸/漂移/光标 |
 
 ## 验证方式
@@ -120,3 +118,5 @@ owner: lead
 4. [Kinetic Whiteboard Captions](https://github.com/het8802/opennolan/blob/4457349c386ea1a89c01547f9a76fa650970c131/skills/creative/kinetic-whiteboard-captions.md)：字幕按语义节拍逐条出现。
 5. [The Dinosaur Impact, Minute by Minute](https://refs.video/v/yt-dFCbJmgeHmA)：9s 旁白停顿由画面推进。
 6. [The Principles of Motion Design](https://design.tutsplus.com/the-principles-of-motion-design--ytc-79c)：timing/easing/次级动作。
+7. [Qwen-Audio-TTS 服务端事件](https://help.aliyun.com/zh/model-studio/qwen-audio-tts-server-events)：sentence-end 返回字级时间戳。
+8. [html-to-explainer-video](https://github.com/amliuyong/html-to-explainer-video)：Qwen 字级字幕 + 音画对位的工程参考。

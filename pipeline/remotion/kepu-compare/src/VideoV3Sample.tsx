@@ -226,7 +226,6 @@ export const KepuV3Sample: React.FC = () => {
     <AbsoluteFill style={{ background: C.bg }}>
       <Audio src={staticFile("voice-v3-sample.wav")} />
       <Background />
-      <Thread frame={frame} />
       <Header frame={frame} />
       {scenes.map((s, i) => (
         <Sequence key={i} from={s.from} durationInFrames={Math.max(1, s.to - s.from)}>{s.node}</Sequence>
