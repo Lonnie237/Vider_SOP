@@ -88,7 +88,7 @@ const Header: React.FC<{ frame: number }> = ({ frame }) => {
       </div>
       <div style={{ position: "absolute", top: 46, right: 76, fontFamily: FONT, fontSize: 19, color: C.muted }}>
         <span style={{ color: C.tencent, fontWeight: 700 }}>WorkBuddy</span> × <span style={{ color: C.alibaba, fontWeight: 700 }}>Qoder</span>
-        <span style={{ color: C.amber, marginLeft: 14, fontFamily: MONO, fontSize: 15 }}>V3.1 SAMPLE</span>
+        <span style={{ color: C.amber, marginLeft: 14, fontFamily: MONO, fontSize: 15 }}>V3.3 SAMPLE</span>
       </div>
     </>
   );
@@ -100,26 +100,10 @@ const WordCaption: React.FC<{ frame: number }> = ({ frame }) => {
   const local = frame - sec(cue.start);
   const dur = sec(cue.end) - sec(cue.start);
   const o = Math.min(1, Math.min(local / 4, (dur - local) / 4));
-  const t = frame / T.fps;
-  const tokens = (cue.tokens || []).filter((x: any) => x.text && x.text.trim());
-  const active = tokens.find((x: any) => t >= x.start - 0.03 && t <= x.end + 0.03);
-  let cursor = 0;
-  const spans: React.ReactNode[] = [];
-  tokens.forEach((tok: any, i: number) => {
-    const clean = tok.text.replace(/[，。！？、；：,.!?;:]/g, "");
-    if (!clean) return;
-    const p = cue.text.indexOf(clean, cursor);
-    if (p < 0) return;
-    if (p > cursor) spans.push(<span key={"pre" + i}>{cue.text.slice(cursor, p)}</span>);
-    const is = active && active.text === tok.text;
-    spans.push(<span key={"tok" + i} style={{ color: is ? C.amber : C.text, fontWeight: is ? 700 : 500 }}>{cue.text.slice(p, p + clean.length)}</span>);
-    cursor = p + clean.length;
-  });
-  if (cursor < cue.text.length) spans.push(<span key="tail">{cue.text.slice(cursor)}</span>);
   return (
     <div style={{ position: "absolute", left: 0, right: 0, bottom: 50, display: "flex", justifyContent: "center" }}>
-      <div style={{ opacity: o, padding: "13px 28px", borderRadius: 6, background: "rgba(0,0,0,0.72)", border: "1px solid rgba(255,255,255,0.12)", color: C.text, fontFamily: FONT, fontSize: 38, lineHeight: 1.2, whiteSpace: "nowrap" }}>
-        {spans.length ? spans : cue.text}
+      <div style={{ opacity: o, padding: "13px 28px", borderRadius: 6, background: "rgba(0,0,0,0.72)", border: "1px solid rgba(255,255,255,0.12)", color: C.text, fontFamily: FONT, fontSize: 38, lineHeight: 1.2, whiteSpace: "nowrap", fontWeight: 500 }}>
+        {cue.text}
       </div>
     </div>
   );
