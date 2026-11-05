@@ -119,7 +119,7 @@ python3 pipeline/orchestrator.py --pipeline pipeline/definitions/data-viz-donut.
 |---|---|---|
 | P0 基础骨架 | 规范、模板、校验脚本、索引、示例技能 | **已完成（2026-11-03）** |
 | P1 内容填充 | 开源库条目 + 能力矩阵、方法论、工作流、8 类 SOP、5 个技能 | **已完成（2026-11-03）**：31 条知识（含 P2 增补 10 条）/ 11 SOP / 5 技能，全部「可用」以上 |
-| P2 端到端实测 | 口播知识 + 数据动画三种图表 + **Remotion 科普样片（65.3s）** 跑通；新增 PPT 转视频 / 产品说明 / 科普动画 SOP | **样例已完成**；待接真实素材/真实数据，HyperFrames 原型待补 |
+| P2 端到端实测 | 口播知识 + 数据动画三种图表 + **Remotion 科普样片（66.0s）** 跑通；新增 PPT 转视频 / 产品说明 / 科普动画 SOP | **样例已完成**；待接真实素材/真实数据，HyperFrames 原型待补 |
 | P3 Agent 产线 | 按视频形态编排子 Agent，任务板 + 质检 + 复盘闭环 | 待启动 |
 
 任务与编制见 [team/README.md](team/README.md)；本轮验收记录见 [docs/验收记录-P1.md](docs/验收记录-P1.md)。

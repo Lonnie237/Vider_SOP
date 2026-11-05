@@ -171,9 +171,10 @@ owner: lead
 
 ## 复盘与改进
 
-- **已跑通 Remotion 版科普样片（2026-11-05）**：[kepu-compare](../pipeline/remotion/kepu-compare/) · WorkBuddy vs Qoder，65.3s / 1960 帧 / 1920×1080 / -16 LUFS；Remotion 4.0.540 + Node 26 + Chrome for Testing + edge-tts（Xiaoxiao，+15%），QC 通过。HyperFrames 仍未安装（[待确认]）。
+- **已跑通 Remotion 版科普样片（2026-11-05）**：[kepu-compare](../pipeline/remotion/kepu-compare/) · WorkBuddy vs Qoder，66.0s / 1978 帧 / 1920×1080 / -16 LUFS；Remotion 4.0.540 + Node 26 + Chrome for Testing + 阿里云 Qwen TTS（qwen-audio-3.1-tts-flash / longanhuan_v3.1），QC 通过。HyperFrames 仍未安装（[待确认]）。
 - 交付码率说明：深色图形内容在 `-b:v 8M` 下实际约 1.4Mbps，属内容自适应；屏幕文字仍清晰。
-- 音频：去掉 BGM，仅旁白 + 两遍 loudnorm；TTS 从 say(Tingting 1.45×) 换成 edge-tts(Xiaoxiao +15%)，解决“声音不舒服”。
+- 音频：去掉 BGM，仅旁白 + 两遍 loudnorm；TTS 最终采用阿里云百炼 Qwen TTS（qwen-audio-3.1-tts-flash / longanhuan_v3.1）。
+- 计费记录：[kepu-compare/TTS_BILLING.md](../pipeline/remotion/kepu-compare/TTS_BILLING.md)：10 次调用，input 292 / output 789 / total 1081 tokens（API 返回）。
 - 回填：真实项目记录渲染耗时、返工点、有效开头。
 - 与数据动画共用「帧=f(t)、静帧/接触表、帧数校验」的工程习惯。
 
