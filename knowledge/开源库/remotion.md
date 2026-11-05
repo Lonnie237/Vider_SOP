@@ -116,6 +116,18 @@ ffmpeg -i out/hello.mp4 -af "loudnorm=I=-14:TP=-1.5:LRA=11" \
 - 服务 SOP：数据动画类与宣传片类 SOP 的 S9 动效包装、S7 图文字幕；批量模板出片环节。
 - 关联条目：`kb/ffmpeg`（响度 / 封装 / 拼接衔接）、[本机环境基线](../环境/environment-local.md)（Node / pnpm 版本）。
 
+## 生态与科普模板（2026-11）
+
+- 官方提供 **Agent Skills** 与 `npx create-video@latest` 模板；文档 1200+ 页，支持 Node/Lambda/客户端渲染。
+- 科普生态（只借方法，不复制代码）：
+  - [psych-kepu-video-skill](https://github.com/sixwei2025/psych-kepu-video-skill)：JSON 脚本驱动整条片、16:9/45s、封面首帧。
+  - [video-skills-toolkit](https://github.com/liangdabiao/video-skills-toolkit)：6 类模板（口播/公众号文章/几何数学/纸片分层/手绘/音频转字幕）。
+  - [2D-kepu-donghua-Skill](https://github.com/ShiyouQi888/2D-kepu-donghua-Skill)：4 套视觉模板、5 个确认点、30s 样片、自动 QC。
+  - [shorts-kit](https://github.com/howznguyen/shorts-kit)：fact ledger、20+ 故事流、word-timed 字幕、安全区。
+  - [anything2explainer](https://github.com/vincentwei1021/anything2explainer)：主题→带配音科普讲解。
+- 共性方法（声音为轴、字幕为基准、事实台账、30s 样片）见 [科普视频方法](../方法论/kepu-video-method.md)。
+- 许可提醒：Remotion 采用特殊许可，4 人以上公司商用需购买公司许可。
+
 ## 实测记录
 
 | 日期 | 环境 | 命令 / 工程 | 结果 |

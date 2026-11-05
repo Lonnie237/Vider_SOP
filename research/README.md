@@ -45,6 +45,7 @@
 - [2026-11-03-开源视频编辑生态](2026-11-03-开源视频编辑生态.md)（lib-scout 产出）
 - [2026-11-03-code-video-showcase](2026-11-03-code-video-showcase.md)（纯代码视频 Agent Skill 调研，lead）
 - [来源台账](来源台账.md)（所有学习来源 / license / 沉淀位置 / 复用边界，持续更新）
+- [2026-11-05-Remotion vs HyperFrames](2026-11-05-remotion-vs-hyperframes-科普视频.md)（科普视频技术栈与生态）
 
 ## 来源台账（跨笔记共用）
 

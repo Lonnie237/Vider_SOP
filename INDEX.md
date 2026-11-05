@@ -6,12 +6,12 @@
 
 | 类别 | 总数 | 草稿 | 可用 | 已验证 | 归档 |
 |---|---|---|---|---|---|
-| 知识条目 | 29 | 0 | 27 | 2 | 0 |
-| SOP | 10 | 0 | 10 | 0 | 0 |
+| 知识条目 | 31 | 0 | 29 | 2 | 0 |
+| SOP | 11 | 0 | 11 | 0 | 0 |
 | 技能 | 5 | - | - | - | - |
 | 模板 | 7 | - | - | - | - |
 
-可用以上占比：**100%**（39/39）
+可用以上占比：**100%**（42/42）
 
 ## 知识库
 
@@ -26,12 +26,14 @@
 | Blender VSE · 开源 NLE 与 3D/合成一体 | `kb/blender-vse` | 工具 | 可用 | 2026-11-03 | [blender-vse](knowledge/开源库/blender-vse.md) |
 | Editly · Node.js 声明式剪辑与模板出片 | `kb/editly` | 工具 | 可用 | 2026-11-03 | [editly](knowledge/开源库/editly.md) |
 | FFmpeg · 音视频处理的命令行瑞士军刀 | `kb/ffmpeg` | 工具 | 已验证 | 2026-11-03 | [ffmpeg](knowledge/开源库/ffmpeg.md) |
+| HyperFrames · HTML 原生、Agent 优先的视频渲染框架 | `kb/hyperframes` | 工具 | 可用 | 2026-11-05 | [hyperframes](knowledge/开源库/hyperframes.md) |
 | WhisperX · 词级时间戳转写与说话人分离 | `kb/whisperx` | 工具 | 可用 | 2026-11-03 | [whisperx](knowledge/开源库/whisperx.md) |
 | 剪辑决策方法 · 判断与软件分离、音频驱动、黑场交回 | `kb/clip-skills-method` | 方法论 | 可用 | 2026-11-04 | [clip-skills-method](knowledge/方法论/clip-skills-method.md) |
 | 纯代码视频风格库 · 11 种风格配方 | `kb/code-video-style-recipes` | 方法论 | 可用 | 2026-11-03 | [code-video-style-recipes](knowledge/方法论/code-video-style-recipes.md) |
 | 纯代码视频主题库 · 8 套配色与材质系统 | `kb/code-video-themes` | 方法论 | 可用 | 2026-11-03 | [code-video-themes](knowledge/方法论/code-video-themes.md) |
 | 调色基础 · 一级校正、镜头匹配与 Rec.709 交付 | `kb/color-grading` | 方法论 | 可用 | 2026-11-03 | [color-grading](knowledge/方法论/color-grading.md) |
 | 钩子与留存 · 用前 3 秒把「刷到」变成「看完」 | `kb/hooks-retention` | 方法论 | 可用 | 2026-11-03 | [hooks-retention](knowledge/方法论/hooks-retention.md) |
+| 科普视频方法 · 声音为轴、字幕为基准、事实台账 | `kb/kepu-video-method` | 方法论 | 可用 | 2026-11-05 | [kepu-video-method](knowledge/方法论/kepu-video-method.md) |
 | 叙事结构 · 用一条命题组织信息推进 | `kb/narrative-structure` | 方法论 | 可用 | 2026-11-03 | [narrative-structure](knowledge/方法论/narrative-structure.md) |
 | 节奏与卡点 · 用镜长和重拍控制观看速度 | `kb/pacing-beat` | 方法论 | 可用 | 2026-11-03 | [pacing-beat](knowledge/方法论/pacing-beat.md) |
 | 声音设计与混音 · 对白优先，响度统一 | `kb/sound-design` | 方法论 | 可用 | 2026-11-03 | [sound-design](knowledge/方法论/sound-design.md) |
@@ -57,6 +59,7 @@
 | 产品功能 / 官网说明视频 · 录屏 + 包装 SOP | `sop/long-product-explainer` | 产品功能说明 | 60–180s | 16:9 / 9:16 | 可用 | 2026-11-04 | [long-product-explainer](sop/long-product-explainer.md) |
 | 产品宣传片 · 卖点结构与多版本导出 SOP | `sop/long-promo` | 产品宣传片 | 30–120s | 16:9 / 9:16 | 可用 | 2026-11-03 | [long-promo](sop/long-promo.md) |
 | 教程长视频 · 录屏 + 讲解的结构化 SOP | `sop/long-tutorial` | 教程长视频 | 5–30min | 16:9 | 可用 | 2026-11-03 | [long-tutorial](sop/long-tutorial.md) |
+| 科普动画短视频 · 代码驱动（Remotion / HyperFrames）SOP | `sop/short-kepu-motion` | 科普动画 | 45–120s | 16:9 / 9:16 | 可用 | 2026-11-05 | [short-kepu-motion](sop/short-kepu-motion.md) |
 | 直播切片 · 竖屏高光切片 SOP（15–90s） | `sop/short-live-clip` | 直播切片 | 15–90s | 9:16 | 可用 | 2026-11-03 | [short-live-clip](sop/short-live-clip.md) |
 | 混剪卡点 · 情绪向卡点混剪 SOP（15–60s） | `sop/short-montage-beat` | 混剪卡点 | 15–60s | 9:16 | 可用 | 2026-11-03 | [short-montage-beat](sop/short-montage-beat.md) |
 | 口播知识 · 竖屏知识口播 SOP（30–180s） | `sop/short-oral-knowledge` | 口播知识 | 30–180s | 9:16 | 可用 | 2026-11-03 | [short-oral-knowledge](sop/short-oral-knowledge.md) |
