@@ -4,7 +4,7 @@ title: 单行字幕与持续动效 · 不让画面「死」的规则
 type: 方法论
 domain: [字幕, 动效, 节奏, 交付]
 status: 可用
-confidence: 中高
+confidence: 中
 tags: [单行字幕, moving hold, 环境动效, 线形讲解, 注意力, 可读性]
 related: [kb/subtitle-density, kb/pacing-beat, kb/hooks-retention, kb/clip-skills-method]
 updated: 2026-11-05
