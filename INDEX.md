@@ -6,12 +6,12 @@
 
 | 类别 | 总数 | 草稿 | 可用 | 已验证 | 归档 |
 |---|---|---|---|---|---|
-| 知识条目 | 33 | 0 | 31 | 2 | 0 |
+| 知识条目 | 34 | 0 | 32 | 2 | 0 |
 | SOP | 11 | 0 | 11 | 0 | 0 |
 | 技能 | 5 | - | - | - | - |
-| 模板 | 7 | - | - | - | - |
+| 模板 | 8 | - | - | - | - |
 
-可用以上占比：**100%**（44/44）
+可用以上占比：**100%**（45/45）
 
 ## 知识库
 
@@ -38,6 +38,7 @@
 | 常用视频版式与处理方式 · 20 种版面速查 | `kb/layout-patterns` | 方法论 | 可用 | 2026-11-05 | [layout-patterns](knowledge/方法论/layout-patterns.md) |
 | 叙事结构 · 用一条命题组织信息推进 | `kb/narrative-structure` | 方法论 | 可用 | 2026-11-03 | [narrative-structure](knowledge/方法论/narrative-structure.md) |
 | 节奏与卡点 · 用镜长和重拍控制观看速度 | `kb/pacing-beat` | 方法论 | 可用 | 2026-11-03 | [pacing-beat](knowledge/方法论/pacing-beat.md) |
+| 视频脚本调研 SOP · 从主题到可拍脚本 | `kb/script-research-sop` | 方法论 | 可用 | 2026-11-05 | [script-research-sop](knowledge/方法论/script-research-sop.md) |
 | 声音设计与混音 · 对白优先，响度统一 | `kb/sound-design` | 方法论 | 可用 | 2026-11-03 | [sound-design](knowledge/方法论/sound-design.md) |
 | 字幕与信息密度 · 在可读前提下承载信息 | `kb/subtitle-density` | 方法论 | 可用 | 2026-11-03 | [subtitle-density](knowledge/方法论/subtitle-density.md) |
 | 素材管理与代理剪辑 · 可找、可回滚、可批量 | `kb/asset-management` | 工作流 | 可用 | 2026-11-03 | [asset-management](knowledge/工作流/asset-management.md) |
@@ -125,6 +126,7 @@
 - [分镜表](templates/分镜表.md)
 - [知识条目-开源库](templates/知识条目-开源库.md)
 - [知识条目-方法论](templates/知识条目-方法论.md)
+- [脚本调研卡](templates/脚本调研卡.md)
 - [项目Brief](templates/项目Brief.md)
 
 ### 脚本（scripts/）
