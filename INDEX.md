@@ -6,12 +6,12 @@
 
 | 类别 | 总数 | 草稿 | 可用 | 已验证 | 归档 |
 |---|---|---|---|---|---|
-| 知识条目 | 26 | 0 | 24 | 2 | 0 |
-| SOP | 8 | 0 | 8 | 0 | 0 |
+| 知识条目 | 29 | 0 | 27 | 2 | 0 |
+| SOP | 10 | 0 | 10 | 0 | 0 |
 | 技能 | 5 | - | - | - | - |
 | 模板 | 7 | - | - | - | - |
 
-可用以上占比：**100%**（34/34）
+可用以上占比：**100%**（39/39）
 
 ## 知识库
 
@@ -27,6 +27,7 @@
 | Editly · Node.js 声明式剪辑与模板出片 | `kb/editly` | 工具 | 可用 | 2026-11-03 | [editly](knowledge/开源库/editly.md) |
 | FFmpeg · 音视频处理的命令行瑞士军刀 | `kb/ffmpeg` | 工具 | 已验证 | 2026-11-03 | [ffmpeg](knowledge/开源库/ffmpeg.md) |
 | WhisperX · 词级时间戳转写与说话人分离 | `kb/whisperx` | 工具 | 可用 | 2026-11-03 | [whisperx](knowledge/开源库/whisperx.md) |
+| 剪辑决策方法 · 判断与软件分离、音频驱动、黑场交回 | `kb/clip-skills-method` | 方法论 | 可用 | 2026-11-04 | [clip-skills-method](knowledge/方法论/clip-skills-method.md) |
 | 纯代码视频风格库 · 11 种风格配方 | `kb/code-video-style-recipes` | 方法论 | 可用 | 2026-11-03 | [code-video-style-recipes](knowledge/方法论/code-video-style-recipes.md) |
 | 纯代码视频主题库 · 8 套配色与材质系统 | `kb/code-video-themes` | 方法论 | 可用 | 2026-11-03 | [code-video-themes](knowledge/方法论/code-video-themes.md) |
 | 调色基础 · 一级校正、镜头匹配与 Rec.709 交付 | `kb/color-grading` | 方法论 | 可用 | 2026-11-03 | [color-grading](knowledge/方法论/color-grading.md) |
@@ -40,6 +41,8 @@
 | 开源视频工具能力矩阵 · S3–S10 选型底表 | `kb/capability-matrix` | 工作流 | 可用 | 2026-11-03 | [capability-matrix](knowledge/开源库/capability-matrix.md) |
 | 纯代码视频管线 · 帧=f(t)、剪辑表驱动、分段闭环 | `kb/code-video-pipeline` | 工作流 | 可用 | 2026-11-03 | [code-video-pipeline](knowledge/工作流/code-video-pipeline.md) |
 | 平台规格与发布 · 一稿多版与上传前自检 | `kb/platform-specs` | 工作流 | 可用 | 2026-11-03 | [platform-specs](knowledge/工作流/platform-specs.md) |
+| PPT/文档转视频 · 逐页解说、一次烧字幕 | `kb/ppt-to-video` | 工作流 | 可用 | 2026-11-04 | [ppt-to-video](knowledge/工作流/ppt-to-video.md) |
+| 产品演示视频 · 录屏/DSL 驱动的功能说明 | `kb/product-demo-video` | 工作流 | 可用 | 2026-11-04 | [product-demo-video](knowledge/工作流/product-demo-video.md) |
 | 开源视频工具选型指南 · 按需求决策树与推荐组合 | `kb/selection-guide` | 工作流 | 可用 | 2026-11-03 | [selection-guide](knowledge/开源库/selection-guide.md) |
 | 转码与交付 · 母版、平台版与 QC 一条线 | `kb/transcode-delivery` | 工作流 | 可用 | 2026-11-03 | [transcode-delivery](knowledge/工作流/transcode-delivery.md) |
 | 本机环境 · macOS Apple Silicon 工具链基线 | `kb/environment-local` | 环境 | 已验证 | 2026-11-03 | [environment-local](knowledge/环境/environment-local.md) |
@@ -50,6 +53,8 @@
 |---|---|---|---|---|---|---|---|
 | 数据可视化动画 · 数据到成片的参数化 SOP | `sop/long-data-animation` | 数据可视化动画 | 30–180s | 16:9 / 9:16 | 可用 | 2026-11-03 | [long-data-animation](sop/long-data-animation.md) |
 | 访谈 / 播客视频 · 多机位同步与长访谈精剪 SOP | `sop/long-interview-podcast` | 访谈 / 播客视频 | 20–120min | 16:9 | 可用 | 2026-11-03 | [long-interview-podcast](sop/long-interview-podcast.md) |
+| PPT/文档转视频 · 逐页解说 SOP | `sop/long-ppt-to-video` | PPT转视频 | 3–15min | 16:9 | 可用 | 2026-11-04 | [long-ppt-to-video](sop/long-ppt-to-video.md) |
+| 产品功能 / 官网说明视频 · 录屏 + 包装 SOP | `sop/long-product-explainer` | 产品功能说明 | 60–180s | 16:9 / 9:16 | 可用 | 2026-11-04 | [long-product-explainer](sop/long-product-explainer.md) |
 | 产品宣传片 · 卖点结构与多版本导出 SOP | `sop/long-promo` | 产品宣传片 | 30–120s | 16:9 / 9:16 | 可用 | 2026-11-03 | [long-promo](sop/long-promo.md) |
 | 教程长视频 · 录屏 + 讲解的结构化 SOP | `sop/long-tutorial` | 教程长视频 | 5–30min | 16:9 | 可用 | 2026-11-03 | [long-tutorial](sop/long-tutorial.md) |
 | 直播切片 · 竖屏高光切片 SOP（15–90s） | `sop/short-live-clip` | 直播切片 | 15–90s | 9:16 | 可用 | 2026-11-03 | [short-live-clip](sop/short-live-clip.md) |
