@@ -91,7 +91,7 @@ const LogoBadge: React.FC<{ letter: string; color: string }> = ({ letter, color 
   </div>
 );
 
-const Background: React.FC = () => {
+export const Background: React.FC = () => {
   const frame = useCurrentFrame();
   const drift = Math.sin(frame / 90) * 18;
   return (

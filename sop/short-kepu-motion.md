@@ -171,7 +171,7 @@ owner: lead
 
 ## 复盘与改进
 
-- **已跑通 Remotion 版科普样片（2026-11-05）**：[kepu-compare](../pipeline/remotion/kepu-compare/) · WorkBuddy vs Qoder，67.2s / 2014 帧 / 1920×1080 / -16 LUFS；Remotion 4.0.540 + Node 26 + Chrome for Testing + 阿里云 Qwen TTS（qwen-audio-3.1-tts-flash / longanlingxin_v3.1），QC 通过。HyperFrames 仍未安装（[待确认]）。
+- **已跑通 Remotion 版科普样片（2026-11-05）**：[kepu-compare](../pipeline/remotion/kepu-compare/) · WorkBuddy vs Qoder，68.0s / 2038 帧 / 1920×1080 / -16 LUFS（含 0.8s 封面）；Remotion 4.0.540 + Node 26 + Chrome for Testing + 阿里云 Qwen TTS（qwen-audio-3.1-tts-flash / longanlingxin_v3.1），QC 通过。HyperFrames 仍未安装（[待确认]）。
 - 交付码率说明：深色图形内容在 `-b:v 8M` 下实际约 1.4Mbps，属内容自适应；屏幕文字仍清晰。
 - 音频：去掉 BGM，仅旁白 + 两遍 loudnorm；TTS 最终采用阿里云百炼 Qwen TTS（qwen-audio-3.1-tts-flash / longanhuan_v3.1）。
 - 计费记录：[kepu-compare/TTS_BILLING.md](../pipeline/remotion/kepu-compare/TTS_BILLING.md)：10 次调用，input 292 / output 805 / total 1097 tokens（API 返回）。

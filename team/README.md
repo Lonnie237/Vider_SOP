@@ -48,7 +48,7 @@
 
 ## 下一阶段（P2 建议）
 
-> **P2 样板已完成**：口播知识 34.7s、数据动画三种图表（条形/折线/环图）、Remotion 科普样片 67.2s（WorkBuddy vs Qoder）均跑通，QC PASS。见 [pipeline/README.md](../pipeline/README.md)、`pipeline/runs/demo-*` 与 [kepu-compare](../pipeline/remotion/kepu-compare/)。下一步：真实素材/数据、HyperFrames 原型、更多图表类型。
+> **P2 样板已完成**：口播知识 34.7s、数据动画三种图表（条形/折线/环图）、Remotion 科普样片 68.0s（WorkBuddy vs Qoder）均跑通，QC PASS。见 [pipeline/README.md](../pipeline/README.md)、`pipeline/runs/demo-*` 与 [kepu-compare](../pipeline/remotion/kepu-compare/)。下一步：真实素材/数据、HyperFrames 原型、更多图表类型。
 
 1. **实测 Agent**：用真实素材端到端跑 `sop/short-oral-knowledge` 与 `sop/long-tutorial`，把状态升到「已验证」并回填工时基线。
 2. **补缺条目**：whisperx / scenedetect / manim（S7 转写、S9 数据动画）；moviepy / pyav / auto-editor / OTIO 安装后补实测。

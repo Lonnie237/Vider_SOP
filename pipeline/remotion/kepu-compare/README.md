@@ -29,13 +29,18 @@ npx remotion render src/index.ts KepuCompare out/video.mp4 \
 | 项 | 结果 |
 |---|---|
 | 成片 | `out/final.mp4`（工作副本：`pipeline/runs/demo-kepu-compare/workbuddy-vs-qoder.mp4`） |
-| 时长 / 帧数 | 67.2s / 2014 帧 @30fps |
+| 时长 / 帧数 | 68.0s / 2038 帧 @30fps（含 0.8s 封面） |
 | 规格 | 1920×1080 / H.264 High / AAC 48kHz / -16.0 LUFS |
-| 大小 / 码率 | 约 11.4 MB / 1.35 Mbps（深色图形内容自适应） |
+| 大小 / 码率 | 约 11.5 MB / 1.35 Mbps（深色图形内容自适应） |
 | 环境 | Node 26、Remotion 4.0.540、Chrome for Testing（Playwright 缓存）、阿里云百炼 Qwen TTS（qwen-audio-3.1-tts-flash / longanlingxin_v3.1） |
 | 渲染 | Remotion render + ffmpeg 两遍 loudnorm（-16 LUFS）+ 8M 目标编码；无 BGM |
 | TTS 用量 | input 292 / output 805 / total 1097 tokens（10 次调用，API 返回）；详见 [TTS_BILLING.md](TTS_BILLING.md) |
 | 字幕 | React 内烧录；另出 `subtitles.srt` |
+
+## 封面
+
+- 独立封面：`out/cover.png`（由 `src/Cover.tsx` 渲染，不再依赖视频首帧）；`Cover.png` 不再使用旧的 9 宫格缩略图。
+- 成片前置 0.8s 封面，再进入原开场，避免首帧空画面/九宫格缩略图问题。
 
 ## 音色与语速（2026-11-05）
 
