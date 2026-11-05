@@ -25,7 +25,7 @@ ID_RE = r"^kb/[a-z0-9][a-z0-9-]*$"
 SOP_ID_RE = r"^sop/[a-z0-9][a-z0-9-]*$"
 DATE_RE = r"^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
 
-SKIP_DIRS = {".git", "node_modules", "__pycache__", ".venv", "tmp", "cache", "exports", "media", "runs"}
+SKIP_DIRS = {".git", "node_modules", "__pycache__", ".venv", ".venv-tts", "tmp", "cache", "exports", "media", "runs"}
 
 
 def parse_inline_list(raw: str) -> List[str]:

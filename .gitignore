@@ -32,6 +32,7 @@ tmp/
 __pycache__/
 node_modules/
 .venv/
+.venv-*/
 .pytest_cache/
 
 # 本地凭据 / 部署密钥（绝不入库）
