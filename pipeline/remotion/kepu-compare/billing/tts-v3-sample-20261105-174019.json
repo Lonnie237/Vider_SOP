@@ -1,0 +1,42 @@
+{
+  "generated_at": "2026-11-05T17:40:19",
+  "voice": "longanlingxin_v3.1",
+  "rate": 1.05,
+  "rows": [
+    {
+      "id": "b01",
+      "chars": 55,
+      "input_tokens": 50,
+      "output_tokens": 122,
+      "total_tokens": 172,
+      "characters": 96,
+      "words": 45
+    },
+    {
+      "id": "b03",
+      "chars": 72,
+      "input_tokens": 57,
+      "output_tokens": 145,
+      "total_tokens": 202,
+      "characters": 117,
+      "words": 50
+    },
+    {
+      "id": "b04",
+      "chars": 64,
+      "input_tokens": 50,
+      "output_tokens": 122,
+      "total_tokens": 172,
+      "characters": 101,
+      "words": 42
+    }
+  ],
+  "totals": {
+    "input": 157,
+    "output": 389,
+    "total": 546,
+    "chars": 314,
+    "calls": 3
+  },
+  "duration": 31.85
+}

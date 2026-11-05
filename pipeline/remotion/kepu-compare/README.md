@@ -37,6 +37,15 @@ npx remotion render src/index.ts KepuCompare out/video.mp4 \
 | TTS 用量 | input 292 / output 805 / total 1097 tokens（10 次调用，API 返回）；详见 [TTS_BILLING.md](TTS_BILLING.md) |
 | 字幕 | React 内烧录；另出 `subtitles.srt` |
 
+## V3.1 30s 样片（2026-11-05）
+
+- 成片：pipeline/runs/demo-kepu-compare/v31-sample.mp4
+- 31.9s / 956 帧；冷开场 + 定义 + 差异①
+- 视觉元素按旁白锚点词逐个出现（周报 / bug / 文档 / 表格 / 会议纪要 / 腾讯文档 / 企业微信 / 代码 / 仓库 / PR / 终端）
+- 当前词高亮；版面下移到 180–780；底部 FOCUS 信息条；无底部装饰线
+- TTS：3 次，input 157 / output 389 / total 546；见 TTS_BILLING_V3_SAMPLE.md
+- 工程：src/VideoV31Sample.tsx + src/words-v3-sample.json + tools/make_v3_sample_ts.py
+
 ## V3 30s 样片（2026-11-05）
 
 - 成片：pipeline/runs/demo-kepu-compare/v3-sample.mp4

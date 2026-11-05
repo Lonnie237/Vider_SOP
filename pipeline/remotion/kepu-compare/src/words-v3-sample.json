@@ -1,0 +1,976 @@
+{
+  "b01": {
+    "text": "周一早上九点，你打开电脑：左边是没写完的周报，右边是等着修的 bug。如果只能装一个 AI 工作台，你装哪个？",
+    "words": [
+      {
+        "text": "周",
+        "begin_index": 0,
+        "end_index": 1,
+        "begin_time": 76,
+        "end_time": 229
+      },
+      {
+        "text": "一",
+        "begin_index": 1,
+        "end_index": 2,
+        "begin_time": 229,
+        "end_time": 381
+      },
+      {
+        "text": "早",
+        "begin_index": 2,
+        "end_index": 3,
+        "begin_time": 381,
+        "end_time": 610
+      },
+      {
+        "text": "上",
+        "begin_index": 3,
+        "end_index": 4,
+        "begin_time": 610,
+        "end_time": 686
+      },
+      {
+        "text": "九",
+        "begin_index": 4,
+        "end_index": 5,
+        "begin_time": 686,
+        "end_time": 838
+      },
+      {
+        "text": "点",
+        "begin_index": 5,
+        "end_index": 6,
+        "begin_time": 838,
+        "end_time": 1067
+      },
+      {
+        "text": "，你",
+        "begin_index": 6,
+        "end_index": 7,
+        "begin_time": 1295,
+        "end_time": 1448
+      },
+      {
+        "text": "打",
+        "begin_index": 7,
+        "end_index": 8,
+        "begin_time": 1448,
+        "end_time": 1600
+      },
+      {
+        "text": "开",
+        "begin_index": 8,
+        "end_index": 9,
+        "begin_time": 1600,
+        "end_time": 1676
+      },
+      {
+        "text": "电",
+        "begin_index": 9,
+        "end_index": 10,
+        "begin_time": 1676,
+        "end_time": 1829
+      },
+      {
+        "text": "脑",
+        "begin_index": 10,
+        "end_index": 11,
+        "begin_time": 1829,
+        "end_time": 2057
+      },
+      {
+        "text": "：左",
+        "begin_index": 11,
+        "end_index": 12,
+        "begin_time": 2438,
+        "end_time": 2743
+      },
+      {
+        "text": "边",
+        "begin_index": 12,
+        "end_index": 13,
+        "begin_time": 2743,
+        "end_time": 2971
+      },
+      {
+        "text": "是",
+        "begin_index": 13,
+        "end_index": 14,
+        "begin_time": 2971,
+        "end_time": 3200
+      },
+      {
+        "text": "没",
+        "begin_index": 14,
+        "end_index": 15,
+        "begin_time": 3200,
+        "end_time": 3352
+      },
+      {
+        "text": "写",
+        "begin_index": 15,
+        "end_index": 16,
+        "begin_time": 3352,
+        "end_time": 3505
+      },
+      {
+        "text": "完",
+        "begin_index": 16,
+        "end_index": 17,
+        "begin_time": 3505,
+        "end_time": 3581
+      },
+      {
+        "text": "的",
+        "begin_index": 17,
+        "end_index": 18,
+        "begin_time": 3581,
+        "end_time": 3733
+      },
+      {
+        "text": "周",
+        "begin_index": 18,
+        "end_index": 19,
+        "begin_time": 3733,
+        "end_time": 3886
+      },
+      {
+        "text": "报",
+        "begin_index": 19,
+        "end_index": 20,
+        "begin_time": 3886,
+        "end_time": 4038
+      },
+      {
+        "text": "，右",
+        "begin_index": 20,
+        "end_index": 21,
+        "begin_time": 4343,
+        "end_time": 4495
+      },
+      {
+        "text": "边",
+        "begin_index": 21,
+        "end_index": 22,
+        "begin_time": 4495,
+        "end_time": 4724
+      },
+      {
+        "text": "是",
+        "begin_index": 22,
+        "end_index": 23,
+        "begin_time": 4800,
+        "end_time": 5029
+      },
+      {
+        "text": "等",
+        "begin_index": 23,
+        "end_index": 24,
+        "begin_time": 5029,
+        "end_time": 5181
+      },
+      {
+        "text": "着",
+        "begin_index": 24,
+        "end_index": 25,
+        "begin_time": 5181,
+        "end_time": 5257
+      },
+      {
+        "text": "修",
+        "begin_index": 25,
+        "end_index": 26,
+        "begin_time": 5257,
+        "end_time": 5410
+      },
+      {
+        "text": "的",
+        "begin_index": 26,
+        "end_index": 27,
+        "begin_time": 5410,
+        "end_time": 5486
+      },
+      {
+        "text": "bug",
+        "begin_index": 27,
+        "end_index": 28,
+        "begin_time": 5562,
+        "end_time": 5714
+      },
+      {
+        "text": "。如",
+        "begin_index": 28,
+        "end_index": 29,
+        "begin_time": 6248,
+        "end_time": 6552
+      },
+      {
+        "text": "果",
+        "begin_index": 29,
+        "end_index": 30,
+        "begin_time": 6552,
+        "end_time": 6629
+      },
+      {
+        "text": "只",
+        "begin_index": 30,
+        "end_index": 31,
+        "begin_time": 6629,
+        "end_time": 6857
+      },
+      {
+        "text": "能",
+        "begin_index": 31,
+        "end_index": 32,
+        "begin_time": 6857,
+        "end_time": 6933
+      },
+      {
+        "text": "装",
+        "begin_index": 32,
+        "end_index": 33,
+        "begin_time": 6933,
+        "end_time": 7162
+      },
+      {
+        "text": "一",
+        "begin_index": 33,
+        "end_index": 34,
+        "begin_time": 7162,
+        "end_time": 7238
+      },
+      {
+        "text": "个",
+        "begin_index": 34,
+        "end_index": 35,
+        "begin_time": 7238,
+        "end_time": 7390
+      },
+      {
+        "text": "A",
+        "begin_index": 35,
+        "end_index": 36,
+        "begin_time": 7390,
+        "end_time": 7543
+      },
+      {
+        "text": " I",
+        "begin_index": 36,
+        "end_index": 37,
+        "begin_time": 7543,
+        "end_time": 7695
+      },
+      {
+        "text": "工",
+        "begin_index": 37,
+        "end_index": 38,
+        "begin_time": 7695,
+        "end_time": 7848
+      },
+      {
+        "text": "作",
+        "begin_index": 38,
+        "end_index": 39,
+        "begin_time": 7848,
+        "end_time": 8000
+      },
+      {
+        "text": "台",
+        "begin_index": 39,
+        "end_index": 40,
+        "begin_time": 8000,
+        "end_time": 8229
+      },
+      {
+        "text": "，你",
+        "begin_index": 40,
+        "end_index": 41,
+        "begin_time": 8457,
+        "end_time": 8610
+      },
+      {
+        "text": "装",
+        "begin_index": 41,
+        "end_index": 42,
+        "begin_time": 8610,
+        "end_time": 8762
+      },
+      {
+        "text": "哪",
+        "begin_index": 42,
+        "end_index": 43,
+        "begin_time": 8762,
+        "end_time": 8914
+      },
+      {
+        "text": "个",
+        "begin_index": 43,
+        "end_index": 44,
+        "begin_time": 8914,
+        "end_time": 9067
+      },
+      {
+        "text": "？",
+        "begin_index": 44,
+        "end_index": 45,
+        "begin_time": 9067,
+        "end_time": 9295
+      }
+    ]
+  },
+  "b03": {
+    "text": "它们都是 AI 工作台：能拆任务、调工具、把结果直接交给你。区别在主场：WorkBuddy 是腾讯的办公工作台，Qoder 是阿里的编程工作台。",
+    "words": [
+      {
+        "text": "它",
+        "begin_index": 0,
+        "end_index": 1,
+        "begin_time": 76,
+        "end_time": 229
+      },
+      {
+        "text": "们",
+        "begin_index": 1,
+        "end_index": 2,
+        "begin_time": 229,
+        "end_time": 381
+      },
+      {
+        "text": "都",
+        "begin_index": 2,
+        "end_index": 3,
+        "begin_time": 381,
+        "end_time": 457
+      },
+      {
+        "text": "是",
+        "begin_index": 3,
+        "end_index": 4,
+        "begin_time": 457,
+        "end_time": 686
+      },
+      {
+        "text": "A",
+        "begin_index": 4,
+        "end_index": 5,
+        "begin_time": 686,
+        "end_time": 838
+      },
+      {
+        "text": " I",
+        "begin_index": 5,
+        "end_index": 6,
+        "begin_time": 838,
+        "end_time": 990
+      },
+      {
+        "text": "工",
+        "begin_index": 6,
+        "end_index": 7,
+        "begin_time": 990,
+        "end_time": 1219
+      },
+      {
+        "text": "作",
+        "begin_index": 7,
+        "end_index": 8,
+        "begin_time": 1219,
+        "end_time": 1448
+      },
+      {
+        "text": "台",
+        "begin_index": 8,
+        "end_index": 9,
+        "begin_time": 1448,
+        "end_time": 1676
+      },
+      {
+        "text": "：能",
+        "begin_index": 9,
+        "end_index": 10,
+        "begin_time": 1676,
+        "end_time": 1981
+      },
+      {
+        "text": "拆",
+        "begin_index": 10,
+        "end_index": 11,
+        "begin_time": 1981,
+        "end_time": 2210
+      },
+      {
+        "text": "任",
+        "begin_index": 11,
+        "end_index": 12,
+        "begin_time": 2210,
+        "end_time": 2438
+      },
+      {
+        "text": "务",
+        "begin_index": 12,
+        "end_index": 13,
+        "begin_time": 2438,
+        "end_time": 2590
+      },
+      {
+        "text": "、调",
+        "begin_index": 13,
+        "end_index": 14,
+        "begin_time": 2667,
+        "end_time": 2895
+      },
+      {
+        "text": "工",
+        "begin_index": 14,
+        "end_index": 15,
+        "begin_time": 2895,
+        "end_time": 3048
+      },
+      {
+        "text": "具",
+        "begin_index": 15,
+        "end_index": 16,
+        "begin_time": 3048,
+        "end_time": 3276
+      },
+      {
+        "text": "、把",
+        "begin_index": 16,
+        "end_index": 17,
+        "begin_time": 3352,
+        "end_time": 3657
+      },
+      {
+        "text": "结",
+        "begin_index": 17,
+        "end_index": 18,
+        "begin_time": 3657,
+        "end_time": 3810
+      },
+      {
+        "text": "果",
+        "begin_index": 18,
+        "end_index": 19,
+        "begin_time": 3810,
+        "end_time": 3962
+      },
+      {
+        "text": "直",
+        "begin_index": 19,
+        "end_index": 20,
+        "begin_time": 3962,
+        "end_time": 4114
+      },
+      {
+        "text": "接",
+        "begin_index": 20,
+        "end_index": 21,
+        "begin_time": 4114,
+        "end_time": 4267
+      },
+      {
+        "text": "交",
+        "begin_index": 21,
+        "end_index": 22,
+        "begin_time": 4267,
+        "end_time": 4419
+      },
+      {
+        "text": "给",
+        "begin_index": 22,
+        "end_index": 23,
+        "begin_time": 4419,
+        "end_time": 4571
+      },
+      {
+        "text": "你",
+        "begin_index": 23,
+        "end_index": 24,
+        "begin_time": 4571,
+        "end_time": 4724
+      },
+      {
+        "text": "。区",
+        "begin_index": 24,
+        "end_index": 25,
+        "begin_time": 5029,
+        "end_time": 5181
+      },
+      {
+        "text": "别",
+        "begin_index": 25,
+        "end_index": 26,
+        "begin_time": 5181,
+        "end_time": 5410
+      },
+      {
+        "text": "在",
+        "begin_index": 26,
+        "end_index": 27,
+        "begin_time": 5410,
+        "end_time": 5562
+      },
+      {
+        "text": "主",
+        "begin_index": 27,
+        "end_index": 28,
+        "begin_time": 5562,
+        "end_time": 5714
+      },
+      {
+        "text": "场",
+        "begin_index": 28,
+        "end_index": 29,
+        "begin_time": 5714,
+        "end_time": 5943
+      },
+      {
+        "text": "：Work",
+        "begin_index": 29,
+        "end_index": 30,
+        "begin_time": 6019,
+        "end_time": 6629
+      },
+      {
+        "text": " Buddy",
+        "begin_index": 30,
+        "end_index": 31,
+        "begin_time": 6629,
+        "end_time": 7010
+      },
+      {
+        "text": "是",
+        "begin_index": 31,
+        "end_index": 32,
+        "begin_time": 7010,
+        "end_time": 7314
+      },
+      {
+        "text": "腾",
+        "begin_index": 32,
+        "end_index": 33,
+        "begin_time": 7314,
+        "end_time": 7467
+      },
+      {
+        "text": "讯",
+        "begin_index": 33,
+        "end_index": 34,
+        "begin_time": 7467,
+        "end_time": 7619
+      },
+      {
+        "text": "的",
+        "begin_index": 34,
+        "end_index": 35,
+        "begin_time": 7619,
+        "end_time": 7848
+      },
+      {
+        "text": "办",
+        "begin_index": 35,
+        "end_index": 36,
+        "begin_time": 7848,
+        "end_time": 7924
+      },
+      {
+        "text": "公",
+        "begin_index": 36,
+        "end_index": 37,
+        "begin_time": 7924,
+        "end_time": 8152
+      },
+      {
+        "text": "工",
+        "begin_index": 37,
+        "end_index": 38,
+        "begin_time": 8152,
+        "end_time": 8305
+      },
+      {
+        "text": "作",
+        "begin_index": 38,
+        "end_index": 39,
+        "begin_time": 8305,
+        "end_time": 8648
+      },
+      {
+        "text": "台",
+        "begin_index": 39,
+        "end_index": 40,
+        "begin_time": 8648,
+        "end_time": 8990
+      },
+      {
+        "text": "，Coder",
+        "begin_index": 40,
+        "end_index": 41,
+        "begin_time": 8990,
+        "end_time": 9371
+      },
+      {
+        "text": "是",
+        "begin_index": 41,
+        "end_index": 42,
+        "begin_time": 9448,
+        "end_time": 9600
+      },
+      {
+        "text": "阿",
+        "begin_index": 42,
+        "end_index": 43,
+        "begin_time": 9600,
+        "end_time": 9752
+      },
+      {
+        "text": "里",
+        "begin_index": 43,
+        "end_index": 44,
+        "begin_time": 9752,
+        "end_time": 9905
+      },
+      {
+        "text": "的",
+        "begin_index": 44,
+        "end_index": 45,
+        "begin_time": 9905,
+        "end_time": 9981
+      },
+      {
+        "text": "编",
+        "begin_index": 45,
+        "end_index": 46,
+        "begin_time": 9981,
+        "end_time": 10133
+      },
+      {
+        "text": "程",
+        "begin_index": 46,
+        "end_index": 47,
+        "begin_time": 10133,
+        "end_time": 10286
+      },
+      {
+        "text": "工",
+        "begin_index": 47,
+        "end_index": 48,
+        "begin_time": 10286,
+        "end_time": 10514
+      },
+      {
+        "text": "作",
+        "begin_index": 48,
+        "end_index": 49,
+        "begin_time": 10514,
+        "end_time": 10667
+      },
+      {
+        "text": "台。",
+        "begin_index": 49,
+        "end_index": 50,
+        "begin_time": 10667,
+        "end_time": 10819
+      }
+    ]
+  },
+  "b04": {
+    "text": "先看上下文。WorkBuddy 读的是文档、表格、会议纪要，还有腾讯文档和企业微信；Qoder 读的是代码、仓库、PR 和终端。",
+    "words": [
+      {
+        "text": "先",
+        "begin_index": 0,
+        "end_index": 1,
+        "begin_time": 152,
+        "end_time": 305
+      },
+      {
+        "text": "看",
+        "begin_index": 1,
+        "end_index": 2,
+        "begin_time": 305,
+        "end_time": 457
+      },
+      {
+        "text": "上",
+        "begin_index": 2,
+        "end_index": 3,
+        "begin_time": 457,
+        "end_time": 686
+      },
+      {
+        "text": "下",
+        "begin_index": 3,
+        "end_index": 4,
+        "begin_time": 686,
+        "end_time": 838
+      },
+      {
+        "text": "文",
+        "begin_index": 4,
+        "end_index": 5,
+        "begin_time": 838,
+        "end_time": 1067
+      },
+      {
+        "text": "。Work",
+        "begin_index": 5,
+        "end_index": 6,
+        "begin_time": 1295,
+        "end_time": 1600
+      },
+      {
+        "text": " Buddy",
+        "begin_index": 6,
+        "end_index": 7,
+        "begin_time": 1600,
+        "end_time": 1905
+      },
+      {
+        "text": "读",
+        "begin_index": 7,
+        "end_index": 8,
+        "begin_time": 1981,
+        "end_time": 2133
+      },
+      {
+        "text": "的",
+        "begin_index": 8,
+        "end_index": 9,
+        "begin_time": 2133,
+        "end_time": 2210
+      },
+      {
+        "text": "是",
+        "begin_index": 9,
+        "end_index": 10,
+        "begin_time": 2286,
+        "end_time": 2362
+      },
+      {
+        "text": "文",
+        "begin_index": 10,
+        "end_index": 11,
+        "begin_time": 2362,
+        "end_time": 2514
+      },
+      {
+        "text": "档",
+        "begin_index": 11,
+        "end_index": 12,
+        "begin_time": 2514,
+        "end_time": 2819
+      },
+      {
+        "text": "、表",
+        "begin_index": 12,
+        "end_index": 13,
+        "begin_time": 2895,
+        "end_time": 3048
+      },
+      {
+        "text": "格",
+        "begin_index": 13,
+        "end_index": 14,
+        "begin_time": 3048,
+        "end_time": 3276
+      },
+      {
+        "text": "、会",
+        "begin_index": 14,
+        "end_index": 15,
+        "begin_time": 3429,
+        "end_time": 3581
+      },
+      {
+        "text": "议",
+        "begin_index": 15,
+        "end_index": 16,
+        "begin_time": 3581,
+        "end_time": 3657
+      },
+      {
+        "text": "纪",
+        "begin_index": 16,
+        "end_index": 17,
+        "begin_time": 3657,
+        "end_time": 3810
+      },
+      {
+        "text": "要",
+        "begin_index": 17,
+        "end_index": 18,
+        "begin_time": 3810,
+        "end_time": 3962
+      },
+      {
+        "text": "，还",
+        "begin_index": 18,
+        "end_index": 19,
+        "begin_time": 4114,
+        "end_time": 4343
+      },
+      {
+        "text": "有",
+        "begin_index": 19,
+        "end_index": 20,
+        "begin_time": 4343,
+        "end_time": 4419
+      },
+      {
+        "text": "腾",
+        "begin_index": 20,
+        "end_index": 21,
+        "begin_time": 4419,
+        "end_time": 4648
+      },
+      {
+        "text": "讯",
+        "begin_index": 21,
+        "end_index": 22,
+        "begin_time": 4648,
+        "end_time": 4800
+      },
+      {
+        "text": "文",
+        "begin_index": 22,
+        "end_index": 23,
+        "begin_time": 4800,
+        "end_time": 4952
+      },
+      {
+        "text": "档",
+        "begin_index": 23,
+        "end_index": 24,
+        "begin_time": 4952,
+        "end_time": 5105
+      },
+      {
+        "text": "和",
+        "begin_index": 24,
+        "end_index": 25,
+        "begin_time": 5105,
+        "end_time": 5333
+      },
+      {
+        "text": "企",
+        "begin_index": 25,
+        "end_index": 26,
+        "begin_time": 5333,
+        "end_time": 5562
+      },
+      {
+        "text": "业",
+        "begin_index": 26,
+        "end_index": 27,
+        "begin_time": 5562,
+        "end_time": 5638
+      },
+      {
+        "text": "微",
+        "begin_index": 27,
+        "end_index": 28,
+        "begin_time": 5638,
+        "end_time": 5790
+      },
+      {
+        "text": "信",
+        "begin_index": 28,
+        "end_index": 29,
+        "begin_time": 5790,
+        "end_time": 5943
+      },
+      {
+        "text": "；Coder",
+        "begin_index": 29,
+        "end_index": 30,
+        "begin_time": 6248,
+        "end_time": 6552
+      },
+      {
+        "text": "读",
+        "begin_index": 30,
+        "end_index": 31,
+        "begin_time": 6629,
+        "end_time": 6857
+      },
+      {
+        "text": "的",
+        "begin_index": 31,
+        "end_index": 32,
+        "begin_time": 6857,
+        "end_time": 7010
+      },
+      {
+        "text": "是",
+        "begin_index": 32,
+        "end_index": 33,
+        "begin_time": 7010,
+        "end_time": 7086
+      },
+      {
+        "text": "代",
+        "begin_index": 33,
+        "end_index": 34,
+        "begin_time": 7086,
+        "end_time": 7238
+      },
+      {
+        "text": "码",
+        "begin_index": 34,
+        "end_index": 35,
+        "begin_time": 7238,
+        "end_time": 7467
+      },
+      {
+        "text": "、仓",
+        "begin_index": 35,
+        "end_index": 36,
+        "begin_time": 7543,
+        "end_time": 7771
+      },
+      {
+        "text": "库",
+        "begin_index": 36,
+        "end_index": 37,
+        "begin_time": 7771,
+        "end_time": 8000
+      },
+      {
+        "text": "、P",
+        "begin_index": 37,
+        "end_index": 38,
+        "begin_time": 8076,
+        "end_time": 8305
+      },
+      {
+        "text": " R",
+        "begin_index": 38,
+        "end_index": 39,
+        "begin_time": 8305,
+        "end_time": 8533
+      },
+      {
+        "text": "和",
+        "begin_index": 39,
+        "end_index": 40,
+        "begin_time": 8533,
+        "end_time": 8762
+      },
+      {
+        "text": "终",
+        "begin_index": 40,
+        "end_index": 41,
+        "begin_time": 8762,
+        "end_time": 8914
+      },
+      {
+        "text": "端。",
+        "begin_index": 41,
+        "end_index": 42,
+        "begin_time": 8914,
+        "end_time": 9067
+      }
+    ]
+  }
+}

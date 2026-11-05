@@ -82,10 +82,11 @@ def cue_times(text, words, beat_start, cues):
     out = []
     cursor = 0
     for cue in cues:
-        p = text.find(cue, cursor)
+        search = cue.replace(" ", "")
+        p = norm.find(search, cursor)
         if p < 0:
             p = min(cursor, max(0, len(char_t) - 1))
-        q = min(len(text), p + len(cue))
+        q = min(len(norm), p + len(search))
         cursor = q
         p = min(p, max(0, len(char_t) - 1))
         q = max(p + 1, min(q, len(char_t)))

@@ -4,6 +4,7 @@ import { KepuCompare } from "./Video";
 import { Cover } from "./Cover";
 import { KepuCompareV2 } from "./VideoV2";
 import { KepuV3Sample } from "./VideoV3Sample";
+import { KepuV31Sample } from "./VideoV31Sample";
 import timelineV3Sample from "./timeline-v3-sample.json";
 import timelineV2 from "./timeline-v2.json";
 import timeline from "./timeline.json";
@@ -30,6 +31,14 @@ export const RemotionRoot: React.FC = () => {
     <Composition
       id="KepuV3Sample"
       component={KepuV3Sample}
+      durationInFrames={timelineV3Sample.frames}
+      fps={timelineV3Sample.fps}
+      width={timelineV3Sample.width}
+      height={timelineV3Sample.height}
+    />
+    <Composition
+      id="KepuV31Sample"
+      component={KepuV31Sample}
       durationInFrames={timelineV3Sample.frames}
       fps={timelineV3Sample.fps}
       width={timelineV3Sample.width}

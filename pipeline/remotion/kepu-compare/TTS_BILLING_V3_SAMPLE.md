@@ -1,7 +1,7 @@
 # TTS 计费 · v3 30s 样片
 
 - 音色：longanlingxin_v3.1（rate 1.05）
-- 明细：tts-v3-sample-20261105-172605.json
+- 明细：tts-v3-sample-20261105-174019.json
 
 | 指标 | 合计 |
 |---|---|

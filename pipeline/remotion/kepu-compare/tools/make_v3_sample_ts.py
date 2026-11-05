@@ -49,7 +49,7 @@ def silence(path, seconds):
 def main():
     lead = TMP / "v3ts-lead.wav"; gap = TMP / "v3ts-gap.wav"; tail = TMP / "v3ts-tail.wav"
     silence(lead, LEAD); silence(gap, GAP); silence(tail, TAIL)
-    items = [lead]; beats = []; cues = []; t = LEAD
+    items = [lead]; beats = []; cues = []; wordmap = {}; t = LEAD
     total = {"input": 0, "output": 0, "total": 0, "chars": 0, "calls": 0}
     rows = []
     for i, b in enumerate(BEATS):
@@ -61,7 +61,16 @@ def main():
         bstart = t
         beats.append({"id": b["id"], "section": b["section"], "headline": b["headline"], "text": b["text"],
                       "start": round(bstart, 3), "end": round(bstart + d, 3), "duration": round(d, 3)})
-        cues.extend(q.cue_times(b["text"], r["words"], bstart, b["cues"]))
+        beat_cues = q.cue_times(b["text"], r["words"], bstart, b["cues"])
+        for c in beat_cues:
+            c["tokens"] = [
+                {"text": w.get("text", ""), "start": round(bstart + w.get("begin_time", 0) / 1000.0, 3),
+                 "end": round(bstart + w.get("end_time", 0) / 1000.0, 3)}
+                for w in r["words"]
+                if c["start"] - 0.02 <= bstart + w.get("begin_time", 0) / 1000.0 <= c["end"] + 0.02
+            ]
+        cues.extend(beat_cues)
+        wordmap[b["id"]] = {"text": b["text"], "words": r["words"]}
         usage = r["usage"]
         row = {"id": b["id"], "chars": len(b["text"]), "input_tokens": usage.get("input_tokens", 0),
                "output_tokens": usage.get("output_tokens", 0), "total_tokens": usage.get("total_tokens", 0),
@@ -83,6 +92,7 @@ def main():
     timeline = {"fps": 30, "width": 1920, "height": 1080, "duration": round(duration, 3), "frames": int(round(duration * 30)), "beats": beats}
     (SRC / "timeline-v3-sample.json").write_text(json.dumps(timeline, ensure_ascii=False, indent=2), encoding="utf-8")
     (SRC / "cues-v3-sample.json").write_text(json.dumps(cues, ensure_ascii=False, indent=2), encoding="utf-8")
+    (SRC / "words-v3-sample.json").write_text(json.dumps(wordmap, ensure_ascii=False, indent=2), encoding="utf-8")
 
     now = datetime.now()
     report = {"generated_at": now.isoformat(timespec="seconds"), "voice": VOICE, "rate": RATE,
