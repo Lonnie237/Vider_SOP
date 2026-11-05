@@ -5,6 +5,8 @@ import { Cover } from "./Cover";
 import { KepuCompareV2 } from "./VideoV2";
 import { KepuV3Sample } from "./VideoV3Sample";
 import { KepuV31Sample } from "./VideoV31Sample";
+import { KepuV33 } from "./VideoV33";
+import timelineV33 from "./timeline-v33.json";
 import timelineV3Sample from "./timeline-v3-sample.json";
 import timelineV2 from "./timeline-v2.json";
 import timeline from "./timeline.json";
@@ -43,6 +45,14 @@ export const RemotionRoot: React.FC = () => {
       fps={timelineV3Sample.fps}
       width={timelineV3Sample.width}
       height={timelineV3Sample.height}
+    />
+    <Composition
+      id="KepuV33"
+      component={KepuV33}
+      durationInFrames={timelineV33.frames}
+      fps={timelineV33.fps}
+      width={timelineV33.width}
+      height={timelineV33.height}
     />
     <Composition
       id="KepuCover"

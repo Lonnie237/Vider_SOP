@@ -1,0 +1,95 @@
+{
+  "generated_at": "2026-11-05T18:09:19",
+  "voice": "longanlingxin_v3.1",
+  "rate": 1.05,
+  "rows": [
+    {
+      "id": "b01",
+      "chars": 55,
+      "input_tokens": 50,
+      "output_tokens": 122,
+      "total_tokens": 172,
+      "characters": 96
+    },
+    {
+      "id": "b02",
+      "chars": 54,
+      "input_tokens": 40,
+      "output_tokens": 101,
+      "total_tokens": 141,
+      "characters": 87
+    },
+    {
+      "id": "b03",
+      "chars": 72,
+      "input_tokens": 57,
+      "output_tokens": 145,
+      "total_tokens": 202,
+      "characters": 117
+    },
+    {
+      "id": "b04",
+      "chars": 64,
+      "input_tokens": 50,
+      "output_tokens": 122,
+      "total_tokens": 172,
+      "characters": 101
+    },
+    {
+      "id": "b05",
+      "chars": 56,
+      "input_tokens": 46,
+      "output_tokens": 116,
+      "total_tokens": 162,
+      "characters": 87
+    },
+    {
+      "id": "b06",
+      "chars": 72,
+      "input_tokens": 48,
+      "output_tokens": 145,
+      "total_tokens": 193,
+      "characters": 107
+    },
+    {
+      "id": "b07",
+      "chars": 93,
+      "input_tokens": 62,
+      "output_tokens": 177,
+      "total_tokens": 239,
+      "characters": 141
+    },
+    {
+      "id": "b08",
+      "chars": 66,
+      "input_tokens": 65,
+      "output_tokens": 149,
+      "total_tokens": 214,
+      "characters": 120
+    },
+    {
+      "id": "b09",
+      "chars": 45,
+      "input_tokens": 32,
+      "output_tokens": 86,
+      "total_tokens": 118,
+      "characters": 68
+    },
+    {
+      "id": "b10",
+      "chars": 41,
+      "input_tokens": 41,
+      "output_tokens": 104,
+      "total_tokens": 145,
+      "characters": 76
+    }
+  ],
+  "totals": {
+    "input": 491,
+    "output": 1267,
+    "total": 1758,
+    "chars": 1000,
+    "calls": 10
+  },
+  "duration": 102.066
+}

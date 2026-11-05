@@ -37,6 +37,14 @@ npx remotion render src/index.ts KepuCompare out/video.mp4 \
 | TTS 用量 | input 292 / output 805 / total 1097 tokens（10 次调用，API 返回）；详见 [TTS_BILLING.md](TTS_BILLING.md) |
 | 字幕 | React 内烧录；另出 `subtitles.srt` |
 
+## V3.3 全片（2026-11-05）
+
+- 成片：pipeline/runs/demo-kepu-compare/workbuddy-vs-qoder-v33.mp4
+- 102.9s / 3086 帧 / 1920×1080 / -16.0 LUFS
+- 字幕整条静态、单行；S4 上下文按锚点逐项揭示；S1/S2 先给结构
+- 64 条 cue；TTS 10 次，input 491 / output 1267 / total 1758；见 TTS_BILLING_V33.md
+- 工程：src/VideoV33.tsx + src/timeline-v33.json + src/cues-v33.json
+
 ## V3.3 30s 样片（2026-11-05）
 
 - 成片：pipeline/runs/demo-kepu-compare/v33-sample.mp4
