@@ -44,7 +44,7 @@ npx remotion render src/index.ts KepuCompare out/video.mp4 \
 - 试听包：`voice-samples/audition-qwen-voices.mp3`（A 龙安灵心 / B 龙安风悦 / C 于小云 / D 温怀清 / E 许玉远 / F 许南川 / G 安明远 / H 龙书）
 - 语速试听：`voice-samples/audition-qwen-rate.mp3`（0.9 / 1.0 / 1.05 / 1.1 / 1.2，龙安灵心）
 - `speech_rate` 范围 0.5–2.0，默认 1.0；科普建议 0.95–1.05，偏快用 1.1，偏慢用 0.9。
-- 试听调用计费见 [TTS_AUDITION.md](TTS_AUDITION.md)。
+- 试听调用计费见 [TTS_AUDITION.md](TTS_AUDITION.md)；指定音色语速试听见 [TTS_RATE_AUDITION.md](TTS_RATE_AUDITION.md)。
 
 ## 设计
 

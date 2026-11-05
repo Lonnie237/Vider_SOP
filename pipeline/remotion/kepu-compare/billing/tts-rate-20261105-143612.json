@@ -1,0 +1,140 @@
+{
+  "generated_at": "2026-11-05T14:36:12",
+  "provider": "Alibaba Cloud Model Studio (DashScope)",
+  "model": "qwen-audio-3.1-tts-flash",
+  "voice": "longanzhi_v3.1",
+  "name": "龙安智",
+  "base_websocket_api_url": "wss://cn-beijing.maas.qianwenaiapi.com/api-ws/v1/inference",
+  "rates": [
+    0.9,
+    0.95,
+    1.0,
+    1.05,
+    1.1,
+    1.15,
+    1.2,
+    1.25,
+    1.3,
+    1.35,
+    1.4
+  ],
+  "rows": [
+    {
+      "rate": 0.9,
+      "text": "语速 零点九。WorkBuddy 和 Qoder，到底差在哪？一句话：一个是腾讯的 AI 办公工作台，一个是阿里的 AI 编程工作台。",
+      "file": "longanzhi-0_9.mp3",
+      "input_tokens": 50,
+      "output_tokens": 140,
+      "total_tokens": 190,
+      "characters": 103,
+      "task_id": "b4d09f0f785e476ca24dc498a813d26d"
+    },
+    {
+      "rate": 0.95,
+      "text": "语速 零点九五。WorkBuddy 和 Qoder，到底差在哪？一句话：一个是腾讯的 AI 办公工作台，一个是阿里的 AI 编程工作台。",
+      "file": "longanzhi-0_95.mp3",
+      "input_tokens": 51,
+      "output_tokens": 132,
+      "total_tokens": 183,
+      "characters": 105,
+      "task_id": "d3007dd6627f41d5b1e01d0cf383a90a"
+    },
+    {
+      "rate": 1.0,
+      "text": "语速 一。WorkBuddy 和 Qoder，到底差在哪？一句话：一个是腾讯的 AI 办公工作台，一个是阿里的 AI 编程工作台。",
+      "file": "longanzhi-1_0.mp3",
+      "input_tokens": 48,
+      "output_tokens": 135,
+      "total_tokens": 183,
+      "characters": 99,
+      "task_id": "700e27cdfda3415288ac0a56edee2716"
+    },
+    {
+      "rate": 1.05,
+      "text": "语速 一点零五。WorkBuddy 和 Qoder，到底差在哪？一句话：一个是腾讯的 AI 办公工作台，一个是阿里的 AI 编程工作台。",
+      "file": "longanzhi-1_05.mp3",
+      "input_tokens": 51,
+      "output_tokens": 142,
+      "total_tokens": 193,
+      "characters": 105,
+      "task_id": "d4d042e3a7c24c53a60e85ce6678f527"
+    },
+    {
+      "rate": 1.1,
+      "text": "语速 一点一。WorkBuddy 和 Qoder，到底差在哪？一句话：一个是腾讯的 AI 办公工作台，一个是阿里的 AI 编程工作台。",
+      "file": "longanzhi-1_1.mp3",
+      "input_tokens": 50,
+      "output_tokens": 156,
+      "total_tokens": 206,
+      "characters": 103,
+      "task_id": "f36b898d6e52445793e51294bab8f7f0"
+    },
+    {
+      "rate": 1.15,
+      "text": "语速 一点一五。WorkBuddy 和 Qoder，到底差在哪？一句话：一个是腾讯的 AI 办公工作台，一个是阿里的 AI 编程工作台。",
+      "file": "longanzhi-1_15.mp3",
+      "input_tokens": 51,
+      "output_tokens": 149,
+      "total_tokens": 200,
+      "characters": 105,
+      "task_id": "356160a189fd43a9972968c330c00eb5"
+    },
+    {
+      "rate": 1.2,
+      "text": "语速 一点二。WorkBuddy 和 Qoder，到底差在哪？一句话：一个是腾讯的 AI 办公工作台，一个是阿里的 AI 编程工作台。",
+      "file": "longanzhi-1_2.mp3",
+      "input_tokens": 50,
+      "output_tokens": 139,
+      "total_tokens": 189,
+      "characters": 103,
+      "task_id": "4afebc96dac2406d9a16a1bee51d27b1"
+    },
+    {
+      "rate": 1.25,
+      "text": "语速 一点二五。WorkBuddy 和 Qoder，到底差在哪？一句话：一个是腾讯的 AI 办公工作台，一个是阿里的 AI 编程工作台。",
+      "file": "longanzhi-1_25.mp3",
+      "input_tokens": 51,
+      "output_tokens": 123,
+      "total_tokens": 174,
+      "characters": 105,
+      "task_id": "f6d2b65af1ce4404b64ce6790df94515"
+    },
+    {
+      "rate": 1.3,
+      "text": "语速 一点三。WorkBuddy 和 Qoder，到底差在哪？一句话：一个是腾讯的 AI 办公工作台，一个是阿里的 AI 编程工作台。",
+      "file": "longanzhi-1_3.mp3",
+      "input_tokens": 50,
+      "output_tokens": 134,
+      "total_tokens": 184,
+      "characters": 103,
+      "task_id": "e5703509215443e89c1c6f2452042ab2"
+    },
+    {
+      "rate": 1.35,
+      "text": "语速 一点三五。WorkBuddy 和 Qoder，到底差在哪？一句话：一个是腾讯的 AI 办公工作台，一个是阿里的 AI 编程工作台。",
+      "file": "longanzhi-1_35.mp3",
+      "input_tokens": 51,
+      "output_tokens": 124,
+      "total_tokens": 175,
+      "characters": 105,
+      "task_id": "de767b5e53184790ae806da9c3708168"
+    },
+    {
+      "rate": 1.4,
+      "text": "语速 一点四。WorkBuddy 和 Qoder，到底差在哪？一句话：一个是腾讯的 AI 办公工作台，一个是阿里的 AI 编程工作台。",
+      "file": "longanzhi-1_4.mp3",
+      "input_tokens": 50,
+      "output_tokens": 169,
+      "total_tokens": 219,
+      "characters": 103,
+      "task_id": "293134e0d11841ad947e4f7127728b3d"
+    }
+  ],
+  "totals": {
+    "input": 553,
+    "output": 1543,
+    "total": 2096,
+    "chars": 1139,
+    "calls": 11
+  }
+}
