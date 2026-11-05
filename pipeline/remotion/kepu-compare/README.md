@@ -37,6 +37,15 @@ npx remotion render src/index.ts KepuCompare out/video.mp4 \
 | TTS 用量 | input 292 / output 789 / total 1081 tokens（10 次调用，API 返回）；详见 [TTS_BILLING.md](TTS_BILLING.md) |
 | 字幕 | React 内烧录；另出 `subtitles.srt` |
 
+## 音色与语速（2026-11-05）
+
+- 官方音色列表：[Qwen-Audio-TTS 音色列表](https://www.alibabacloud.com/help/zh/model-studio/qwen-audio-tts-voice-list)（音色必须匹配模型，不能跨模型混用）
+- 当前视频使用的 `longanhuan_v3.1` 是「亲切活泼」女声，偏社交/生活；严肃科普建议换更稳的旁白音色。
+- 试听包：`voice-samples/audition-qwen-voices.mp3`（A 龙安灵心 / B 龙安风悦 / C 于小云 / D 温怀清 / E 许玉远 / F 许南川 / G 安明远 / H 龙书）
+- 语速试听：`voice-samples/audition-qwen-rate.mp3`（0.9 / 1.0 / 1.05 / 1.1 / 1.2，龙安灵心）
+- `speech_rate` 范围 0.5–2.0，默认 1.0；科普建议 0.95–1.05，偏快用 1.1，偏慢用 0.9。
+- 试听调用计费见 [TTS_AUDITION.md](TTS_AUDITION.md)。
+
 ## 设计
 
 - 声音为轴：旁白逐句合成 → 时间轴 → 场景/字幕/动效对齐
