@@ -6,12 +6,12 @@
 
 | 类别 | 总数 | 草稿 | 可用 | 已验证 | 归档 |
 |---|---|---|---|---|---|
-| 知识条目 | 31 | 0 | 29 | 2 | 0 |
+| 知识条目 | 32 | 0 | 30 | 2 | 0 |
 | SOP | 11 | 0 | 11 | 0 | 0 |
 | 技能 | 5 | - | - | - | - |
 | 模板 | 7 | - | - | - | - |
 
-可用以上占比：**100%**（42/42）
+可用以上占比：**100%**（43/43）
 
 ## 知识库
 
@@ -28,6 +28,7 @@
 | FFmpeg · 音视频处理的命令行瑞士军刀 | `kb/ffmpeg` | 工具 | 已验证 | 2026-11-03 | [ffmpeg](knowledge/开源库/ffmpeg.md) |
 | HyperFrames · HTML 原生、Agent 优先的视频渲染框架 | `kb/hyperframes` | 工具 | 可用 | 2026-11-05 | [hyperframes](knowledge/开源库/hyperframes.md) |
 | WhisperX · 词级时间戳转写与说话人分离 | `kb/whisperx` | 工具 | 可用 | 2026-11-03 | [whisperx](knowledge/开源库/whisperx.md) |
+| 单行字幕与持续动效 · 不让画面「死」的规则 | `kb/caption-motion-continuity` | 方法论 | 可用 | 2026-11-05 | [caption-motion-continuity](knowledge/方法论/caption-motion-continuity.md) |
 | 剪辑决策方法 · 判断与软件分离、音频驱动、黑场交回 | `kb/clip-skills-method` | 方法论 | 可用 | 2026-11-04 | [clip-skills-method](knowledge/方法论/clip-skills-method.md) |
 | 纯代码视频风格库 · 11 种风格配方 | `kb/code-video-style-recipes` | 方法论 | 可用 | 2026-11-03 | [code-video-style-recipes](knowledge/方法论/code-video-style-recipes.md) |
 | 纯代码视频主题库 · 8 套配色与材质系统 | `kb/code-video-themes` | 方法论 | 可用 | 2026-11-03 | [code-video-themes](knowledge/方法论/code-video-themes.md) |

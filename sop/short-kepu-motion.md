@@ -34,7 +34,7 @@ owner: lead
 | 帧率 | 30 fps | 60 fps（动效密集） |
 | 视频 | H.264 High，VBR 8–12 Mbps | 图形简单可 4–6 Mbps |
 | 音频 | AAC 48 kHz 192 kbps，-14 LUFS | 纯 BGM 版 -16 LUFS |
-| 字幕 | 烧录（默认）或外挂 | 平台自动字幕时外挂 |
+| 字幕 | 烧录（默认）或外挂；单行 12–16 字 | 平台自动字幕时外挂 |
 | 封装/命名 | .mp4，`<主题>-kepu-v1-<date>.mp4` | 附封面、脚本、来源清单 |
 | 时长 | 45–120s | 长讲解 2–8min（同流程扩分镜） |
 
@@ -123,7 +123,7 @@ owner: lead
 | 时长 | 短视频 / 长讲解 | 45–120s / 2–8min |
 | 语速 | 中文 | 约 250 字/分钟 |
 | 单镜头 | 时长 | 2–6s |
-| 字幕 | 行数/位置 | ≤2 行，底部安全区 |
+| 字幕 | 单行 / 位置 | 12–16 字（硬上限 18–20），底部安全区 |
 | 画幅 | 横/竖 | 1920×1080 / 1080×1920 |
 | 响度 | 交付 | -14 LUFS |
 | 码率 | 交付 | 8–12 Mbps |
@@ -133,9 +133,9 @@ owner: lead
 
 - [ ] 事实台账完整，无无来源 claim
 - [ ] 30s 样片已验收
-- [ ] 字幕时间轴与音频逐句对齐
+- [ ] 字幕时间轴与音频逐句对齐；单行、≤18 字，长句已拆 cue
 - [ ] 文字不溢出、不出安全区；卡片/阴影无裁切
-- [ ] 无连续 2–3s 静止；结尾有 1–2s 停留
+- [ ] 无连续 1.2s 完全静止；结尾有 1–2s 停留；停留段保留环境动效
 - [ ] 帧数 = round(duration×30)；无音画漂移
 - [ ] 规格/响度/命名通过 qc-deliver
 
@@ -156,6 +156,7 @@ owner: lead
 |---|---|---|
 | 脚本/时间轴 | JSON/Markdown 单一数据源 | 自建脚本 |
 | TTS/字幕 | TTS + 词级时间戳 | WhisperX / TTS |
+| 字幕/静止检查 | 字数、行数、帧差 | 自建脚本 + ffmpeg |
 | 动效渲染 | 代码组件 | Remotion / HyperFrames |
 | 预检 | lint / stills / 帧数 | 框架 CLI + ffprobe |
 | QC | 脚本 | 本仓 qc-deliver |
@@ -172,13 +173,16 @@ owner: lead
 ## 复盘与改进
 
 - **已跑通 Remotion 版科普样片（2026-11-05）**：[kepu-compare](../pipeline/remotion/kepu-compare/) · WorkBuddy vs Qoder，v2 103.3s / 3097 帧 / 1920×1080 / -16 LUFS（含 0.8s 封面）；Remotion 4.0.540 + Node 26 + Chrome for Testing + 阿里云 Qwen TTS（qwen-audio-3.1-tts-flash / longanlingxin_v3.1），QC 通过。HyperFrames 仍未安装（[待确认]）。
-- 交付码率说明：深色图形内容在 `-b:v 8M` 下实际约 1.4Mbps，属内容自适应；屏幕文字仍清晰。
+- 交付码率说明：深色图形内容在 `-b:v 8M` 下实际约 1.2–1.4Mbps，属内容自适应；屏幕文字仍清晰。
+- v3 计划：按 [单行字幕与持续动效](../knowledge/方法论/caption-motion-continuity.md) 重做字幕 cue 与持续动效，不再用整句长字幕。
 - 音频：去掉 BGM，仅旁白 + 两遍 loudnorm；TTS 最终采用阿里云百炼 Qwen TTS（qwen-audio-3.1-tts-flash / longanhuan_v3.1）。
 - 计费记录：[kepu-compare/TTS_BILLING.md](../pipeline/remotion/kepu-compare/TTS_BILLING.md)：10 次调用，input 292 / output 805 / total 1097 tokens（API 返回）。
 - 回填：真实项目记录渲染耗时、返工点、有效开头。
 - 与数据动画共用「帧=f(t)、静帧/接触表、帧数校验」的工程习惯。
 
 ## 关联条目
+
+- 单行字幕与持续动效：[caption-motion-continuity](../knowledge/方法论/caption-motion-continuity.md)
 
 - 方法：[科普视频方法](../knowledge/方法论/kepu-video-method.md)、[剪辑决策方法](../knowledge/方法论/clip-skills-method.md)
 - 工具：[HyperFrames](../knowledge/开源库/hyperframes.md)、[Remotion](../knowledge/开源库/remotion.md)
