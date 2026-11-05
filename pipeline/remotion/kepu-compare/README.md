@@ -37,6 +37,11 @@ npx remotion render src/index.ts KepuCompare out/video.mp4 \
 | TTS 用量 | input 292 / output 805 / total 1097 tokens（10 次调用，API 返回）；详见 [TTS_BILLING.md](TTS_BILLING.md) |
 | 字幕 | React 内烧录；另出 `subtitles.srt` |
 
+## 脚本与分镜
+
+- 完整设计稿（v2，待确认）：[SCRIPT_DESIGN.md](SCRIPT_DESIGN.md)
+- 参考方法：[视频脚本设计参考](../../../research/2026-11-05-视频脚本设计参考.md)
+
 ## 封面
 
 - 独立封面：`out/cover.png`（由 `src/Cover.tsx` 渲染，不再依赖视频首帧）；`Cover.png` 不再使用旧的 9 宫格缩略图。

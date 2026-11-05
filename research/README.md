@@ -46,6 +46,7 @@
 - [2026-11-03-code-video-showcase](2026-11-03-code-video-showcase.md)（纯代码视频 Agent Skill 调研，lead）
 - [来源台账](来源台账.md)（所有学习来源 / license / 沉淀位置 / 复用边界，持续更新）
 - [2026-11-05-Remotion vs HyperFrames](2026-11-05-remotion-vs-hyperframes-科普视频.md)（科普视频技术栈与生态）
+- [2026-11-05-视频脚本设计参考](2026-11-05-视频脚本设计参考.md)（GitHub 脚本/分镜/视觉方法库与设计参考）
 
 ## 来源台账（跨笔记共用）
 
