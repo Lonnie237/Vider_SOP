@@ -1,0 +1,99 @@
+{
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "duration": 102.436,
+  "frames": 3073,
+  "beats": [
+    {
+      "id": "b01",
+      "section": "hook",
+      "headline": "周一 9:00",
+      "text": "周一早上九点，你打开电脑：左边是没写完的周报，右边是等着修的 bug。如果只能装一个 AI 工作台，你装哪个？",
+      "start": 0.45,
+      "end": 9.802,
+      "duration": 9.352
+    },
+    {
+      "id": "b02",
+      "section": "myth",
+      "headline": "打破误解",
+      "text": "很多人以为，WorkBuddy 和 Qoder 只是两个更聪明的聊天框。其实从第一天起，它们走的就是两条路。",
+      "start": 10.222,
+      "end": 18.137,
+      "duration": 7.915
+    },
+    {
+      "id": "b03",
+      "section": "define",
+      "headline": "一句话定义",
+      "text": "它们都是 AI 工作台：能拆任务、调工具、把结果直接交给你。区别在主场：WorkBuddy 是腾讯的办公工作台，Qoder 是阿里的编程工作台。",
+      "start": 18.557,
+      "end": 29.659,
+      "duration": 11.102
+    },
+    {
+      "id": "b04",
+      "section": "context",
+      "headline": "差异① 上下文",
+      "text": "先看上下文。WorkBuddy 读的是文档、表格、会议纪要，还有腾讯文档和企业微信；Qoder 读的是代码、仓库、PR 和终端。",
+      "start": 30.079,
+      "end": 39.431,
+      "duration": 9.352
+    },
+    {
+      "id": "b05",
+      "section": "output",
+      "headline": "差异② 产出",
+      "text": "再看产出。一个把 Word、Excel、PPT、报告放到你桌上；一个把代码、测试、提交记录和 PR 交到仓库里。",
+      "start": 39.851,
+      "end": 48.759,
+      "duration": 8.908
+    },
+    {
+      "id": "b06",
+      "section": "form",
+      "headline": "差异③ 形态",
+      "text": "最后看形态。WorkBuddy 是桌面工作台，长在腾讯办公生态里；Qoder 是 IDE、插件、CLI 和云端 Agent，长在开发者工作流里。",
+      "start": 49.179,
+      "end": 60.359,
+      "duration": 11.18
+    },
+    {
+      "id": "b07",
+      "section": "why",
+      "headline": "为什么是两款",
+      "text": "那为什么两家各推一款？因为腾讯有 CodeBuddy 管编程、WorkBuddy 管办公；阿里有 Qoder 管代码、QoderWork 管办公。不是重复造轮子，是同一能力的两条产品线。",
+      "start": 60.779,
+      "end": 74.258,
+      "duration": 13.479
+    },
+    {
+      "id": "b08",
+      "section": "choose",
+      "headline": "怎么选",
+      "text": "普通人怎么选？问三个问题：你每天打开的是文档还是 IDE？产出交给老板还是代码库？你已经在用腾讯文档、企微，还是阿里云、开发者工具？",
+      "start": 74.678,
+      "end": 86.094,
+      "duration": 11.416
+    },
+    {
+      "id": "b09",
+      "section": "recommend",
+      "headline": "建议",
+      "text": "办公为主，选 WorkBuddy；开发为主，选 Qoder；两个都干，先用免费版各试一周。",
+      "start": 86.514,
+      "end": 93.123,
+      "duration": 6.609
+    },
+    {
+      "id": "b10",
+      "section": "close",
+      "headline": "收尾",
+      "text": "价格和功能会变，商用前看合规。工具是壳，工作流才是核心。你每天的工作，更像哪一边？",
+      "start": 93.543,
+      "end": 101.536,
+      "duration": 7.993
+    }
+  ]
+}

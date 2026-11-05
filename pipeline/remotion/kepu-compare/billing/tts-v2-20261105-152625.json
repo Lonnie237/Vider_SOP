@@ -1,0 +1,118 @@
+{
+  "generated_at": "2026-11-05T15:26:25",
+  "provider": "Alibaba Cloud Model Studio (DashScope)",
+  "model": "qwen-audio-3.1-tts-flash",
+  "voice": "longanlingxin_v3.1",
+  "speech_rate": 1.05,
+  "base_websocket_api_url": "wss://cn-beijing.maas.qianwenaiapi.com/api-ws/v1/inference",
+  "beats": [
+    {
+      "id": "b01",
+      "chars": 55,
+      "input_tokens": 50,
+      "output_tokens": 122,
+      "total_tokens": 172,
+      "characters": 96,
+      "task_id": "978e59f5db144732a640c43fe5f54828",
+      "audio_duration_s": 9.352
+    },
+    {
+      "id": "b02",
+      "chars": 54,
+      "input_tokens": 40,
+      "output_tokens": 103,
+      "total_tokens": 143,
+      "characters": 87,
+      "task_id": "b69cb976075847b29075386f3d89a1a3",
+      "audio_duration_s": 7.915
+    },
+    {
+      "id": "b03",
+      "chars": 72,
+      "input_tokens": 57,
+      "output_tokens": 145,
+      "total_tokens": 202,
+      "characters": 117,
+      "task_id": "68f871ffd31340deb44d4401cee58d0d",
+      "audio_duration_s": 11.102
+    },
+    {
+      "id": "b04",
+      "chars": 64,
+      "input_tokens": 50,
+      "output_tokens": 122,
+      "total_tokens": 172,
+      "characters": 101,
+      "task_id": "b77b04dec10442248fbc01138da9168a",
+      "audio_duration_s": 9.352
+    },
+    {
+      "id": "b05",
+      "chars": 56,
+      "input_tokens": 46,
+      "output_tokens": 116,
+      "total_tokens": 162,
+      "characters": 87,
+      "task_id": "9e3a9491d5e744e0b5ad2f6cbbb9a941",
+      "audio_duration_s": 8.908
+    },
+    {
+      "id": "b06",
+      "chars": 72,
+      "input_tokens": 48,
+      "output_tokens": 146,
+      "total_tokens": 194,
+      "characters": 107,
+      "task_id": "500d3f88d2694e048ccc3bc420fcb3c8",
+      "audio_duration_s": 11.18
+    },
+    {
+      "id": "b07",
+      "chars": 93,
+      "input_tokens": 62,
+      "output_tokens": 176,
+      "total_tokens": 238,
+      "characters": 141,
+      "task_id": "47fad9201ab742079299d294e3d544b4",
+      "audio_duration_s": 13.479
+    },
+    {
+      "id": "b08",
+      "chars": 66,
+      "input_tokens": 65,
+      "output_tokens": 149,
+      "total_tokens": 214,
+      "characters": 120,
+      "task_id": "77982437e24442d689ccc4fb67af2fda",
+      "audio_duration_s": 11.416
+    },
+    {
+      "id": "b09",
+      "chars": 45,
+      "input_tokens": 32,
+      "output_tokens": 86,
+      "total_tokens": 118,
+      "characters": 68,
+      "task_id": "6980bed232644ca4a1a9f65fff484fd0",
+      "audio_duration_s": 6.609
+    },
+    {
+      "id": "b10",
+      "chars": 41,
+      "input_tokens": 41,
+      "output_tokens": 104,
+      "total_tokens": 145,
+      "characters": 76,
+      "task_id": "969623d998504977b2c3eadb6d7d2001",
+      "audio_duration_s": 7.993
+    }
+  ],
+  "totals": {
+    "beats": 10,
+    "input_tokens": 491,
+    "output_tokens": 1269,
+    "total_tokens": 1760,
+    "characters": 1000,
+    "audio_duration_s": 102.436
+  }
+}

@@ -24,7 +24,7 @@ export const Cover: React.FC = () => {
         腾讯的办公 Agent × 阿里的编程 Agent
       </div>
       <div style={{ position: "absolute", top: 570, left: 0, right: 0, textAlign: "center", color: C.muted, fontSize: 28 }}>
-        60 秒看懂：区别 · 原因 · 怎么选
+        100 秒看懂：区别 · 原因 · 怎么选
       </div>
 
       <div style={{ position: "absolute", bottom: 70, left: 0, right: 0, textAlign: "center", color: "#5E6A7D", fontSize: 20, letterSpacing: 1 }}>
