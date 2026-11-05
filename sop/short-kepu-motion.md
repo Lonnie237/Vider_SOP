@@ -185,6 +185,7 @@ owner: lead
 ## 关联条目
 
 - 单行字幕与持续动效：[caption-motion-continuity](../knowledge/方法论/caption-motion-continuity.md)
+- 版式选择：[常用视频版式](../knowledge/方法论/layout-patterns.md)
 
 - 方法：[科普视频方法](../knowledge/方法论/kepu-video-method.md)、[剪辑决策方法](../knowledge/方法论/clip-skills-method.md)
 - 工具：[HyperFrames](../knowledge/开源库/hyperframes.md)、[Remotion](../knowledge/开源库/remotion.md)

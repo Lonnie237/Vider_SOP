@@ -6,12 +6,12 @@
 
 | 类别 | 总数 | 草稿 | 可用 | 已验证 | 归档 |
 |---|---|---|---|---|---|
-| 知识条目 | 32 | 0 | 30 | 2 | 0 |
+| 知识条目 | 33 | 0 | 31 | 2 | 0 |
 | SOP | 11 | 0 | 11 | 0 | 0 |
 | 技能 | 5 | - | - | - | - |
 | 模板 | 7 | - | - | - | - |
 
-可用以上占比：**100%**（43/43）
+可用以上占比：**100%**（44/44）
 
 ## 知识库
 
@@ -35,6 +35,7 @@
 | 调色基础 · 一级校正、镜头匹配与 Rec.709 交付 | `kb/color-grading` | 方法论 | 可用 | 2026-11-03 | [color-grading](knowledge/方法论/color-grading.md) |
 | 钩子与留存 · 用前 3 秒把「刷到」变成「看完」 | `kb/hooks-retention` | 方法论 | 可用 | 2026-11-03 | [hooks-retention](knowledge/方法论/hooks-retention.md) |
 | 科普视频方法 · 声音为轴、字幕为基准、事实台账 | `kb/kepu-video-method` | 方法论 | 可用 | 2026-11-05 | [kepu-video-method](knowledge/方法论/kepu-video-method.md) |
+| 常用视频版式与处理方式 · 20 种版面速查 | `kb/layout-patterns` | 方法论 | 可用 | 2026-11-05 | [layout-patterns](knowledge/方法论/layout-patterns.md) |
 | 叙事结构 · 用一条命题组织信息推进 | `kb/narrative-structure` | 方法论 | 可用 | 2026-11-03 | [narrative-structure](knowledge/方法论/narrative-structure.md) |
 | 节奏与卡点 · 用镜长和重拍控制观看速度 | `kb/pacing-beat` | 方法论 | 可用 | 2026-11-03 | [pacing-beat](knowledge/方法论/pacing-beat.md) |
 | 声音设计与混音 · 对白优先，响度统一 | `kb/sound-design` | 方法论 | 可用 | 2026-11-03 | [sound-design](knowledge/方法论/sound-design.md) |
