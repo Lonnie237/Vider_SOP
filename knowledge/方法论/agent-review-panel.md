@@ -122,6 +122,9 @@ owner: lead
 ## 关联条目
 
 - [脚本调研 SOP](script-research-sop.md)
+- [分镜/成片核验](artifact-review-gates.md)
+- [全链路评审卡](../../templates/全链路评审卡.md)
+- [成片 QC 卡](../../templates/成片QC卡.md)
 - [版式库](layout-patterns.md)
 - [单行字幕与持续动效](caption-motion-continuity.md)
 - 案例：[初中数学第一课 v4](../../research/2026-11-05-初中数学第一课-脚本v4.md)、[评审汇总](../../research/reviews/2026-11-05-review-synthesis.md)、[分镜 v1](../../research/2026-11-05-初中数学第一课-分镜v1.md)

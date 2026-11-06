@@ -195,6 +195,8 @@ Gate G6：后测达标（例如 80% 正确）再发布。
 - [叙事结构](narrative-structure.md)
 - [版式库](layout-patterns.md)
 - [分镜版式卡](storyboard-layout-cards.md)
+- [Agent 评审团](agent-review-panel.md)
+- [分镜/成片核验](artifact-review-gates.md)
 - [单行字幕与持续动效](caption-motion-continuity.md)
 - [科普动画短视频 SOP](../../sop/short-kepu-motion.md)
 - 项目案例：[初中数学第一课](../../research/2026-11-05-初中数学第一课-负数与数轴.md)

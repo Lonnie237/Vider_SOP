@@ -6,12 +6,12 @@
 
 | 类别 | 总数 | 草稿 | 可用 | 已验证 | 归档 |
 |---|---|---|---|---|---|
-| 知识条目 | 36 | 0 | 34 | 2 | 0 |
+| 知识条目 | 37 | 0 | 35 | 2 | 0 |
 | SOP | 11 | 0 | 11 | 0 | 0 |
 | 技能 | 5 | - | - | - | - |
-| 模板 | 9 | - | - | - | - |
+| 模板 | 11 | - | - | - | - |
 
-可用以上占比：**100%**（47/47）
+可用以上占比：**100%**（48/48）
 
 ## 知识库
 
@@ -29,6 +29,7 @@
 | HyperFrames · HTML 原生、Agent 优先的视频渲染框架 | `kb/hyperframes` | 工具 | 可用 | 2026-11-05 | [hyperframes](knowledge/开源库/hyperframes.md) |
 | WhisperX · 词级时间戳转写与说话人分离 | `kb/whisperx` | 工具 | 可用 | 2026-11-03 | [whisperx](knowledge/开源库/whisperx.md) |
 | Agent 脚本评审团 · 无业务老师时的对抗式评审 | `kb/agent-review-panel` | 方法论 | 可用 | 2026-11-05 | [agent-review-panel](knowledge/方法论/agent-review-panel.md) |
+| 分镜/成片核验 · Agent 能做什么、不能做什么 | `kb/artifact-review-gates` | 方法论 | 可用 | 2026-11-06 | [artifact-review-gates](knowledge/方法论/artifact-review-gates.md) |
 | 单行字幕与持续动效 · 不让画面「死」的规则 | `kb/caption-motion-continuity` | 方法论 | 可用 | 2026-11-05 | [caption-motion-continuity](knowledge/方法论/caption-motion-continuity.md) |
 | 剪辑决策方法 · 判断与软件分离、音频驱动、黑场交回 | `kb/clip-skills-method` | 方法论 | 可用 | 2026-11-04 | [clip-skills-method](knowledge/方法论/clip-skills-method.md) |
 | 纯代码视频风格库 · 11 种风格配方 | `kb/code-video-style-recipes` | 方法论 | 可用 | 2026-11-03 | [code-video-style-recipes](knowledge/方法论/code-video-style-recipes.md) |
@@ -125,8 +126,10 @@
 - [QC清单](templates/QC清单.md)
 - [SOP](templates/SOP.md)
 - [交付规格](templates/交付规格.md)
+- [全链路评审卡](templates/全链路评审卡.md)
 - [分镜版式卡](templates/分镜版式卡.md)
 - [分镜表](templates/分镜表.md)
+- [成片QC卡](templates/成片QC卡.md)
 - [知识条目-开源库](templates/知识条目-开源库.md)
 - [知识条目-方法论](templates/知识条目-方法论.md)
 - [脚本调研卡](templates/脚本调研卡.md)
