@@ -1,8 +1,8 @@
 # 数学第一课 S1–S4 样片 · E2E 一致性审查
 
-- 对象：[sample-s1-s4.mp4](../../pipeline/runs/demo-math-first-lesson/sample-s1-s4.mp4)（61.653s / 1849 帧 / 1920×1080 / 30fps / -15.9 LUFS）
+- 对象：sample-s1-s4.mp4: pipeline/runs/demo-math-first-lesson/sample-s1-s4.mp4（61.653s / 1849 帧 / 1920×1080 / 30fps / -15.9 LUFS）
 - 对照：[脚本 v4](../2026-11-05-初中数学第一课-脚本v4.md)、[分镜 v1](../2026-11-05-初中数学第一课-分镜v1.md)、[版式卡 v1](../2026-11-05-初中数学第一课-版式卡v1.md)、[QC 证据](2026-11-06-math-sample-qc-evidence.md)
-- 证据口径：**已看帧**——[contact.png](../../pipeline/remotion/junior-math-first-lesson/out/qc/contact.png)（31 格/每 2s）+ 从成片抽 17 张关键帧（0.5/2/5.9/29.65/30.2/31.2/33.8/35.5/40/41.2/47/50/53.9/55.6/56.6/57.2/59.5s）；**已读源**——[MathSample.tsx](../../pipeline/remotion/junior-math-first-lesson/src/MathSample.tsx)、[timeline.json](../../pipeline/remotion/junior-math-first-lesson/src/timeline.json)、[cues.json](../../pipeline/remotion/junior-math-first-lesson/src/cues.json)、[anchors.json](../../pipeline/remotion/junior-math-first-lesson/src/anchors.json)、[words.json](../../pipeline/remotion/junior-math-first-lesson/src/words.json)、[make_audio.py](../../pipeline/remotion/junior-math-first-lesson/tools/make_audio.py)、QC 原始文件 black/loudness/probe。
+- 证据口径：**已看帧**——contact.png: pipeline/remotion/junior-math-first-lesson/out/qc/contact.png（31 格/每 2s）+ 从成片抽 17 张关键帧（0.5/2/5.9/29.65/30.2/31.2/33.8/35.5/40/41.2/47/50/53.9/55.6/56.6/57.2/59.5s）；**已读源**——[MathSample.tsx](../../pipeline/remotion/junior-math-first-lesson/src/MathSample.tsx)、[timeline.json](../../pipeline/remotion/junior-math-first-lesson/src/timeline.json)、[cues.json](../../pipeline/remotion/junior-math-first-lesson/src/cues.json)、[anchors.json](../../pipeline/remotion/junior-math-first-lesson/src/anchors.json)、[words.json](../../pipeline/remotion/junior-math-first-lesson/src/words.json)、[make_audio.py](../../pipeline/remotion/junior-math-first-lesson/tools/make_audio.py)、QC 原始文件 black/loudness/probe。
 - 未播放音频：旁白-字幕对齐用 words.json 算（字级时间戳），不用耳朵；符号读音（59.8–60.9s 的「<」）需人耳复核。
 - 边界：只覆盖 S1–S4；**不因缺 S5–S7 判 P0**。样片是压缩版（61.65s vs 脚本 S1–S4 的 161s），按「机制是否落地」审，不按逐句对拍审。
 
@@ -76,7 +76,7 @@
 
 **P1-3 · 脚本说 A、成片演 B：三处教学内容被压没** —— (a) v4 S2 旁白的 M2 半句「+200 里的 + 是正号，不是加法」被删，只在屏显留一行 15.3s 常驻的静默文字（[L138](../../pipeline/remotion/junior-math-first-lesson/src/MathSample.tsx#L138)），M2 在本段等于没讲；(b) v4 S4「原点就是 0」被删，画面只把「原点」标在 0 下方；(c) v4 S3「0 米海拔也不是『没有高度』」被压成「是海平面」——M1/M4 的否定句消失，O2 的误区纠正只剩一半。改法：全片补回这三句；如需压缩样片，至少把 S2 的 M2 屏显行改成随旁白出现，而不是全段挂着。
 
-**P1-4 · S2→S3 切点 0.1s 空画面；QC 的「黑帧通过」是压线口径** —— 0:29.63–0:29.73 全屏只剩页眉（抽帧 29.65 确认）；[black.txt](../../pipeline/remotion/junior-math-first-lesson/out/qc/black.txt) 记的正是 29.633–29.733 / 0.1s，而 QC 表写「未检出 >0.1s」，刚好卡在阈值外。改法：S3 标题改用 4 帧淡入（或切点前留 2 帧 S2 末帧）；QC 阈值改为 ≥0.03s 并对每个切点单独检查。
+**P1-4 · S2→S3 切点 0.1s 空画面；QC 的「黑帧通过」是压线口径** —— 0:29.63–0:29.73 全屏只剩页眉（抽帧 29.65 确认）；black.txt: pipeline/remotion/junior-math-first-lesson/out/qc/black.txt 记的正是 29.633–29.733 / 0.1s，而 QC 表写「未检出 >0.1s」，刚好卡在阈值外。改法：S3 标题改用 4 帧淡入（或切点前留 2 帧 S2 末帧）；QC 阈值改为 ≥0.03s 并对每个切点单独检查。
 
 **P1-5 · 三份文件三个规格；语速与脚本标注不符；符号读音需人耳复核** —— (a) [分镜 §6](../2026-11-05-初中数学第一课-分镜v1.md#L67) 写「S1–S4 的 40 秒样片」，QC 写「目标 55–65s」，实际 61.65s；(b) 实测语速 4.3 字/秒（257 字/分，S3 段 4.9 字/秒），v4 标注 3.1 字/秒——样片验证不了脚本节奏，且对初一偏快；(c) b04 末尾 TTS 返回的 token 是「《 -1。」，59.8–60.9s 的「<」到底读成「小于」还是「《」无法从数据确认，需抽听。改法：统一规格为「S1–S4 视觉样片 60s±5s」，注明语速差异是压缩导致；抽听 59.8–60.9s，「<」改用「小于」的中文读法写死。
 

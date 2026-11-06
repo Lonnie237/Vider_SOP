@@ -31,7 +31,7 @@
 
 ## 3. 抽帧
 
-![contact sheet](../../pipeline/remotion/junior-math-first-lesson/out/qc/contact.png)
+contact sheet: pipeline/remotion/junior-math-first-lesson/out/qc/contact.png
 
 每 2s 一帧；S1 温度计下降、S2 左/右栏 active、S3 三格、S4 数轴与答案均可见。
 
