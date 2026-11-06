@@ -3,7 +3,7 @@
 - 日期：2026-11-06
 - 成片：pipeline/runs/demo-math-first-lesson/sample-s1-s4.mp4
 - 上一版：[E2E 评审](2026-11-06-math-sample-e2e.md)（v1：61.65s，P0 4 条）
-- 方法：[分镜/成片核验](../knowledge/方法论/artifact-review-gates.md)
+- 方法：[分镜/成片核验](../../knowledge/方法论/artifact-review-gates.md)
 
 ## 1. 机器指标（v2）
 
