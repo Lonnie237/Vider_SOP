@@ -1,0 +1,66 @@
+{
+  "generated_at": "2026-11-06T10:06:41",
+  "voice": "longanlingxin_v3.1",
+  "rate": 1.05,
+  "rows": [
+    {
+      "id": "b01",
+      "input_tokens": 41,
+      "output_tokens": 107,
+      "total_tokens": 148,
+      "characters": 78
+    },
+    {
+      "id": "b02",
+      "input_tokens": 107,
+      "output_tokens": 307,
+      "total_tokens": 414,
+      "characters": 198
+    },
+    {
+      "id": "b03",
+      "input_tokens": 75,
+      "output_tokens": 190,
+      "total_tokens": 265,
+      "characters": 140
+    },
+    {
+      "id": "b04a",
+      "input_tokens": 88,
+      "output_tokens": 266,
+      "total_tokens": 354,
+      "characters": 162
+    },
+    {
+      "id": "b04b",
+      "input_tokens": 17,
+      "output_tokens": 50,
+      "total_tokens": 67,
+      "characters": 32
+    }
+  ],
+  "totals": {
+    "calls": 5,
+    "input": 328,
+    "output": 920,
+    "total": 1248,
+    "chars": 610
+  },
+  "duration": 74.572,
+  "anchors": {
+    "零摄氏度": 35.982,
+    "这个数写作负三": 3.04,
+    "零摄氏度是没有温度": 6.698,
+    "规定收入为正": 19.548,
+    "规定支出为正": 23.434,
+    "两种都行": 27.396,
+    "零个苹果": 33.848,
+    "零米海拔": 40.02,
+    "零既不是正数": 43.448,
+    "是分界": 46.115,
+    "正三在右边": 58.978,
+    "负三在左边": 61.378,
+    "负三和负一": 66.178,
+    "负三在负一左边": 70.158
+  }
+}

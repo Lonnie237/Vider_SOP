@@ -1,5 +1,5 @@
 import React from "react";
-import { AbsoluteFill, Audio, Sequence, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, Audio, Sequence, interpolate, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import timeline from "./timeline.json";
 import cues from "./cues.json";
 import anchors from "./anchors.json";
@@ -10,18 +10,26 @@ const A: any = anchors as any;
 const C = {
   bg: "#101418", panel: "#1A2024", panel2: "#151B20",
   line: "rgba(242,239,230,0.12)", text: "#F2EFE6", muted: "#A8A49A",
-  amber: "#F0A93B", red: "#FF6B61", blue: "#4D9FFF", green: "#3DDC97",
+  amber: "#F0A93B", red: "#FF6B61", blue: "#4D9FFF",
 };
 const FONT = '"PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif';
 const MONO = '"JetBrains Mono","SFMono-Regular",Menlo,monospace';
 const CAP = { extrapolateLeft: "clamp" as const, extrapolateRight: "clamp" as const };
 const sec = (t: number) => Math.round(t * T.fps);
-const SceneStart = React.createContext(0);
 const beat = (id: string) => T.beats.find((x: any) => x.id === id);
-
-const fade = (frame: number, delay: number, dur = 12) => ({
+const SceneStart = React.createContext(0);
+const useGlobalFrame = () => useCurrentFrame() + React.useContext(SceneStart);
+const cueStart = (needle: string) => {
+  const c = CUES.find((x) => x.text.replace(/\s/g, "").includes(needle.replace(/\s/g, "")));
+  return c ? c.start : 0;
+};
+const reveal = (frame: number, at: number, dur = 9) => ({
+  opacity: interpolate(frame, [sec(at), sec(at) + dur], [0, 1], CAP),
+  transform: "translateY(" + interpolate(frame, [sec(at), sec(at) + dur], [12, 0], CAP) + "px)",
+});
+const fade = (frame: number, delay: number, dur = 10) => ({
   opacity: interpolate(frame, [delay, delay + dur], [0, 1], CAP),
-  transform: "translateY(" + interpolate(frame, [delay, delay + dur], [16, 0], CAP) + "px)",
+  transform: "translateY(" + interpolate(frame, [delay, delay + dur], [14, 0], CAP) + "px)",
 });
 
 const Panel: React.FC<{ children: React.ReactNode; style?: React.CSSProperties }> = ({ children, style }) => (
@@ -30,13 +38,11 @@ const Panel: React.FC<{ children: React.ReactNode; style?: React.CSSProperties }
 
 const Header: React.FC = () => (
   <>
-    <div style={{ position: "absolute", top: 44, left: 76, display: "flex", alignItems: "center", gap: 12 }}>
+    <div style={{ position: "absolute", top: 44, left: 96, display: "flex", alignItems: "center", gap: 12 }}>
       <span style={{ width: 4, height: 24, background: C.amber }} />
       <span style={{ color: C.muted, fontFamily: MONO, fontSize: 17, letterSpacing: 1 }}>初中数学第一课 · 样片</span>
     </div>
-    <div style={{ position: "absolute", top: 46, right: 76, color: C.muted, fontFamily: FONT, fontSize: 19 }}>
-      负数与数轴
-    </div>
+    <div style={{ position: "absolute", top: 46, right: 96, color: C.muted, fontFamily: FONT, fontSize: 19 }}>负数与数轴</div>
   </>
 );
 
@@ -58,51 +64,55 @@ const Background: React.FC = () => {
   const frame = useCurrentFrame();
   return (
     <AbsoluteFill style={{ background: C.bg }}>
-      <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(242,239,230,0.04) 1px, transparent 1px),linear-gradient(90deg, rgba(242,239,230,0.04) 1px, transparent 1px)", backgroundSize: "96px 96px", transform: "translate(" + Math.sin(frame / 120) * 4 + "px," + Math.cos(frame / 140) * 3 + "px)" }} />
+      <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(242,239,230,0.04) 1px, transparent 1px),linear-gradient(90deg, rgba(242,239,230,0.04) 1px, transparent 1px)", backgroundSize: "96px 96px", transform: "translate(" + Math.sin(frame / 120) * 3 + "px," + Math.cos(frame / 140) * 2 + "px)" }} />
       <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: 300, background: "radial-gradient(800px 300px at 50% 100%, rgba(240,169,59,0.06), transparent 70%)" }} />
     </AbsoluteFill>
   );
 };
 
-const Title: React.FC<{ kicker: string; title: string; frame: number; instant?: boolean }> = ({ kicker, title, frame, instant }) => (
+const Title: React.FC<{ kicker: string; title: string; frame: number }> = ({ kicker, title, frame }) => (
   <>
-    <div style={{ ...(instant ? {} : fade(frame, 0, 9)), display: "flex", alignItems: "center", gap: 10, marginBottom: 12 }}>
+    <div style={{ ...fade(frame, -10, 6), display: "flex", alignItems: "center", gap: 10, marginBottom: 12 }}>
       <span style={{ width: 6, height: 20, background: C.amber }} />
       <span style={{ color: C.muted, fontFamily: MONO, fontSize: 17, letterSpacing: 1 }}>{kicker}</span>
     </div>
-    <div style={{ ...(instant ? {} : fade(frame, 2, 10)), color: C.text, fontSize: 50, fontWeight: 800 }}>{title}</div>
+    <div style={{ ...fade(frame, -10, 6), color: C.text, fontSize: 50, fontWeight: 800 }}>{title}</div>
   </>
 );
 
 const S1: React.FC = () => {
-  const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
-  const enter = spring({ frame, fps, config: { damping: 200 }, delay: 2 });
-  const drop = interpolate(frame, [30, 130], [0, 1], CAP);
-  const mercuryH = 360 - drop * 300;
+  const local = useCurrentFrame();
+  const frame = useGlobalFrame();
+  const drop = interpolate(local, [8, 70], [360, 60], CAP);
+  const lines = [
+    { t: "天气预报：最低 -3℃", at: 0.45 },
+    { t: "这个数写作：-3", at: cueStart("这个数写作负三") },
+    { t: "读作：负三摄氏度", at: cueStart("也读作负三摄氏度") },
+    { t: "0℃ 是不是「没有温度」？", at: cueStart("零摄氏度是没有温度") },
+  ];
   return (
     <AbsoluteFill style={{ fontFamily: FONT, paddingTop: 128, paddingLeft: 96, paddingRight: 96 }}>
-      <Title instant kicker="COLD OPEN · 开场" title="0℃ 以下，也是温度" frame={frame} />
+      <Title kicker="COLD OPEN · 开场" title="0℃ 以下，也是温度" frame={frame} />
       <div style={{ display: "flex", gap: 36, marginTop: 30 }}>
-        <Panel style={{ width: 560, padding: 28, opacity: 1 }}>
+        <Panel style={{ width: 560, padding: 28 }}>
           <div style={{ color: C.muted, fontSize: 20, marginBottom: 16 }}>温度计</div>
           <div style={{ display: "flex", gap: 28, alignItems: "flex-end" }}>
             <div style={{ position: "relative", width: 54, height: 430 }}>
               <div style={{ position: "absolute", left: 14, top: 0, width: 26, height: 400, border: "2px solid " + C.text, borderRadius: 13 }} />
-              <div style={{ position: "absolute", left: 20, bottom: 22, width: 14, height: mercuryH, background: C.red, borderRadius: 7 }} />
+              <div style={{ position: "absolute", left: 20, bottom: 22, width: 14, height: drop, background: C.red, borderRadius: 7 }} />
               <div style={{ position: "absolute", left: 2, bottom: 8, width: 50, height: 50, borderRadius: 25, background: C.red }} />
             </div>
             <div style={{ paddingBottom: 40 }}>
               {["3℃", "0℃", "-3℃"].map((x, i) => (
-                <div key={x} style={{ color: i === 2 ? C.text : C.muted, fontSize: 30, margin: "64px 0", textAlign: "left" }}>{x}</div>
+                <div key={x} style={{ color: i === 2 ? C.text : C.muted, fontSize: 30, margin: "64px 0" }}>{x}</div>
               ))}
             </div>
           </div>
         </Panel>
-        <Panel style={{ flex: 1, padding: 32, opacity: 1 }}>
+        <Panel style={{ flex: 1, padding: 32 }}>
           <div style={{ color: C.muted, fontSize: 20, marginBottom: 20 }}>问题卡</div>
-          {["天气预报：最低 -3℃", "读作：零下三摄氏度", "也可以读：负三摄氏度", "0℃ 是不是「没有温度」？"].map((x, i) => (
-            <div key={x} style={{ ...(i === 0 ? { opacity: 1 } : fade(frame, 6 + i * 8)), color: i === 3 ? C.text : C.muted, fontSize: i === 3 ? 38 : 30, marginBottom: 22 }}>{x}</div>
+          {lines.map((x, i) => (
+            <div key={x.t} style={{ ...(i === 0 ? { opacity: 1 } : reveal(frame, x.at)), color: i === 3 ? C.text : C.muted, fontSize: i === 3 ? 38 : 30, marginBottom: 22 }}>{x.t}</div>
           ))}
         </Panel>
       </div>
@@ -111,60 +121,64 @@ const S1: React.FC = () => {
 };
 
 const S2: React.FC = () => {
-  const local = useCurrentFrame();
-  const offset = React.useContext(SceneStart);
-  const frame = local + offset;
-  const rightOn = frame >= sec(A["规定支出为正"]) - 10;
-  const leftOn = !rightOn;
-  const card = (title: string, color: string, rows: [string, string][], active: boolean, side: "left" | "right") => (
-    <Panel style={{ flex: 1, padding: 28, borderTop: "3px solid " + (active ? C.amber : color), opacity: active ? 1 : 0.5, transform: "translateY(" + (active ? -4 : 0) + "px)" }}>
-      <div style={{ color: active ? C.amber : color, fontSize: 26, fontWeight: 700, marginBottom: 20 }}>{title}</div>
+  const frame = useGlobalFrame();
+  const declared = frame >= sec(A["规定收入为正"]) - 4;
+  const right = frame >= sec(A["规定支出为正"]) - 4;
+  const settled = frame >= sec(A["两种都行"]) - 4;
+  const card = (title: string, color: string, rows: [string, string][], active: boolean, dim: number) => (
+    <Panel style={{ flex: 1, padding: 28, borderTop: "3px solid " + (active ? C.amber : color), opacity: dim, transform: "translateY(" + (active ? -4 : 0) + "px)" }}>
+      <div style={{ color: active ? C.amber : color, fontSize: 26, fontWeight: 700, marginBottom: 18 }}>{title}</div>
       {rows.map(([a, b]) => (
         <div key={a} style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", padding: "16px 0", borderBottom: "1px solid " + C.line }}>
           <span style={{ color: C.muted, fontSize: 26 }}>{a}</span>
           <span style={{ color: C.text, fontFamily: MONO, fontSize: 44 }}>{b}</span>
         </div>
       ))}
-      <div style={{ marginTop: 20, color: C.muted, fontSize: 20 }}>{side === "left" ? "规定收入为正" : "规定支出为正"}</div>
     </Panel>
   );
+  const leftDim = settled ? 0.95 : (right ? 0.65 : (declared ? 1 : 0.7));
+  const rightDim = settled ? 0.95 : (right ? 1 : 0.65);
   return (
     <AbsoluteFill style={{ fontFamily: FONT, paddingTop: 128, paddingLeft: 96, paddingRight: 96 }}>
       <Title kicker="RULE · 规定" title="同一组量，两种规定，符号相反" frame={frame} />
       <div style={{ display: "flex", gap: 30, marginTop: 28 }}>
-        {card("A · 规定收入为正", C.blue, [["收入 200", "+200"], ["支出 150", "-150"]], leftOn, "left")}
-        {card("B · 规定支出为正", C.red, [["收入 200", "-200"], ["支出 150", "+150"]], rightOn, "right")}
+        {card("A · 规定收入为正", C.blue, [["收入 200", "+200"], ["支出 150", "-150"]], declared && !right, leftDim)}
+        {card("B · 规定支出为正", C.red, [["收入 200", "-200"], ["支出 150", "+150"]], right, rightDim)}
       </div>
-      <div style={{ ...fade(frame, 40), marginTop: 26, textAlign: "center", color: C.muted, fontSize: 24 }}>两种都行，但同一题只能选一种；+ 是正号，- 是负号</div>
+      <div style={{ ...(settled ? fade(frame, 0, 6) : { opacity: 0 }), marginTop: 26, textAlign: "center", color: C.muted, fontSize: 24 }}>两种都行，但同一题只能选一种；正号、负号，不是加减法</div>
     </AbsoluteFill>
   );
 };
 
 const S3: React.FC = () => {
-  const frame = useCurrentFrame();
+  const frame = useGlobalFrame();
+  const zeroOn = frame >= sec(A["零既不是正数"]) - 2;
+  const finishOn = frame >= sec(A["是分界"]) - 2;
   const cards = [
-    { t: "0 个苹果", s: "记数：没有", at: 4 },
-    { t: "0℃", s: "温度：确定刻度", at: 14 },
-    { t: "0 米海拔", s: "基准：海平面", at: 24 },
+    { t: "0 个苹果", s: "记数：没有", at: A["零个苹果"] },
+    { t: "0℃", s: "温度：确定刻度", at: A["零摄氏度"] },
+    { t: "0 米海拔", s: "基准：海平面", at: A["零米海拔"] },
   ];
   return (
     <AbsoluteFill style={{ fontFamily: FONT, paddingTop: 120, paddingLeft: 96, paddingRight: 96 }}>
       <Title kicker="ZERO · 0" title="0 个 / 0℃ / 0 米：三种 0，两种用法" frame={frame} />
-      <div style={{ display: "flex", justifyContent: "center", marginTop: 14 }}>
-        <div style={{ ...fade(frame, 2), textAlign: "center" }}>
-          <div style={{ color: C.text, fontSize: 100, lineHeight: 1 }}>0</div>
-          <div style={{ color: C.amber, fontSize: 24, marginTop: 4 }}>是分界</div>
+      {zeroOn ? (
+        <div style={{ display: "flex", justifyContent: "center", marginTop: 12, opacity: interpolate(frame, [sec(A["零既不是正数"]) - 2, sec(A["零既不是正数"]) + 7], [0, 1], CAP) }}>
+          <div style={{ textAlign: "center", transform: "scale(" + interpolate(frame, [sec(A["零既不是正数"]) - 2, sec(A["零既不是正数"]) + 10, sec(A["零既不是正数"]) + 18], [0.8, 1.2, 1.0], CAP) + ")" }}>
+            <div style={{ color: C.text, fontSize: 96, lineHeight: 1 }}>0</div>
+            <div style={{ color: C.amber, fontSize: 24, marginTop: 2 }}>是分界</div>
+            {finishOn ? <div style={{ position: "absolute", left: -20, top: -8, width: 136, height: 136, border: "2px solid " + C.amber, borderRadius: "50%", opacity: 0.65 }} /> : null}
+          </div>
         </div>
-      </div>
-      <div style={{ display: "flex", gap: 26, marginTop: 24 }}>
+      ) : null}
+      <div style={{ display: "flex", gap: 26, marginTop: zeroOn ? 8 : 24 }}>
         {cards.map((c, i) => (
-          <Panel key={c.t} style={{ flex: 1, padding: 24, opacity: fade(frame, c.at).opacity, transform: fade(frame, c.at).transform }}>
+          <Panel key={c.t} style={{ flex: 1, padding: 24, opacity: interpolate(frame, [sec(c.at), sec(c.at) + 9], [0, 1], CAP), transform: "translateY(" + interpolate(frame, [sec(c.at), sec(c.at) + 9], [12, 0], CAP) + "px)" }}>
             <div style={{ color: C.text, fontSize: 30, fontWeight: 700 }}>{c.t}</div>
             <div style={{ color: C.muted, fontSize: 22, marginTop: 10 }}>{c.s}</div>
             {i === 0 ? (
               <div style={{ height: 100, marginTop: 18, display: "flex", alignItems: "center", justifyContent: "center", gap: 6, border: "1px solid " + C.line, background: C.panel2 }}>
-                <span style={{ color: C.muted, fontSize: 54, opacity: 0.55 }}>0</span>
-                <span style={{ color: C.muted, fontSize: 22 }}>个</span>
+                <span style={{ color: C.muted, fontSize: 54, opacity: 0.55 }}>0</span><span style={{ color: C.muted, fontSize: 22 }}>个</span>
               </div>
             ) : i === 1 ? (
               <div style={{ height: 100, marginTop: 18, display: "flex", alignItems: "center", justifyContent: "center", gap: 14, border: "1px solid " + C.line, background: C.panel2 }}>
@@ -183,59 +197,72 @@ const S3: React.FC = () => {
           </Panel>
         ))}
       </div>
-      <div style={{ ...fade(frame, 34), marginTop: 18, textAlign: "center", color: C.muted, fontSize: 24 }}>0 既不是正数，也不是负数</div>
+      <div style={{ marginTop: 18, textAlign: "center", color: C.muted, fontSize: 24, opacity: finishOn ? 1 : 0 }}>0 既不是正数，也不是负数</div>
     </AbsoluteFill>
   );
 };
 
 const S4: React.FC = () => {
   const local = useCurrentFrame();
-  const offset = React.useContext(SceneStart);
-  const frame = local + offset;
+  const frame = useGlobalFrame();
   const draw = interpolate(local, [4, 40], [0, 1], CAP);
-  const answer = frame >= sec(A["-3 在 -1 左边"]) - 10;
+  const plus = frame >= sec(A["正三在右边"]);
+  const minus3 = frame >= sec(A["负三在左边"]);
+  const minus1 = frame >= sec(A["负三和负一"]);
+  const answer = frame >= sec(A["负三在负一左边"]);
+  const rule = frame >= sec(cueStart("右边总比左边大"));
   const x0 = 960, unit = 60;
-  const pts = [{ n: "-3", x: x0 - 3 * unit }, { n: "-1", x: x0 - unit }, { n: "0", x: x0 }, { n: "+3", x: x0 + 3 * unit }];
+  const pts = [
+    { n: "-3", x: x0 - 3 * unit, on: minus3, hot: answer },
+    { n: "-1", x: x0 - unit, on: minus1, hot: answer },
+    { n: "0", x: x0, on: true, hot: false },
+    { n: "+3", x: x0 + 3 * unit, on: plus, hot: false },
+  ];
   return (
     <AbsoluteFill style={{ fontFamily: FONT, paddingTop: 128, paddingLeft: 96, paddingRight: 96 }}>
-      <Title kicker="NUMBER LINE · 数轴" title="原点、正方向、单位长度；右边总比左边大" frame={frame} />
+      <Title kicker="NUMBER LINE · 数轴" title="数轴：原点、正方向、单位长度" frame={frame} />
       <div style={{ position: "absolute", left: 160, right: 160, top: 580, height: 4, background: C.text, transformOrigin: "left", transform: "scaleX(" + draw + ")" }} />
       {draw > 0.95 ? <div style={{ position: "absolute", left: 1738, top: 568, color: C.text, fontSize: 34 }}>→</div> : null}
-      {pts.map((p) => (
-        <div key={p.n} style={{ position: "absolute", left: p.x - 9, top: 571, width: 18, height: 18, borderRadius: 9, background: C.text }} />
-      ))}
-      {pts.map((p) => (
-        <div key={p.n + "l"} style={{ position: "absolute", left: p.x - 20, top: 620, color: C.text, fontFamily: MONO, fontSize: 26, width: 40, textAlign: "center" }}>{p.n}</div>
-      ))}
-      <div style={{ position: "absolute", left: 930, top: 665, color: C.muted, fontSize: 20 }}>原点</div>
-      <div style={{ position: "absolute", left: 1570, top: 520, color: C.muted, fontSize: 20 }}>正方向</div>
-      <div style={{ position: "absolute", left: 850, top: 720, display: "flex", alignItems: "center", gap: 10 }}>
-        <div style={{ width: 60, height: 3, background: C.amber }} />
-        <span style={{ color: C.muted, fontSize: 20 }}>单位长度：1 格 = 1</span>
-      </div>
-      {answer ? (
-        <div style={{ ...fade(frame, 0), position: "absolute", left: 700, top: 500, color: C.amber, fontSize: 42, fontWeight: 800 }}>-3 &lt; -1</div>
-      ) : (
+      {draw > 0.9 ? Array.from({ length: 21 }).map((_, i) => {
+        const x = x0 + (i - 10) * unit;
+        return <div key={"t" + i} style={{ position: "absolute", left: x - 1, top: 610, width: 2, height: 20, background: C.muted, opacity: 0.55 }} />;
+      }) : null}
+      {draw > 0.9 ? pts.map((p) => p.on ? null : <div key={p.n + "ghost"} style={{ position: "absolute", left: p.x - 7, top: 573, width: 14, height: 14, borderRadius: 7, border: "1px solid " + C.muted, opacity: 0.35 }} />) : null}
+      {pts.map((p) => p.on ? <div key={p.n} style={{ position: "absolute", left: p.x - 11, top: 569, width: 22, height: 22, borderRadius: 11, background: p.hot ? C.amber : C.text }} /> : null)}
+      {pts.map((p) => p.on ? <div key={p.n + "l"} style={{ position: "absolute", left: p.x - 24, top: 620, color: p.hot ? C.amber : C.text, fontFamily: MONO, fontSize: 26, width: 48, textAlign: "center" }}>{p.n}</div> : null)}
+      {draw > 0.95 ? <>
+        <div style={{ position: "absolute", left: 930, top: 665, color: C.muted, fontSize: 20 }}>原点</div>
+        <div style={{ position: "absolute", left: 1570, top: 520, color: C.muted, fontSize: 20 }}>正方向</div>
+        <div style={{ position: "absolute", left: 850, top: 720, display: "flex", alignItems: "center", gap: 10 }}>
+          <div style={{ width: 60, height: 3, background: C.amber }} /><span style={{ color: C.muted, fontSize: 20 }}>单位长度：1 格 = 1</span>
+        </div>
+      </> : null}
+      {rule ? <div style={{ position: "absolute", left: 680, top: 500, color: C.muted, fontSize: 28 }}>右边总比左边大</div> : null}
+      {!answer && minus1 ? (
         <Panel style={{ position: "absolute", left: 1320, top: 220, width: 500, padding: 24 }}>
           <div style={{ color: C.muted, fontSize: 20 }}>先猜</div>
           <div style={{ color: C.text, fontSize: 34, marginTop: 10 }}>-3 和 -1，谁大？</div>
           <div style={{ color: C.muted, fontSize: 20, marginTop: 12 }}>停两秒，再看数轴</div>
         </Panel>
-      )}
+      ) : null}
+      {answer ? (
+        <div style={{ position: "absolute", left: 700, top: 500, display: "flex", alignItems: "center", gap: 12, color: C.amber, fontSize: 28 }}>
+          <span>-3</span><span style={{ width: 110, height: 2, background: C.amber }} /><span>-1</span>
+          <span style={{ fontSize: 20, color: C.muted, marginLeft: 10 }}>越往左越小</span>
+        </div>
+      ) : null}
     </AbsoluteFill>
   );
 };
 
 export const MathSample: React.FC = () => {
   const frame = useCurrentFrame();
-  const b01 = beat("b01");
-  const b02 = beat("b02");
-  const b03 = beat("b03");
+  const b01 = beat("b01"); const b02 = beat("b02"); const b03 = beat("b03");
   const scenes = [
     { from: 0, to: sec(b01.end + 0.05), node: <S1 /> },
-    { from: sec(b01.end + 0.05), to: sec(b02.end + 0.05), node: <S2 /> },
-    { from: sec(b02.end + 0.05), to: sec(b03.end + 0.05), node: <S3 /> },
-    { from: sec(b03.end + 0.05), to: sec(T.duration), node: <S4 /> },
+    { from: sec(b01.end), to: sec(b02.end + 0.05), node: <S2 /> },
+    { from: sec(b02.end), to: sec(b03.end + 0.05), node: <S3 /> },
+    { from: sec(b03.end), to: sec(T.duration), node: <S4 /> },
   ];
   return (
     <AbsoluteFill style={{ background: C.bg }}>
@@ -243,7 +270,9 @@ export const MathSample: React.FC = () => {
       <Background />
       <Header />
       {scenes.map((s, i) => (
-        <Sequence key={i} from={s.from} durationInFrames={Math.max(1, s.to - s.from)}><SceneStart.Provider value={s.from}>{s.node}</SceneStart.Provider></Sequence>
+        <Sequence key={i} from={s.from} durationInFrames={Math.max(1, s.to - s.from)}>
+          <SceneStart.Provider value={s.from}>{s.node}</SceneStart.Provider>
+        </Sequence>
       ))}
       <Caption />
     </AbsoluteFill>
