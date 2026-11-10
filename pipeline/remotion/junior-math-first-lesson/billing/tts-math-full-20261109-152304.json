@@ -1,0 +1,145 @@
+{
+  "generated_at": "2026-11-09T15:23:04",
+  "voice": "longanlingxin_v3.1",
+  "rate": 0.75,
+  "rows": [
+    {
+      "id": "b1",
+      "input_tokens": 79,
+      "output_tokens": 206,
+      "total_tokens": 285,
+      "characters": 151
+    },
+    {
+      "id": "b2",
+      "input_tokens": 185,
+      "output_tokens": 496,
+      "total_tokens": 681,
+      "characters": 345
+    },
+    {
+      "id": "b3",
+      "input_tokens": 117,
+      "output_tokens": 308,
+      "total_tokens": 425,
+      "characters": 220
+    },
+    {
+      "id": "b4a",
+      "input_tokens": 126,
+      "output_tokens": 339,
+      "total_tokens": 465,
+      "characters": 234
+    },
+    {
+      "id": "b4b",
+      "input_tokens": 21,
+      "output_tokens": 55,
+      "total_tokens": 76,
+      "characters": 39
+    },
+    {
+      "id": "b5a",
+      "input_tokens": 20,
+      "output_tokens": 49,
+      "total_tokens": 69,
+      "characters": 36
+    },
+    {
+      "id": "b5b",
+      "input_tokens": 74,
+      "output_tokens": 202,
+      "total_tokens": 276,
+      "characters": 137
+    },
+    {
+      "id": "b6a",
+      "input_tokens": 37,
+      "output_tokens": 88,
+      "total_tokens": 125,
+      "characters": 69
+    },
+    {
+      "id": "b6b",
+      "input_tokens": 34,
+      "output_tokens": 93,
+      "total_tokens": 127,
+      "characters": 63
+    },
+    {
+      "id": "b6c1",
+      "input_tokens": 15,
+      "output_tokens": 44,
+      "total_tokens": 59,
+      "characters": 26
+    },
+    {
+      "id": "b6c2",
+      "input_tokens": 21,
+      "output_tokens": 59,
+      "total_tokens": 80,
+      "characters": 39
+    },
+    {
+      "id": "b7",
+      "input_tokens": 86,
+      "output_tokens": 236,
+      "total_tokens": 322,
+      "characters": 160
+    }
+  ],
+  "totals": {
+    "calls": 12,
+    "input": 815,
+    "output": 2175,
+    "total": 2990,
+    "chars": 1519
+  },
+  "duration": 248.116,
+  "anchors": {
+    "这个数写作负三": 8.616,
+    "读作零下三摄氏度": 10.748,
+    "也可以读负三摄氏度": 13.184,
+    "零摄氏度又是不是没有温度": 22.319,
+    "规定收入为正": 52.328,
+    "规定支出为正": 57.875,
+    "两种规定都行": 63.101,
+    "正二百前面的符号是正号": 69.181,
+    "负一百五十前面的符号是负号": 73.741,
+    "零个苹果": 81.139,
+    "零摄氏度不是没有温度": 85.085,
+    "零米海拔": 91.699,
+    "所以零有两种用法": 96.605,
+    "零既不是正数": 106.525,
+    "它是正负数的分界": 110.259,
+    "原点就是零": 122.419,
+    "正方向画箭头": 124.445,
+    "单位长度就是一格代表多少": 127.752,
+    "每一格必须一样长": 131.165,
+    "正三在原点右边": 133.299,
+    "负三在左边": 137.588,
+    "右边的数总比左边大": 141.567,
+    "负三和负一": 146.208,
+    "负三在负一左边": 152.611,
+    "负一百和负一": 158.915,
+    "负一百在负一左边": 165.777,
+    "负号后面的数越大": 176.337,
+    "位置越靠左": 179.004,
+    "第一零个苹果": 189.033,
+    "零个苹果和零摄氏度": 189.567,
+    "一个表示没有": 191.807,
+    "一个是确定温度": 193.407,
+    "第二负三": 196.199,
+    "负三前面的符号是负号": 199.932,
+    "三减五中间的符号是减号": 202.919,
+    "第三负五": 206.559,
+    "负五和负二": 207.519,
+    "负五在负二左边": 214.173,
+    "先规定正方向": 222.083,
+    "零是分界": 224.323,
+    "数轴看位置": 226.136,
+    "我们学有理数的分类": 229.123,
+    "再用数轴看相反数和绝对值": 231.576,
+    "从负二到三": 238.936
+  }
+}
