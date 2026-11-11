@@ -1,0 +1,7 @@
+{
+  "name": "math-s2-prototype",
+  "private": true,
+  "version": "1.0.0",
+  "dependencies": { "remotion": "4.0.540", "react": "19.2.0", "react-dom": "19.2.0" },
+  "devDependencies": { "@remotion/cli": "4.0.540", "typescript": "5.9.3" }
+}
