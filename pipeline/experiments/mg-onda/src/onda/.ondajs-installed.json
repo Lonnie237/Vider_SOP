@@ -1,0 +1,34 @@
+{
+  "components": [
+    {
+      "slug": "bar-chart",
+      "componentName": "BarChart",
+      "schemaName": "barChartSchema",
+      "importPath": "./bar-chart/BarChart"
+    },
+    {
+      "slug": "blur-reveal",
+      "componentName": "BlurReveal",
+      "schemaName": "blurRevealSchema",
+      "importPath": "./blur-reveal/BlurReveal"
+    },
+    {
+      "slug": "count-up",
+      "componentName": "CountUp",
+      "schemaName": "countUpSchema",
+      "importPath": "./count-up/CountUp"
+    },
+    {
+      "slug": "line-chart",
+      "componentName": "LineChart",
+      "schemaName": "lineChartSchema",
+      "importPath": "./line-chart/LineChart"
+    },
+    {
+      "slug": "spotlight",
+      "componentName": "Spotlight",
+      "schemaName": "spotlightSchema",
+      "importPath": "./spotlight/Spotlight"
+    }
+  ]
+}
