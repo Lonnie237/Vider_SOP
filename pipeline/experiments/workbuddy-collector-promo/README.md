@@ -33,3 +33,10 @@
 - 录屏中处理过程做了 4× 加速，保留“真实录屏”标识。
 - 结果表是真实运行输出；演示数据为公开汇率数据。
 - 还没有竖屏 15s 版本、封面图、朋友圈/小红书文案排版。
+## Clean 版（3 轮修复后）
+
+- 横屏：pipeline/runs/demo-workbuddy-collector/collector-promo-clean.mp4（40.7s / -16.2 LUFS）
+- 竖屏：pipeline/runs/demo-workbuddy-collector/collector-vertical-clean.mp4（16.3s / -16.7 LUFS）
+- 封面：pipeline/runs/demo-workbuddy-collector/collector-cover.png
+- 隐私：无本地路径、无无关任务名
+- 修复记录：research/2026-11-11-采集专家视频修复3轮.md
