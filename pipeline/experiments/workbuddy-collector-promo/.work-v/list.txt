@@ -1,0 +1,3 @@
+file '/Users/Lonnie/Documents/deepseek-harness/vider_harness/pipeline/experiments/workbuddy-collector-promo/.work-v/lead.wav'
+file '/Users/Lonnie/Documents/deepseek-harness/vider_harness/pipeline/experiments/workbuddy-collector-promo/.work-v/v.wav'
+file '/Users/Lonnie/Documents/deepseek-harness/vider_harness/pipeline/experiments/workbuddy-collector-promo/.work-v/tail.wav'
