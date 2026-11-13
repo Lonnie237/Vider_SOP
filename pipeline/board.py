@@ -159,6 +159,31 @@ def write_retro(definition, board):
     else:
         lines.append("- 无返工（所有任务一次通过或未开始）")
     lines.append("")
+    data_path = REPO / board["run_dir"] / "_pipeline" / "retro-data.json"
+    lines.append("## 数据回流")
+    lines.append("")
+    if data_path.exists():
+        try:
+            import retro_data
+            report = retro_data.analyze(common.load_json(data_path))
+            lines.append("- 状态：已接入（%s）" % common.repo_rel(data_path))
+            lines.append("- 判断：**%s**" % report["verdict"])
+            lines.append("")
+            lines.append("| 指标 | 数值 |")
+            lines.append("|---|---|")
+            for k, v in report["metrics"].items():
+                lines.append("| %s | %s |" % (k, v))
+            if report["actions"]:
+                lines.append("")
+                lines.append("### 下一版动作")
+                lines.append("")
+                for a in report["actions"]:
+                    lines.append("- **%s**：%s" % (a["problem"], a["action"]))
+        except Exception as exc:
+            lines.append("- 数据解析失败：%s" % exc)
+    else:
+        lines.append("- 未接入：缺 %s" % common.repo_rel(data_path))
+    lines.append("")
     lines.append("## 结论")
     lines.append("")
     lines.append("- 数据：%s" % json.dumps(counts, ensure_ascii=False))

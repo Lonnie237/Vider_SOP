@@ -65,6 +65,13 @@ python3 pipeline/board.py --pipeline ... --retro         # 生成复盘
 - S5 字幕方案：pipeline/demo/subtitle-plan.json（子 Agent 产出，9 beats / 15 条字幕）
 - 验收：docs/验收记录-P4-Agent接管.md
 
+## 数据回流（P4）
+
+- 数据文件：<run>/_pipeline/retro-data.json
+- 分析：pipeline/retro_data.py --run-dir ...
+- 写复盘：python3 pipeline/board.py --pipeline ... --retro
+- 示例：pipeline/demo/retro-data.example.json（仅验证链路）
+
 ## 四条样板流水线
 
 | 流水线 | 定义 | 画幅 | 成片 | 状态 |

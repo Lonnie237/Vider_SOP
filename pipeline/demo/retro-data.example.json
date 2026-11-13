@@ -1,0 +1,13 @@
+{
+  "note": "示例数据，仅用于验证数据回流链路，不代表真实投放结果。",
+  "published_at": "2026-11-13",
+  "platforms": ["示例平台"],
+  "baseline": {"usage": 131},
+  "metrics": {
+    "views": 1200,
+    "completions": 260,
+    "asset_opens": 25,
+    "workbuddy_opens": 6,
+    "first_tasks": 2
+  }
+}
