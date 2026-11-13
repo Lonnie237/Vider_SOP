@@ -54,6 +54,7 @@
 2. **补缺条目**：whisperx / scenedetect / manim（S7 转写、S9 数据动画）；moviepy / pyav / auto-editor / OTIO 安装后补实测。
 3. **质检 Agent**：对全部知识条目（当前 38 条）做独立抽检（每类 ≥1 条），重点核对平台参数与版本事实。
 4. **P3 产线**：按视频形态编排 Agent（选题 → 脚本 → 素材 → 剪辑 → 质检），每类形态一条固定流水线。
+   - **已完成（2026-11-13）**：`pipeline/run_agent_pipeline.py`（调度器）+ `pipeline/board.py`（任务板/复盘）；口播知识、数据动画折线两条流水线端到端跑通并 QC PASS。
 
 ## 沟通渠道
 
