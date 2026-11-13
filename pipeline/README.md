@@ -50,6 +50,8 @@ python3 pipeline/board.py --pipeline ... --retro         # 生成复盘
 |---|---|---|
 | 口播知识 | 8 | 全部 done，QC PASS；34.7s / 2.7 MB；S5 烧录 33.6s 是瓶颈 |
 | 数据动画 · 折线 | 9 | 全部 done，QC PASS；33.6s / 2.2 MB；D4 渲染 1008 帧 |
+| 数据动画 · 条形竞速 | 9 | 全部 done，QC PASS |
+| 数据动画 · 环图 | 9 | 全部 done，QC PASS |
 
 复盘样例：`pipeline/runs/demo-oral/_pipeline/retro.md`、`pipeline/runs/demo-data-viz-line/_pipeline/retro.md`。
 
