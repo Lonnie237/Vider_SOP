@@ -1,0 +1,68 @@
+{
+  "name": "long-tutorial",
+  "version": "0.1.0",
+  "description": "教程长视频（16:9 知识卡）：脚本 → 配音 → 横版卡 → 字幕 → QC",
+  "sop": "sop/short-oral-knowledge.md",
+  "doc": "pipeline/README.md",
+  "run": {
+    "root": "pipeline/runs",
+    "dir_name": "demo-long-tutorial",
+    "brief": "pipeline/demo/long-tutorial/brief.json"
+  },
+  "stages": [
+    {
+      "id": "S0-init",
+      "role": "director",
+      "script": "s0_init.py",
+      "desc": "建项目目录、交付规格与 manifest"
+    },
+    {
+      "id": "S1-script",
+      "role": "director",
+      "script": "s1_script.py",
+      "desc": "校验口播稿，生成脚本与分镜表"
+    },
+    {
+      "id": "S2-voice",
+      "role": "voice",
+      "script": "s2_tts.py",
+      "desc": "TTS 配音与逐句时间轴"
+    },
+    {
+      "id": "S3-visual",
+      "role": "editor",
+      "script": "s3_visual_wide.py",
+      "desc": "渲染 1920×1080 横版知识卡与无声底片"
+    },
+    {
+      "id": "S4-audio",
+      "role": "sound",
+      "script": "s4_audio.py",
+      "desc": "响度归一与音画合板"
+    },
+    {
+      "id": "S5-subtitle",
+      "role": "subtitle",
+      "script": "s5_subtitle.py",
+      "desc": "生成 SRT、校验并烧录字幕",
+      "args": [
+        "--font-size",
+        "46",
+        "--margin-v",
+        "72"
+      ]
+    },
+    {
+      "id": "S6-export",
+      "role": "editor",
+      "script": "s6_export.py",
+      "desc": "按交付规格导出成片"
+    },
+    {
+      "id": "S7-qc",
+      "role": "qc",
+      "script": "s7_qc.py",
+      "desc": "自动质检并生成交付说明"
+    }
+  ]
+}
