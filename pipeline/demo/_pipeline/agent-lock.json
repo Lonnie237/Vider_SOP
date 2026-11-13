@@ -1,0 +1,7 @@
+{
+  "stage": "S1-script",
+  "brief": "pipeline/demo/brief-agent-s1.json",
+  "checked_at": "2026-11-13T09:38:19",
+  "beats": 9,
+  "estimated_duration_s": 32.8
+}

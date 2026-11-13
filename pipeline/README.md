@@ -55,6 +55,14 @@ python3 pipeline/board.py --pipeline ... --retro         # 生成复盘
 
 复盘样例：`pipeline/runs/demo-oral/_pipeline/retro.md`、`pipeline/runs/demo-data-viz-line/_pipeline/retro.md`。
 
+## P4 · Agent 接管 S1（2026-11-13）
+
+- 工具：pipeline/agent_stage.py（emit/check/lock）
+- 定义：pipeline/definitions/short-oral-knowledge-agent.json
+- Agent 产物：pipeline/demo/brief-agent-s1.json（9 beats，与模板 9/9 不同）
+- 实测：36.8s / QC PASS；首轮 39.0s FAIL，Agent 按实测反馈缩短后通过
+- 验收：docs/验收记录-P4-Agent接管.md
+
 ## 四条样板流水线
 
 | 流水线 | 定义 | 画幅 | 成片 | 状态 |

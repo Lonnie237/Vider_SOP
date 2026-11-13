@@ -40,4 +40,4 @@ node_modules/
 
 # 编辑期临时文件
 *.tmp
-*~
+*~pipeline/demo/_pipeline/

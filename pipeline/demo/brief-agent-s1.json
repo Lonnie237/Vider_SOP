@@ -1,0 +1,82 @@
+{
+  "project": {
+    "name": "口播知识-Agent接管验证",
+    "slug": "oral-agent-s1",
+    "form": "口播知识",
+    "platform": "视频号",
+    "owner": "lead",
+    "date": "2026-11-13",
+    "target_duration_s": 36
+  },
+  "spec": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "video_bitrate_kbps": 500,
+    "loudness_lufs": -14,
+    "note": "静态图文卡模式，500kbps 交付码率；实拍按 SOP 8–16Mbps。"
+  },
+  "content": {
+    "title": "剪完片没人看，先过这五项检查",
+    "audience": "剪了片但完播低的独立剪辑 / 自媒体新人",
+    "core_message": "成片不好不是软件问题，是发布前没按清单检查；清单至少覆盖钩子、结论、画面证据、字幕、声音。",
+    "cta": "评论区打「清单」，发你这份成片检查清单；关注看下一条怎么改钩子。",
+    "target_duration_s": 36
+  },
+  "beats": [
+    {
+      "id": "b01",
+      "role": "hook",
+      "headline": "剪完没人看完",
+      "say": "片剪完没人看完，别怪软件。"
+    },
+    {
+      "id": "b02",
+      "role": "point",
+      "headline": "问题在发布前",
+      "say": "问题在发布前，你根本没按清单检查。"
+    },
+    {
+      "id": "b03",
+      "role": "reason",
+      "headline": "钩子没有结论",
+      "say": "开头铺垫太久，前三秒没结论。"
+    },
+    {
+      "id": "b04",
+      "role": "reason",
+      "headline": "结论没有证据",
+      "say": "结论只在嘴里，画面拿不出证据。"
+    },
+    {
+      "id": "b05",
+      "role": "reason",
+      "headline": "字幕等于没有",
+      "say": "字幕挡脸、字号太小，等于没有。"
+    },
+    {
+      "id": "b06",
+      "role": "reason",
+      "headline": "声音被音乐盖住",
+      "say": "人声被背景音乐压住，观众听不清。"
+    },
+    {
+      "id": "b07",
+      "role": "method",
+      "headline": "五项检查清单",
+      "say": "发布前过五关：钩子、结论、证据、字幕、声音。"
+    },
+    {
+      "id": "b08",
+      "role": "cta",
+      "headline": "评论区打清单",
+      "say": "想要清单，评论区打「清单」。"
+    },
+    {
+      "id": "b09",
+      "role": "cta",
+      "headline": "关注看下一条",
+      "say": "关注我，下条讲怎么改钩子。"
+    }
+  ]
+}
