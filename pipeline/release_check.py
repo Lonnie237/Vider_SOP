@@ -112,9 +112,12 @@ def main():
     real_ok = real_data.exists() and '"source"' in real_data.read_text(encoding="utf-8")
     product_run = REPO / "pipeline" / "runs" / "demo-product-promo-collector"
     retro, retro_note = retro_status(product_run)
+    publish_dir = product_run / "05-交付" / "publish"
+    publish_files = sorted(p.name for p in publish_dir.glob("*")) if publish_dir.exists() else []
+    publish_ok = "发布文案.md" in publish_files and "数据回收.csv" in publish_files
 
     all_forms = all(f["ok"] for f in forms)
-    gate = "PASS" if (all_forms and agent["ok"] and real_ok) else "FAIL"
+    gate = "PASS" if (all_forms and agent["ok"] and real_ok and publish_ok) else "FAIL"
     data_gate = "real" if retro == "real" else ("机制就绪，待真实数据" if retro == "sample" else "未接入")
     payload = {
         "gate": gate,
@@ -122,6 +125,7 @@ def main():
         "agent": agent,
         "real_data": {"ok": real_ok, "dataset": common.repo_rel(real_data)},
         "retro": {"status": retro, "note": retro_note},
+        "publish": {"ok": publish_ok, "files": publish_files},
         "data_gate": data_gate,
         "summary": {
             "forms_ok": sum(1 for f in forms if f["ok"]),
@@ -145,6 +149,7 @@ def main():
             "有" if agent["video"] else "缺", agent["qc"], "PASS" if agent["ok"] else "FAIL"))
         print("")
         print("真实数据：%s" % ("PASS" if real_ok else "FAIL"))
+        print("发布包：%s（%d 个文件）" % ("PASS" if publish_ok else "FAIL", len(publish_files)))
         print("数据回流：%s" % data_gate)
         print("门禁：%s" % gate)
     return 0 if gate == "PASS" else 1
