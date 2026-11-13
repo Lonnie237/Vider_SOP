@@ -1,0 +1,38 @@
+{
+  "name": "product-promo-collector",
+  "version": "0.1.0",
+  "description": "产品宣传片：真实录屏素材 + Remotion 渲染 + QC（第四类形态）",
+  "sop": "sop/long-product-promo.md",
+  "doc": "pipeline/README.md",
+  "run": {
+    "root": "pipeline/runs",
+    "dir_name": "demo-product-promo-collector",
+    "brief": "pipeline/demo/product-promo-collector/brief.json"
+  },
+  "stages": [
+    {
+      "id": "P0-init",
+      "role": "director",
+      "script": "s0_init.py",
+      "desc": "建项目目录、交付规格与 manifest"
+    },
+    {
+      "id": "P1-assets",
+      "role": "editor",
+      "script": "p1_assets.py",
+      "desc": "检查真实录屏/配音/二维码/Remotion 工程"
+    },
+    {
+      "id": "P2-render",
+      "role": "editor",
+      "script": "p2_remotion.py",
+      "desc": "Remotion 渲染产品宣传片并统一响度"
+    },
+    {
+      "id": "P3-qc",
+      "role": "qc",
+      "script": "s7_qc.py",
+      "desc": "自动质检并生成交付说明"
+    }
+  ]
+}

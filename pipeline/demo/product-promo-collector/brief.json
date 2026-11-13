@@ -1,0 +1,38 @@
+{
+  "project": {
+    "name": "产品宣传片-网站采集工程师",
+    "slug": "product-promo-collector",
+    "form": "宣传片",
+    "platform": "视频号",
+    "owner": "lead",
+    "date": "2026-11-13",
+    "target_duration_s": 40.7
+  },
+  "spec": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "video_bitrate_kbps": 1500,
+    "loudness_lufs": -16,
+    "note": "产品宣传片：真实录屏 + 产品界面 + 二维码 CTA。"
+  },
+  "content": {
+    "title": "网站采集工程师：每天 9:30 自动出表",
+    "audience": "运营、数据、分析师",
+    "core_message": "给网址和字段，WorkBuddy 自动定位数据接口，按天采集、去重、失败通报。",
+    "cta": "WorkBuddy 搜「网站采集工程师」",
+    "target_duration_s": 40.7
+  },
+  "assets": [
+    "pipeline/experiments/workbuddy-collector-promo/public/clips/task.mp4",
+    "pipeline/experiments/workbuddy-collector-promo/public/clips/process.mp4",
+    "pipeline/experiments/workbuddy-collector-promo/public/chinamoney.png",
+    "pipeline/experiments/workbuddy-collector-promo/public/qr.png",
+    "pipeline/experiments/workbuddy-collector-promo/public/voice.wav"
+  ],
+  "render": {
+    "project_dir": "pipeline/experiments/workbuddy-collector-promo",
+    "composition": "CollectorPromoClean",
+    "browser": "~/Library/Caches/ms-playwright/chromium-1248/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing"
+  }
+}

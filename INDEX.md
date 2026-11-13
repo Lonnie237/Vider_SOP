@@ -91,11 +91,14 @@
 - [data-viz-line.json](pipeline/definitions/data-viz-line.json)：流水线定义
 - [data-viz-real.json](pipeline/definitions/data-viz-real.json)：流水线定义
 - [long-tutorial.json](pipeline/definitions/long-tutorial.json)：流水线定义
+- [product-promo-collector.json](pipeline/definitions/product-promo-collector.json)：流水线定义
 - [short-oral-knowledge-agent.json](pipeline/definitions/short-oral-knowledge-agent.json)：流水线定义
 - [short-oral-knowledge.json](pipeline/definitions/short-oral-knowledge.json)：流水线定义
 - [common.py](pipeline/stages/common.py)
 - [d3_data.py](pipeline/stages/d3_data.py)
 - [d4_render.py](pipeline/stages/d4_render.py)
+- [p1_assets.py](pipeline/stages/p1_assets.py)
+- [p2_remotion.py](pipeline/stages/p2_remotion.py)
 - [s0_init.py](pipeline/stages/s0_init.py)
 - [s1_script.py](pipeline/stages/s1_script.py)
 - [s2_tts.py](pipeline/stages/s2_tts.py)
@@ -129,6 +132,7 @@
 - [验收记录-P1](docs/验收记录-P1.md)
 - [验收记录-P3](docs/验收记录-P3.md)
 - [验收记录-P4-Agent接管](docs/验收记录-P4-Agent接管.md)
+- [验收记录-P4-产品宣传片](docs/验收记录-P4-产品宣传片.md)
 - [验收记录-P4-教程长视频](docs/验收记录-P4-教程长视频.md)
 - [验收记录-P4-真实数据](docs/验收记录-P4-真实数据.md)
 
