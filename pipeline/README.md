@@ -65,6 +65,12 @@ python3 pipeline/board.py --pipeline ... --retro         # 生成复盘
 - S5 字幕方案：pipeline/demo/subtitle-plan.json（子 Agent 产出，9 beats / 15 条字幕）
 - 验收：docs/验收记录-P4-Agent接管.md
 
+## 发布门禁（P4）
+
+- 命令：python3 pipeline/release_check.py
+- 检查：四类形态成片/QC/任务板 + Agent 产物 + 真实数据 + 数据回流
+- 结果：PASS（数据回流为 sample，待真实投放数据）
+
 ## 数据回流（P4）
 
 - 数据文件：<run>/_pipeline/retro-data.json
