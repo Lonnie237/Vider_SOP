@@ -89,6 +89,7 @@
 - [data-viz-animation.json](pipeline/definitions/data-viz-animation.json)：流水线定义
 - [data-viz-donut.json](pipeline/definitions/data-viz-donut.json)：流水线定义
 - [data-viz-line.json](pipeline/definitions/data-viz-line.json)：流水线定义
+- [data-viz-real.json](pipeline/definitions/data-viz-real.json)：流水线定义
 - [short-oral-knowledge-agent.json](pipeline/definitions/short-oral-knowledge-agent.json)：流水线定义
 - [short-oral-knowledge.json](pipeline/definitions/short-oral-knowledge.json)：流水线定义
 - [common.py](pipeline/stages/common.py)
@@ -126,6 +127,7 @@
 - [验收记录-P1](docs/验收记录-P1.md)
 - [验收记录-P3](docs/验收记录-P3.md)
 - [验收记录-P4-Agent接管](docs/验收记录-P4-Agent接管.md)
+- [验收记录-P4-真实数据](docs/验收记录-P4-真实数据.md)
 
 ### 模板（templates/）
 

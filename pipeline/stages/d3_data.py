@@ -141,6 +141,7 @@ def main():
             "title": cfg.get("title", "播放量竞速"),
             "subtitle": cfg.get("subtitle", ""),
             "footnote": cfg.get("footnote", "示例数据 · 仅作演示"),
+            "badge": cfg.get("badge", "示例数据"),
             "unit": dataset.get("unit", ""),
             "insight": cfg.get("insight", {}),
             "palette": cfg.get("palette", {}),

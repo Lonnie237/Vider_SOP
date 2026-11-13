@@ -142,7 +142,7 @@ class Renderer:
         draw = ImageDraw.Draw(img)
         draw.text((96, 54), self.chart["title"], font=self.font(38), fill=TEXT + (255,))
         draw.text((96, 102), self.chart.get("subtitle", ""), font=self.font(24), fill=MUTED + (255,))
-        label = "示例数据"
+        label = self.chart.get("badge", "示例数据")
         chip = self.font(22)
         bbox = draw.textbbox((0, 0), label, font=chip)
         cw, ch = bbox[2] - bbox[0], bbox[3] - bbox[1]

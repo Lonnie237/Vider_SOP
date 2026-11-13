@@ -1,0 +1,75 @@
+{
+  "name": "data-viz-real",
+  "version": "0.1.0",
+  "description": "数据动画 · 真实数据版：World Bank GDP 增速 2016–2025",
+  "sop": "sop/long-data-animation.md",
+  "doc": "pipeline/README.md",
+  "reference": "research/2026-11-03-code-video-showcase.md",
+  "run": {
+    "root": "pipeline/runs",
+    "dir_name": "demo-data-viz-real",
+    "brief": "pipeline/demo/data-viz-real/brief.json"
+  },
+  "stages": [
+    {
+      "id": "S0-init",
+      "role": "director",
+      "script": "s0_init.py",
+      "desc": "建项目目录、交付规格与 manifest"
+    },
+    {
+      "id": "S1-script",
+      "role": "director",
+      "script": "s1_script.py",
+      "desc": "校验旁白稿与分镜"
+    },
+    {
+      "id": "S2-voice",
+      "role": "voice",
+      "script": "s2_tts.py",
+      "desc": "TTS 旁白与逐句时间轴"
+    },
+    {
+      "id": "D3-data",
+      "role": "analyst",
+      "script": "d3_data.py",
+      "desc": "数据校验、排名与逐年关键帧"
+    },
+    {
+      "id": "D4-render",
+      "role": "motion",
+      "script": "d4_render.py",
+      "desc": "逐帧渲染图表 + 静帧/接触表"
+    },
+    {
+      "id": "S5-audio",
+      "role": "sound",
+      "script": "s4_audio.py",
+      "desc": "响度归一与音画合板"
+    },
+    {
+      "id": "S6-subtitle",
+      "role": "subtitle",
+      "script": "s5_subtitle.py",
+      "desc": "生成 SRT、校验并烧录",
+      "args": [
+        "--font-size",
+        "44",
+        "--margin-v",
+        "110"
+      ]
+    },
+    {
+      "id": "S7-export",
+      "role": "editor",
+      "script": "s6_export.py",
+      "desc": "按交付规格导出成片"
+    },
+    {
+      "id": "S8-qc",
+      "role": "qc",
+      "script": "s7_qc.py",
+      "desc": "自动质检并生成交付说明"
+    }
+  ]
+}

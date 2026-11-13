@@ -1,0 +1,103 @@
+{
+  "project": {
+    "name": "数据动画-真实GDP增速",
+    "slug": "data-viz-real",
+    "form": "数据动画",
+    "platform": "B站",
+    "owner": "lead",
+    "date": "2026-11-13",
+    "target_duration_s": 36
+  },
+  "spec": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "video_bitrate_kbps": 500,
+    "loudness_lufs": -14
+  },
+  "voice": {
+    "name": "Tingting",
+    "rate_multiplier": 1.45
+  },
+  "content": {
+    "title": "十年增速：谁在失速",
+    "audience": "做数据新闻、宏观科普的创作者",
+    "core_message": "看GDP增速的变化，不要只看总量排名；2020是分水岭，印度仍是增长最快的主要经济体。",
+    "cta": "下一条讲怎么核对世界银行数据",
+    "target_duration_s": 36
+  },
+  "dataviz": {
+    "chart": "line",
+    "dataset": "pipeline/demo/data-viz-real/dataset.json",
+    "title": "十年增速",
+    "subtitle": "2016 — 2025 · 六个经济体 GDP 年增速",
+    "footnote": "数据：World Bank · 访问 2026-11-13",
+    "badge": "真实数据",
+    "unit": "%",
+    "insight": {
+      "text": "印度：2025 增速 7.57%，仍最高",
+      "sub": "真实数据 · World Bank"
+    }
+  },
+  "beats": [
+    {
+      "id": "b01",
+      "role": "hook",
+      "headline": "2020 谁跌最狠",
+      "say": "2020 年，谁跌得最狠？"
+    },
+    {
+      "id": "b02",
+      "role": "point",
+      "headline": "看增速不看总量",
+      "say": "看增速，不要只看总量排名。"
+    },
+    {
+      "id": "b03",
+      "role": "reason",
+      "year": 2020,
+      "headline": "印度 -5.78%",
+      "say": "2020 年，印度 -5.78%，日本 -4.28%，德国 -4.13%。"
+    },
+    {
+      "id": "b04",
+      "role": "reason",
+      "year": 2021,
+      "headline": "印度反弹 9.69%",
+      "say": "2021 年，印度反弹到 9.69%，中国 8.57%。"
+    },
+    {
+      "id": "b05",
+      "role": "reason",
+      "year": 2023,
+      "headline": "印度 7.21%",
+      "say": "2023 年，印度 7.21%，美国 2.93%。"
+    },
+    {
+      "id": "b06",
+      "role": "reason",
+      "year": 2024,
+      "headline": "德国 -0.5%",
+      "say": "2024 年，德国 -0.5%，日本 -0.24%。"
+    },
+    {
+      "id": "b07",
+      "role": "reason",
+      "year": 2025,
+      "headline": "印度 7.57%",
+      "say": "2025 年，印度 7.57%，中国 4.96%。"
+    },
+    {
+      "id": "b08",
+      "role": "method",
+      "headline": "增速是波动",
+      "say": "增速是波动，不是固定排名。"
+    },
+    {
+      "id": "b09",
+      "role": "cta",
+      "headline": "数据源可核对",
+      "say": "数据来自世界银行，可以逐条核对。"
+    }
+  ]
+}

@@ -73,6 +73,7 @@ python3 pipeline/board.py --pipeline ... --retro         # 生成复盘
 | 数据动画 · 条形竞速 | [definitions/data-viz-animation.json](definitions/data-viz-animation.json) | 1920×1080 | 37.6s / QC PASS | ✅ |
 | 数据动画 · 折线/面积 | [definitions/data-viz-line.json](definitions/data-viz-line.json) | 1920×1080 | 33.6s / QC PASS | ✅ |
 | 数据动画 · 环图 | [definitions/data-viz-donut.json](definitions/data-viz-donut.json) | 1920×1080 | 23.2s / QC PASS | ✅ |
+| 数据动画 · 真实数据 | [definitions/data-viz-real.json](definitions/data-viz-real.json) | 1920×1080 | 36.2s / QC PASS | ✅ |
 
 ## 快速开始（原 orchestrator）
 
