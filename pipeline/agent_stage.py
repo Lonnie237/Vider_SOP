@@ -128,6 +128,55 @@ def check_visual(args):
     return 0 if not errors else 1
 
 
+def norm_text(s):
+    import re
+    return re.sub(r"[，。；：？！,.;:?!\s]", "", s or "")
+
+
+def check_subtitle(args):
+    defn = load(args.pipeline)
+    brief_path = Path(args.brief or common.REPO / defn["run"]["brief"]).resolve()
+    brief = load(brief_path)
+    plan_path = Path(args.plan).resolve() if args.plan else brief_path.parent / "subtitle-plan.json"
+    if not plan_path.exists():
+        raise SystemExit("字幕方案不存在：%s" % plan_path)
+    plan = load(plan_path)
+    beats = brief.get("beats") or []
+    plan_beats = plan.get("beats") or {}
+    errors, warnings = [], []
+    max_len = 0
+    for b in beats:
+        bid = b["id"]
+        lines = plan_beats.get(bid)
+        if not isinstance(lines, list) or not lines:
+            errors.append("缺少字幕行：%s" % bid)
+            continue
+        if not all(isinstance(x, str) and x.strip() for x in lines):
+            errors.append("%s 有空白行" % bid)
+            continue
+        lengths = [len(x.strip()) for x in lines]
+        max_len = max(max_len, max(lengths))
+        for x in lines:
+            if len(x.strip()) > 16:
+                errors.append("%s 单行超 16 字：%s" % (bid, x))
+        if norm_text("".join(lines)) != norm_text(b.get("say", "")):
+            errors.append("%s 字幕与口播不一致：%r" % (bid, lines))
+    extras = [k for k in plan_beats if k not in {b["id"] for b in beats}]
+    if extras:
+        warnings.append("存在未知 beat：%s" % ", ".join(extras))
+    payload = {
+        "status": "PASS" if not errors else "FAIL",
+        "stage": args.stage,
+        "plan": common.repo_rel(plan_path),
+        "beats": len(beats),
+        "max_line_chars": max_len,
+        "errors": errors,
+        "warnings": warnings,
+    }
+    print(json.dumps(payload, ensure_ascii=False))
+    return 0 if not errors else 1
+
+
 def check(args):
     defn = load(args.pipeline)
     brief_path = Path(args.brief or common.REPO / defn["run"]["brief"]).resolve()
@@ -221,6 +270,8 @@ def main():
     if args.check:
         if args.stage == "S3-visual":
             return check_visual(args)
+        if args.stage == "S5-subtitle":
+            return check_subtitle(args)
         return check(args)
     raise SystemExit("请指定 --emit 或 --check")
 

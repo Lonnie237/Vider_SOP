@@ -54,9 +54,17 @@
 - S3 渲染消费该方案；修了 top 布局 index 与标题重叠的问题；
 - 全流程跑完：36.8s / QC PASS（18 PASS / 0 FAIL / 1 SKIP）。
 
+## 8. S5 字幕断句 Agent 接管（第三块）
+
+- 子 Agent 读 brief，写 pipeline/demo/subtitle-plan.json；
+- 9 个 beat 全覆盖；1 行 3 条、2 行 6 条；最长 15 字；
+- 校验：拼接去标点后与 say 完全一致；agent_stage --stage S5-subtitle PASS；
+- S5 消费该方案，生成 15 条字幕；validator 通过；
+- 全流程：36.8s / QC PASS（18 PASS / 0 FAIL / 1 SKIP）。
+
 ## 6. 下一步
 
-1. 让 Agent 接管 S5 字幕断句；
-2. 再接管 S6 导出规格；
+1. 再接管 S6 导出规格（或 S4 响度）；
+2. 四类形态各跑一条 Agent 版；
 3. 四类形态各跑一条 Agent 版；
 4. 接发布数据回流。

@@ -62,6 +62,7 @@ python3 pipeline/board.py --pipeline ... --retro         # 生成复盘
 - Agent 产物：pipeline/demo/brief-agent-s1.json（9 beats，与模板 9/9 不同）
 - 实测：36.8s / QC PASS；首轮 39.0s FAIL，Agent 按实测反馈缩短后通过
 - S3 视觉方案：pipeline/demo/visual-plan.json（子 Agent 产出，9 beats / 3 种 layout）
+- S5 字幕方案：pipeline/demo/subtitle-plan.json（子 Agent 产出，9 beats / 15 条字幕）
 - 验收：docs/验收记录-P4-Agent接管.md
 
 ## 四条样板流水线

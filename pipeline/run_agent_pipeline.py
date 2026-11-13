@@ -126,6 +126,14 @@ def main():
         board_call(base + ["--claim", sid, "--owner", s["role"]])
         board_call(base + ["--start"])
         print("[run ] %-12s %-10s %s" % (sid, s["role"], s.get("desc", "")))
+        if sid == "S5-subtitle":
+            plan = Path(args.pipeline).resolve().parent.parent / "demo" / "subtitle-plan.json"
+            if plan.exists():
+                run_dir = Path(defn["run"]["root"]) / defn["run"]["dir_name"]
+                dst = run_dir / "_pipeline" / "subtitle-plan.json"
+                dst.parent.mkdir(parents=True, exist_ok=True)
+                import shutil
+                shutil.copyfile(plan, dst)
         if sid == "S3-visual":
             plan = Path(args.pipeline).resolve().parent.parent / "demo" / "visual-plan.json"
             if plan.exists():

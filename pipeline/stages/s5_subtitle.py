@@ -54,10 +54,19 @@ def main():
     if not audio.exists():
         raise common.StageError("缺少上游产物：%s" % common.repo_rel(audio))
 
+    plan_path = run_dir / "_pipeline" / "subtitle-plan.json"
+    plan = common.load_json(plan_path) if plan_path.exists() else {}
+    plan_beats = plan.get("beats") or {}
+
     cues = []
     cursor = 0.0
     for beat in voice["beats"]:
-        chunks = split_text(beat["text"])
+        chunks = plan_beats.get(beat["id"]) or split_text(beat["text"])
+        if not isinstance(chunks, list) or not all(isinstance(x, str) and x.strip() for x in chunks):
+            raise common.StageError("字幕方案格式错误：%s 需要非空字符串数组" % beat["id"])
+        chunks = [x.strip() for x in chunks]
+        if any(len(x) > MAX_CHARS for x in chunks):
+            raise common.StageError("字幕方案超长：%s 有 > %d 字的行" % (beat["id"], MAX_CHARS))
         weights = [max(1, len(c)) for c in chunks]
         total_w = float(sum(weights))
         start = max(beat["start"], cursor)
