@@ -38,6 +38,7 @@ def parse_args():
     p.add_argument("--check", action="store_true", help="校验 Agent 写回的 brief")
     p.add_argument("--brief", help="Agent 写回的 brief 路径（默认定义里的 brief）")
     p.add_argument("--baseline", help="模板 brief，用于防原样返回（默认 pipeline/demo/brief.json）")
+    p.add_argument("--plan", help="S3 视觉方案路径")
     p.add_argument("--lock", action="store_true", help="校验通过后写入 _pipeline/agent-lock.json")
     p.add_argument("--emit-prompt-cmd", default="python3 pipeline/orchestrator.py",
                    help="打印阶段提示词用的命令前缀")
@@ -83,6 +84,48 @@ TAIL_S = 0.8
 def estimate(say):
     """与 s1_script.estimate 完全一致的估算口径。"""
     return max(MIN_BEAT_S, round(len((say or "").strip()) / CHARS_PER_SEC, 2))
+
+
+def check_visual(args):
+    defn = load(args.pipeline)
+    brief_path = Path(args.brief or common.REPO / defn["run"]["brief"]).resolve()
+    brief = load(brief_path)
+    plan_path = Path(args.plan).resolve() if args.plan else brief_path.parent / "visual-plan.json"
+    if not plan_path.exists():
+        raise SystemExit("视觉方案不存在：%s" % plan_path)
+    plan = load(plan_path)
+    beats = brief.get("beats") or []
+    ids = [b["id"] for b in beats]
+    errors, warnings = [], []
+    plan_beats = plan.get("beats") or {}
+    for bid in ids:
+        item = plan_beats.get(bid)
+        if not isinstance(item, dict):
+            errors.append("缺少 beat 方案：%s" % bid)
+            continue
+        layout = item.get("layout", "center")
+        if layout not in ("center", "top", "bottom"):
+            errors.append("%s layout 非法：%s" % (bid, layout))
+        accent = item.get("accent")
+        if accent and accent not in ("amber", "sky", "violet", "mint", "pink", "slate"):
+            errors.append("%s accent 非法：%s" % (bid, accent))
+    extra = [k for k in plan_beats if k not in ids]
+    if extra:
+        warnings.append("方案包含未知 beat：%s" % ", ".join(extra))
+    layouts = [plan_beats.get(i, {}).get("layout", "center") for i in ids]
+    if len(set(layouts)) < 2:
+        warnings.append("所有 beat 使用同一布局，视觉可能单调")
+    payload = {
+        "status": "PASS" if not errors else "FAIL",
+        "stage": args.stage,
+        "plan": common.repo_rel(plan_path),
+        "beats": len(ids),
+        "layouts": {x: layouts.count(x) for x in set(layouts)},
+        "errors": errors,
+        "warnings": warnings,
+    }
+    print(json.dumps(payload, ensure_ascii=False))
+    return 0 if not errors else 1
 
 
 def check(args):
@@ -176,6 +219,8 @@ def main():
     if args.emit:
         return emit(args)
     if args.check:
+        if args.stage == "S3-visual":
+            return check_visual(args)
         return check(args)
     raise SystemExit("请指定 --emit 或 --check")
 

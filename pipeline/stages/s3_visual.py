@@ -21,6 +21,10 @@ ACCENTS = {
 }
 ROLE_LABELS = {"hook": "钩子", "point": "结论", "reason": "原因", "method": "方法",
                "cta": "行动引导", "transition": "过渡"}
+ACCENT_NAMES = {
+    "amber": (245, 158, 11), "sky": (56, 189, 248), "violet": (167, 139, 250),
+    "mint": (52, 211, 153), "pink": (244, 114, 182), "slate": (148, 163, 184),
+}
 TOP_COLOR = (11, 18, 32)
 BOTTOM_COLOR = (17, 24, 39)
 
@@ -64,7 +68,7 @@ def draw_chip(draw, xy, text, font, fill, color):
     draw.text((x + pad_x, y + pad_y - bbox[1]), text, font=font, fill=color)
 
 
-def render_card(path, beat, index, total, accent, is_tail=False):
+def render_card(path, beat, index, total, accent, is_tail=False, plan=None):
     from PIL import Image, ImageDraw, ImageFont
     img = gradient((W, H))
     draw_grid(img)
@@ -75,6 +79,10 @@ def render_card(path, beat, index, total, accent, is_tail=False):
     f_small = ImageFont.truetype(font_path, 40)
     title_size = 128 if is_tail else (116 if beat["role"] == "hook" else 100)
     f_title = ImageFont.truetype(font_path, title_size)
+
+    plan = plan or {}
+    layout = plan.get("layout", "center")
+    accent = ACCENT_NAMES.get(plan.get("accent"), accent) if plan.get("accent") else accent
 
     if is_tail:
         draw_chip(draw, (MARGIN, 96), "口播知识", f_tag, fill=(30, 41, 59), color=(226, 232, 240))
@@ -92,7 +100,8 @@ def render_card(path, beat, index, total, accent, is_tail=False):
 
     draw_chip(draw, (MARGIN, 96), "口播知识 · 三秒钩子", f_tag, fill=(30, 41, 59), color=(226, 232, 240))
     draw.text((W - MARGIN, 108), "EP.01", font=f_tag, fill=(100, 116, 139), anchor="ra")
-    draw.text((W // 2, 520), "%02d / %02d" % (index, total), font=f_index, fill=accent, anchor="ma")
+    index_y = 300 if layout == "top" else 520
+    draw.text((W // 2, index_y), "%02d / %02d" % (index, total), font=f_index, fill=accent, anchor="ma")
 
     max_width = W - MARGIN * 2
     lines = []
@@ -101,7 +110,12 @@ def render_card(path, beat, index, total, accent, is_tail=False):
             lines.append(line)
     line_h = int(title_size * 1.3)
     block_h = len(lines) * line_h
-    y = (H - block_h) // 2 - 80
+    if layout == "top":
+        y = 430
+    elif layout == "bottom":
+        y = H - block_h - 380
+    else:
+        y = (H - block_h) // 2 - 80
     for line in lines:
         draw.text((W // 2, y), line, font=f_title, fill=(248, 250, 252), anchor="ma")
         y += line_h
@@ -127,6 +141,9 @@ def main():
     run_dir = Path(args.run_dir)
     voice = common.load_json(run_dir / "_pipeline" / "voice.json")
     beats = voice["beats"]
+    plan_path = run_dir / "_pipeline" / "visual-plan.json"
+    plan = common.load_json(plan_path) if plan_path.exists() else {}
+    plan_beats = plan.get("beats") or {}
     cards_dir = common.ensure_dir(run_dir / "01-素材" / "视频" / "cards")
     seg_dir = common.ensure_dir(run_dir / "_pipeline" / "segments")
     if args.force:
@@ -140,7 +157,7 @@ def main():
     for i, beat in enumerate(beats, 1):
         card = cards_dir / ("%02d-%s.png" % (i, beat["id"]))
         accent = ACCENTS.get(beat["role"], ACCENTS["transition"])
-        render_card(card, beat, i, len(beats), accent)
+        render_card(card, beat, i, len(beats), accent, plan=plan_beats.get(beat["id"]))
         if i < len(beats):
             screen = beats[i]["start"] - beat["start"]
         else:

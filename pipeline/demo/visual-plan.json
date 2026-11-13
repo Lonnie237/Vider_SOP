@@ -1,0 +1,40 @@
+{
+  "beats": {
+    "b01": {
+      "layout": "center",
+      "accent": "amber"
+    },
+    "b02": {
+      "layout": "top",
+      "accent": "sky"
+    },
+    "b03": {
+      "layout": "bottom",
+      "accent": "violet"
+    },
+    "b04": {
+      "layout": "top",
+      "accent": "violet"
+    },
+    "b05": {
+      "layout": "bottom",
+      "accent": "violet"
+    },
+    "b06": {
+      "layout": "top",
+      "accent": "violet"
+    },
+    "b07": {
+      "layout": "center",
+      "accent": "mint"
+    },
+    "b08": {
+      "layout": "center",
+      "accent": "pink"
+    },
+    "b09": {
+      "layout": "center",
+      "accent": "pink"
+    }
+  }
+}
