@@ -7,6 +7,8 @@
 
 ## 0. 开工三步
 
+0. **先对北极星**：[docs/北极星目标.md](docs/北极星目标.md) 与 [docs/北极星进度.md](docs/北极星进度.md)。任何不服务五条判定的工作都属于偏离，需先说明理由。
+
 1. **读**：本文件 → [README.md](README.md) → [docs/写作与标注规范.md](docs/写作与标注规范.md) → 任务卡里的验收标准。
 2. **看基线**：`python3 scripts/validate.py` 应通过（或只剩你被分配修复的问题）。
 3. **认领任务**：`team_task_list` 列出任务 → `team_task_get` 取最新 revision → `team_task_update(action="claim", expected_revision=...)`。

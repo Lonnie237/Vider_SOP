@@ -46,6 +46,10 @@
 | 2026-11-03 | 全组 → lead | 21 知识 + 8 SOP + 5 技能 | 各任务卡自检 + Lead 抽检 |
 | 2026-11-03 | lead | 统一索引、修复链接、提交 | `validate.py --strict` 0/0 |
 
+## 北极星
+
+> 目标、五条判定、P4/P5 规划与定时复盘规则：[docs/北极星目标.md](../docs/北极星目标.md)；进度：[docs/北极星进度.md](../docs/北极星进度.md)。
+
 ## 下一阶段（P2 建议）
 
 > **P2 样板已完成**：口播知识 34.7s、数据动画三种图表（条形/折线/环图）、Remotion 科普样片 102.9s（WorkBuddy vs Qoder v3.3）均跑通，QC PASS。见 [pipeline/README.md](../pipeline/README.md)、`pipeline/runs/demo-*` 与 [kepu-compare](../pipeline/remotion/kepu-compare/)。下一步：真实素材/数据、HyperFrames 原型、更多图表类型。
