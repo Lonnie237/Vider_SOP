@@ -79,6 +79,10 @@ def main():
     data = common.brief(run_dir)
     voice_cfg = data.get("voice", {}) or {}
     voice = args.voice or voice_cfg.get("name") or "Tingting"
+    provider = voice_cfg.get("provider") or "system-say"
+    fallback_level = int(voice_cfg.get("fallback_level", 2 if provider == "system-say" else 0))
+    fallback_reason = voice_cfg.get("fallback_reason") or ("未配置阿里云凭证，使用 macOS 系统语音" if provider == "system-say" else "")
+    gap_note = voice_cfg.get("gap_note") or ("macOS Tingting 与阿里云 Tingting 音色/停顿/齿音不同" if provider == "system-say" else "")
     multiplier = args.rate_multiplier if args.rate_multiplier is not None else voice_cfg.get("rate_multiplier", 1.0)
     beats = data.get("beats") or []
     if not beats:
@@ -139,6 +143,11 @@ def main():
     actual = common.duration_of(voice_wav)
     payload = {
         "voice": voice,
+        "voice_provider": provider,
+        "fallback_level": fallback_level,
+        "fallback_used": fallback_level > 0,
+        "fallback_reason": fallback_reason,
+        "gap_note": gap_note,
         "rate_multiplier": float(multiplier),
         "rate_wpm": rate,
         "rate_calibration": rate_info,
@@ -156,7 +165,7 @@ def main():
         "metrics": {"voice": voice, "duration_s": round(actual, 3),
                     "chars_per_sec": payload["chars_per_sec"], "beats": len(beats),
                     "rate_multiplier": float(multiplier), "rate_wpm": rate},
-        "note": "配音 %.1fs（%s）" % (actual, args.voice),
+        "note": "配音 %.1fs（%s / %s）" % (actual, provider, voice),
     })
 
 

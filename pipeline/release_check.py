@@ -86,6 +86,21 @@ def check_form(name, definition, run_name):
     }
 
 
+def voice_status(run_dir):
+    path = run_dir / "_pipeline" / "voice.json"
+    if not path.exists():
+        return "missing"
+    data = json.loads(path.read_text(encoding="utf-8"))
+    level = data.get("fallback_level")
+    if level is None:
+        return "unknown"
+    if int(level) == 0:
+        return "primary"
+    if data.get("gap_note"):
+        return "fallback-with-gap"
+    return "fallback-no-gap"
+
+
 def check_agent():
     name, definition, run_name = AGENT_RUN
     run_dir = REPO / "pipeline" / "runs" / run_name
@@ -110,6 +125,7 @@ def main():
     agent = check_agent()
     real_data = REPO / "pipeline" / "demo" / "data-viz-real" / "dataset.json"
     real_ok = real_data.exists() and '"source"' in real_data.read_text(encoding="utf-8")
+    voices = [{"run": f["run_dir"], "status": voice_status(REPO / f["run_dir"])} for f in forms]
     product_run = REPO / "pipeline" / "runs" / "demo-product-promo-collector"
     retro, retro_note = retro_status(product_run)
     publish_dir = product_run / "05-交付" / "publish"
@@ -125,6 +141,7 @@ def main():
         "agent": agent,
         "real_data": {"ok": real_ok, "dataset": common.repo_rel(real_data)},
         "retro": {"status": retro, "note": retro_note},
+        "voices": voices,
         "publish": {"ok": publish_ok, "files": publish_files},
         "data_gate": data_gate,
         "summary": {
@@ -148,6 +165,8 @@ def main():
         print("| Agent 阶段 | %s | %s | - | %s |" % (
             "有" if agent["video"] else "缺", agent["qc"], "PASS" if agent["ok"] else "FAIL"))
         print("")
+        for v in voices:
+            print("声线 %s：%s" % (v["run"].split("/")[-1], v["status"]))
         print("真实数据：%s" % ("PASS" if real_ok else "FAIL"))
         print("发布包：%s（%d 个文件）" % ("PASS" if publish_ok else "FAIL", len(publish_files)))
         print("数据回流：%s" % data_gate)

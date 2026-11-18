@@ -78,5 +78,12 @@
       "headline": "关注看下一条",
       "say": "关注我，下条讲怎么改钩子。"
     }
-  ]
+  ],
+  "voice": {
+    "name": "Tingting",
+    "provider": "system-say",
+    "fallback_level": 2,
+    "fallback_reason": "未提供阿里云凭证（DASHSCOPE_API_KEY 未设置）",
+    "gap_note": "macOS Tingting 与阿里云 Tingting 音色/停顿/齿音不同；公开前需替换或书面豁免"
+  }
 }
